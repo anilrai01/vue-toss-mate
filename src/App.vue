@@ -4,7 +4,10 @@
     <Navbar />
     <Hero />
     <Intro />
-    <Banner />
+    <Banner
+      height="40"
+      img_url="https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+    />
   </div>
 </template>
 

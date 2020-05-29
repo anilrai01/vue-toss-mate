@@ -61,7 +61,8 @@ import {
   mdbNavbarNav,
   mdbNavItem,
   mdbBtn,
-  mdbIcon
+  mdbIcon,
+  mdbFormInline
 } from "mdbvue";
 export default {
   name: "Navbar",
@@ -77,7 +78,8 @@ export default {
     mdbDropdownMenu,
     mdbDropdownItem,
     mdbBtn,
-    mdbIcon
+    mdbIcon,
+    mdbFormInline
   }
 };
 </script>
