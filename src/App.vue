@@ -10,6 +10,8 @@
     >
       <BannerJobs />
     </Banner>
+    <WorkProcess />
+    <BrowseCategory />
   </div>
 </template>
 
@@ -19,6 +21,8 @@ import Hero from "./components/Hero";
 import Intro from "./components/Intro";
 import Banner from "./components/Banner";
 import BannerJobs from "./components/Banner-JobsCount";
+import WorkProcess from "./components/WorkProcess";
+import BrowseCategory from "./components/BrowseCategory";
 
 export default {
   name: "App",
@@ -27,7 +31,9 @@ export default {
     Hero,
     Intro,
     Banner,
-    BannerJobs
+    BannerJobs,
+    WorkProcess,
+    BrowseCategory
   }
 };
 </script>
