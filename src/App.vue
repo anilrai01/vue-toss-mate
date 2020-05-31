@@ -5,9 +5,11 @@
     <Hero />
     <Intro />
     <Banner
-      height="40"
+      height="35"
       img_url="https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-    />
+    >
+      <BannerJobs />
+    </Banner>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import Navbar from "./components/Navbar.vue";
 import Hero from "./components/Hero";
 import Intro from "./components/Intro";
 import Banner from "./components/Banner";
+import BannerJobs from "./components/Banner-JobsCount";
 
 export default {
   name: "App",
@@ -23,7 +26,8 @@ export default {
     Navbar,
     Hero,
     Intro,
-    Banner
+    Banner,
+    BannerJobs
   }
 };
 </script>
