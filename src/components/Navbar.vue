@@ -1,12 +1,8 @@
 <template>
   <div>
     <div class="address-bar">
-      <div class="call mr-3">
-        <mdb-icon icon="phone-alt" />&nbsp;&nbsp;+123 456 789
-      </div>
-      <div class="add">
-        <mdb-icon icon="map-marker-alt" />&nbsp;&nbsp;Melbourne
-      </div>
+      <h6 class="p-0 m-0 mr-2">Get Connected with us:</h6>
+      <mdb-icon icon="phone-alt" />&nbsp;&nbsp;+123 456 789
     </div>
     <mdb-navbar color="indigo" dark position="top-sticky">
       <mdb-container>
@@ -89,14 +85,17 @@ export default {
   /* background: #ccc; */
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 0 5rem;
-  min-height: 2rem;
+  min-height: 3rem;
 }
 .stick {
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0 !important;
+}
+h6 {
+  font-weight: bold;
 }
 </style>

@@ -13,6 +13,8 @@
     <WorkProcess />
     <BrowseCategory />
     <Testimonials />
+    <NewsLetter />
+    <Footer />
   </div>
 </template>
 
@@ -25,6 +27,8 @@ import BannerJobs from "./components/Banner-JobsCount";
 import WorkProcess from "./components/WorkProcess";
 import BrowseCategory from "./components/BrowseCategory";
 import Testimonials from "./components/Testimonials";
+import NewsLetter from "./components/NewsLetter";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -36,7 +40,9 @@ export default {
     BannerJobs,
     WorkProcess,
     BrowseCategory,
-    Testimonials
+    Testimonials,
+    NewsLetter,
+    Footer
   }
 };
 </script>
