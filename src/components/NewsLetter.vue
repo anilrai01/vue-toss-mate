@@ -22,65 +22,34 @@ export default {
 <style scoped>
 .news-bg {
   background-image: radial-gradient(
-      circle at 19% 90%,
-      rgba(190, 190, 190, 0.04) 0%,
-      rgba(190, 190, 190, 0.04) 17%,
-      transparent 17%,
-      transparent 100%
+      circle at 21% 44%,
+      rgba(23, 23, 23, 0.05) 0%,
+      rgba(23, 23, 23, 0.05) 50%,
+      rgba(109, 109, 109, 0.05) 50%,
+      rgba(109, 109, 109, 0.05) 100%
     ),
     radial-gradient(
-      circle at 73% 2%,
-      rgba(78, 78, 78, 0.04) 0%,
-      rgba(78, 78, 78, 0.04) 94%,
-      transparent 94%,
-      transparent 100%
+      circle at 21% 96%,
+      rgba(92, 92, 92, 0.05) 0%,
+      rgba(92, 92, 92, 0.05) 50%,
+      rgba(199, 199, 199, 0.05) 50%,
+      rgba(199, 199, 199, 0.05) 100%
     ),
     radial-gradient(
-      circle at 45% 2%,
-      rgba(18, 18, 18, 0.04) 0%,
-      rgba(18, 18, 18, 0.04) 55%,
-      transparent 55%,
-      transparent 100%
+      circle at 25% 37%,
+      rgba(230, 230, 230, 0.05) 0%,
+      rgba(230, 230, 230, 0.05) 50%,
+      rgba(25, 25, 25, 0.05) 50%,
+      rgba(25, 25, 25, 0.05) 100%
     ),
-    radial-gradient(
-      circle at 76% 60%,
-      rgba(110, 110, 110, 0.04) 0%,
-      rgba(110, 110, 110, 0.04) 34%,
-      transparent 34%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 68% 56%,
-      rgba(246, 246, 246, 0.04) 0%,
-      rgba(246, 246, 246, 0.04) 16%,
-      transparent 16%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 71% 42%,
-      rgba(156, 156, 156, 0.04) 0%,
-      rgba(156, 156, 156, 0.04) 47%,
-      transparent 47%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 46% 82%,
-      rgba(247, 247, 247, 0.04) 0%,
-      rgba(247, 247, 247, 0.04) 39%,
-      transparent 39%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 50% 47%,
-      rgba(209, 209, 209, 0.04) 0%,
-      rgba(209, 209, 209, 0.04) 45%,
-      transparent 45%,
-      transparent 100%
-    ),
-    linear-gradient(90deg, rgb(84, 36, 210), rgb(44, 27, 154));
+    linear-gradient(90deg, rgb(11, 170, 95), rgb(55, 108, 19));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   height: 30vh;
 }
+
 h2,
 h5 {
   font-weight: bold;

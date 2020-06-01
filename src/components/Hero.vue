@@ -9,7 +9,7 @@
         placeholder="Enter your trade or business name..."
       />
       <input type="text" class="form-controls form-ii" placeholder="Enter postcode" />
-      <button class="search-btn" color="indigo">Go</button>
+      <button class="search-btn">Go</button>
     </div>
 
     <div class="bot-overlay">
@@ -54,7 +54,7 @@ export default {
   border: 20px solid rgba(0, 0, 0, 0.6);
 }
 .search-btn {
-  background: #3f51b5 !important;
+  background: #376c13 !important;
   padding: 0 2.5rem;
   outline: none;
   border: none;
@@ -74,7 +74,7 @@ export default {
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: #3f51b5;
+  background-color: #376c13;
   color: #fff;
   display: flex;
   flex-direction: row;

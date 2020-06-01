@@ -24,7 +24,7 @@
           <div class="task-desc my-2">{{task.taskDesc}}</div>
         </div>
       </div>
-      <mdb-btn color="primary">See more Categoreies</mdb-btn>
+      <mdb-btn class="btnn">See more Categoreies</mdb-btn>
     </mdb-container>
   </div>
 </template>
@@ -138,5 +138,8 @@ li {
 .task-desc {
   font-weight: bold;
   font-size: 1.2rem;
+}
+.btnn {
+  background: #376c13 !important;
 }
 </style>

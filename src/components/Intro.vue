@@ -2,7 +2,7 @@
   <mdb-container class="my-5">
     <mdb-row>
       <mdb-col col="7">
-        <img class="job-img" src="../assets/jobOffers.png" />
+        <img class="job-img" src="../assets/jobOffers_g.png" />
       </mdb-col>
       <mdb-col col="5" class="text-right">
         <h2 class="comp-title">TossMate</h2>

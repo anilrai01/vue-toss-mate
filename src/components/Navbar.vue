@@ -4,9 +4,11 @@
       <h6 class="p-0 m-0 mr-2">Get Connected with us:</h6>
       <mdb-icon icon="phone-alt" />&nbsp;&nbsp;+123 456 789
     </div>
-    <mdb-navbar color="indigo" dark position="top-sticky">
+    <mdb-navbar class="custom-nav" light position="top-sticky">
       <mdb-container>
-        <mdb-navbar-brand href="#">TossMate</mdb-navbar-brand>
+        <mdb-navbar-brand href="#">
+          <img src="../assets/toss-logo.png" class="logo" alt />
+        </mdb-navbar-brand>
         <mdb-navbar-toggler>
           <mdb-navbar-nav>
             <mdb-nav-item href="#" class="active">Home</mdb-nav-item>
@@ -29,14 +31,8 @@
           </mdb-navbar-nav>
           <mdb-form-inline>
             <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
-            <mdb-btn color="indigo" outline="white" size="md" class="my-0" type="submit">Get Quotes</mdb-btn>
-            <mdb-btn
-              color="indigo"
-              outline="white"
-              size="md"
-              class="my-0"
-              type="submit"
-            >List your business</mdb-btn>
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">List your business</mdb-btn>
           </mdb-form-inline>
         </mdb-navbar-toggler>
       </mdb-container>
@@ -82,7 +78,7 @@ export default {
 
 <style scoped>
 .address-bar {
-  /* background: #ccc; */
+  background: #f1f1f1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -97,5 +93,17 @@ export default {
 }
 h6 {
   font-weight: bold;
+}
+.logo {
+  width: 5rem;
+}
+.custom-nav {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+.cus-btn {
+  background: #376c13 !important;
+}
+.nav-items {
+  color: #000 !important;
 }
 </style>
