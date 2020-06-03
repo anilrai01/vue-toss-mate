@@ -1,5 +1,5 @@
 <template>
-  <mdb-container class="my-5">
+  <mdb-container class="my-4">
     <h1>404</h1>
     <h1>Page not Found !</h1>
   </mdb-container>
