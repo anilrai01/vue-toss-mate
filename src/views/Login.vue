@@ -24,7 +24,9 @@
           class="form-control"
         />
         <div class="text-center mt-4">
-          <button class="btn cus-btn" type="submit">Login</button>
+          <router-link to="/profile/12">
+            <button class="btn cus-btn" type="submit">Login</button>
+          </router-link>
         </div>
       </form>
       <!-- Default form login -->

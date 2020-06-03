@@ -7,7 +7,9 @@
     <mdb-navbar class="custom-nav" light position="top-sticky">
       <mdb-container>
         <mdb-navbar-brand href="#">
-          <img src="../assets/toss-logo.png" class="logo" alt />
+          <router-link to="/">
+            <img src="../assets/toss-logo.png" class="logo" alt />
+          </router-link>
         </mdb-navbar-brand>
         <mdb-navbar-toggler>
           <mdb-navbar-nav>
@@ -106,7 +108,7 @@ h6 {
   width: 5rem;
 }
 .custom-nav {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
 .nav-items {
