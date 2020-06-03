@@ -4,6 +4,7 @@ import Home from "../views/Home";
 import Register from "../views/Register";
 import Login from "../views/Login";
 import Profile from "../views/Profile";
+import NotFound from "../components/NotFound";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,15 @@ const routes = [
     path: "/profile/:id",
     name: "Profile",
     component: Profile,
+  },
+  {
+    path: "/not-found",
+    name: "NotFound",
+    component: NotFound,
+  },
+  {
+    path: "*",
+    redirect: "/not-found",
   },
 ];
 
