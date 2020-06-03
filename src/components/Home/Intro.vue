@@ -2,10 +2,10 @@
   <mdb-container class="my-5">
     <mdb-row>
       <mdb-col col="7">
-        <img class="job-img" src="../assets/jobOffers_g.png" />
+        <img class="job-img" src="../../assets/jobOffers_g.png" />
       </mdb-col>
       <mdb-col col="5" class="text-right">
-        <h2 class="comp-title">TossMate</h2>
+        <h2 class="comp-title">ToosMate</h2>
         <h4>
           <span class="high">Bringing</span> your business into your
           <span class="high">pocket</span>

@@ -8,15 +8,29 @@
         class="form-controls form-i"
         placeholder="Enter your trade or business name..."
       />
-      <input type="text" class="form-controls form-ii" placeholder="Enter postcode" />
+      <input
+        type="text"
+        class="form-controls form-ii"
+        placeholder="Enter postcode"
+      />
       <button class="search-btn">Go</button>
     </div>
 
     <div class="bot-overlay">
       <h5 class="p-0 m-0 mr-4">
-        <mdb-icon icon="briefcase" class="mr-2" />Become a Tradie - Start Earning now
+        <mdb-icon icon="briefcase" class="mr-2" />Become a Tradie - Start
+        Earning now
       </h5>
-      <mdb-btn color="indigo" outline="white" size="md" class="my-0" type="submit">Register Now</mdb-btn>
+      <router-link to="/register">
+        <mdb-btn
+          color="indigo"
+          outline="white"
+          size="md"
+          class="my-0"
+          type="submit"
+          >Register Now</mdb-btn
+        >
+      </router-link>
     </div>
   </mdb-view>
 </template>
@@ -29,8 +43,8 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon,
-    mdbBtn
-  }
+    mdbBtn,
+  },
 };
 </script>
 
@@ -54,7 +68,7 @@ export default {
   border: 20px solid rgba(0, 0, 0, 0.6);
 }
 .search-btn {
-  background: #376c13 !important;
+  background: var(--brand) !important;
   padding: 0 2.5rem;
   outline: none;
   border: none;
@@ -74,7 +88,7 @@ export default {
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: #376c13;
+  background-color: var(--brand);
   color: #fff;
   display: flex;
   flex-direction: row;

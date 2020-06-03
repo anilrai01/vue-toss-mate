@@ -1,9 +1,9 @@
 <template>
-  <div class="footer-bg pt-5">
+  <div class="footer-bg pt-5 pb-3">
     <mdb-container>
       <mdb-row>
         <mdb-col col="4">
-          <h2>TossMat.com.au</h2>
+          <h2>ToosMate</h2>
           <mdb-icon class="icon" fab icon="facebook-f" />
           <mdb-icon class="icon" fab icon="twitter" />
           <mdb-icon class="icon" far icon="envelope" />
@@ -39,7 +39,7 @@
           </ul>
         </mdb-col>
         <mdb-co col="2">
-          <h5>About TossMate</h5>
+          <h5>About ToosMate</h5>
           <ul>
             <li>About us</li>
             <li>How we operate</li>
@@ -50,7 +50,7 @@
         </mdb-co>
       </mdb-row>
       <hr />
-      <h6>@All rights reserved Tossmate from PrithakCreation</h6>
+      <h6>@All rights reserved Toosmate from PrithakCreation</h6>
     </mdb-container>
   </div>
 </template>
@@ -64,8 +64,8 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbIcon
-  }
+    mdbIcon,
+  },
 };
 </script>
 

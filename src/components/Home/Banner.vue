@@ -1,5 +1,5 @@
 <template>
-  <mdb-view class="banner-pic my-5" :style="defineStyle">
+  <mdb-view class="banner-pic" :style="defineStyle">
     <mdb-mask overlay="black-strong fix-vis" />
     <slot class="slot-vis"></slot>
   </mdb-view>
@@ -11,24 +11,24 @@ export default {
   name: "Banner",
   props: {
     height: {
-      type: String
+      type: String,
     },
     img_url: {
-      type: String
-    }
+      type: String,
+    },
   },
   components: {
     mdbView,
-    mdbMask
+    mdbMask,
   },
   computed: {
     defineStyle() {
       return {
         height: this.height + "vh",
-        "background-image": `url(${this.img_url})`
+        "background-image": `url(${this.img_url})`,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

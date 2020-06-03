@@ -11,7 +11,9 @@
         </mdb-navbar-brand>
         <mdb-navbar-toggler>
           <mdb-navbar-nav>
-            <mdb-nav-item href="#" class="active">Home</mdb-nav-item>
+            <router-link to="/">
+              <mdb-nav-item href="#" class="active">Home</mdb-nav-item>
+            </router-link>
             <mdb-nav-item href="#">Articles</mdb-nav-item>
             <mdb-nav-item href="#">Pricing</mdb-nav-item>
             <mdb-dropdown tag="li" class="nav-item">
@@ -21,7 +23,8 @@
                 color="stylish"
                 slot="toggle"
                 waves-fixed
-              >Categories</mdb-dropdown-toggle>
+                >Categories</mdb-dropdown-toggle
+              >
               <mdb-dropdown-menu>
                 <mdb-dropdown-item>Plumbing</mdb-dropdown-item>
                 <mdb-dropdown-item>Carpenting</mdb-dropdown-item>
@@ -31,8 +34,13 @@
           </mdb-navbar-nav>
           <mdb-form-inline>
             <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">List your business</mdb-btn>
+            <a href="#" class="cus-link">MarketPlace</a>
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit"
+              >Get Quotes</mdb-btn
+            >
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit"
+              >List your business</mdb-btn
+            >
           </mdb-form-inline>
         </mdb-navbar-toggler>
       </mdb-container>
@@ -54,7 +62,7 @@ import {
   mdbNavItem,
   mdbBtn,
   mdbIcon,
-  mdbFormInline
+  mdbFormInline,
 } from "mdbvue";
 export default {
   name: "Navbar",
@@ -71,14 +79,14 @@ export default {
     mdbDropdownItem,
     mdbBtn,
     mdbIcon,
-    mdbFormInline
-  }
+    mdbFormInline,
+  },
 };
 </script>
 
 <style scoped>
 .address-bar {
-  background: #f1f1f1;
+  background: var(--lightBg);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -100,10 +108,12 @@ h6 {
 .custom-nav {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
 }
-.cus-btn {
-  background: #376c13 !important;
-}
+
 .nav-items {
   color: #000 !important;
+}
+.cus-link {
+  color: #312e2e;
+  padding: 0 2rem;
 }
 </style>
