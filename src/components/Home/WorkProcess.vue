@@ -22,7 +22,7 @@
       </mdb-col>
     </mdb-row>
     <router-link to="/register">
-      <mdb-btn class="align">Register Now</mdb-btn>
+      <mdb-btn class="align">Get Started</mdb-btn>
     </router-link>
   </mdb-container>
 </template>
@@ -43,6 +43,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+  font-weight: bold;
 }
 .col-4 {
   display: flex;
