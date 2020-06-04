@@ -37,12 +37,24 @@
           <mdb-form-inline>
             <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
             <a href="#" class="cus-link">MarketPlace</a>
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit"
-              >Get Quotes</mdb-btn
-            >
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit"
-              >List your business</mdb-btn
-            >
+            <router-link to="get-quotes">
+              <mdb-btn
+                color="indigo"
+                size="md"
+                class="cus-btn my-0"
+                type="submit"
+                >Get Quotes</mdb-btn
+              >
+            </router-link>
+            <router-link to="/business-register">
+              <mdb-btn
+                color="indigo"
+                size="md"
+                class="cus-btn my-0"
+                type="submit"
+                >List your business</mdb-btn
+              >
+            </router-link>
           </mdb-form-inline>
         </mdb-navbar-toggler>
       </mdb-container>

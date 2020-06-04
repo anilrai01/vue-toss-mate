@@ -25,6 +25,7 @@ export default {
 :root {
   --brand: #376c13;
   --lightBg: #f1f1f1;
+  --brOverlayUnit: 28rem;
 }
 .cus-btn {
   background: var(--brand) !important;

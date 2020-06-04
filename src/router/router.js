@@ -6,6 +6,7 @@ import Login from "../views/Login";
 import Profile from "../views/Profile";
 import NotFound from "../components/NotFound";
 import GetQuotes from "../views/GetQuotes";
+import BusinessRegister from "../views/BusinessRegister";
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,11 @@ const routes = [
     path: "/get-quotes",
     name: "GetQuotes",
     component: GetQuotes,
+  },
+  {
+    path: "/business-register",
+    name: "BusinessRegister",
+    component: BusinessRegister,
   },
   {
     path: "/not-found",
