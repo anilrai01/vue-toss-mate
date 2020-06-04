@@ -20,7 +20,7 @@
 
 <script>
 import Hero from "@/components/Home/Hero";
-import Banner from "@/components/Home/Banner";
+import Banner from "@/components/Banner";
 import BannerJobs from "@/components/Home/Banner-JobsCount";
 import WorkProcess from "@/components/Home/WorkProcess";
 import BrowseCategory from "@/components/Home/BrowseCategory";

@@ -66,7 +66,7 @@
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import Footer from "../components/Footer";
-import Banner from "../components/Home/Banner";
+import Banner from "../components/Banner";
 export default {
   name: "Register",
   components: {

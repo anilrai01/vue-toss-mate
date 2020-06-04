@@ -1,6 +1,6 @@
 <template>
   <mdb-view class="banner-pic" :style="defineStyle">
-    <mdb-mask overlay="black-strong fix-vis" />
+    <mdb-mask :overlay="computeCSS" />
     <slot class="slot-vis"></slot>
   </mdb-view>
 </template>
@@ -16,6 +16,9 @@ export default {
     img_url: {
       type: String,
     },
+    light: {
+      type: Boolean,
+    },
   },
   components: {
     mdbView,
@@ -27,6 +30,13 @@ export default {
         height: this.height + "vh",
         "background-image": `url(${this.img_url})`,
       };
+    },
+    computeCSS() {
+      if (this.light) {
+        return "black-light fix-vis";
+      } else {
+        return "black-strong fix-vis";
+      }
     },
   },
 };
@@ -41,6 +51,7 @@ export default {
   z-index: 5;
 }
 .banner-pic {
+  position: relative;
   z-index: 1;
   width: 100%;
   /* height: 40vh; */

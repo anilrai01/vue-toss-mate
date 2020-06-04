@@ -38,7 +38,7 @@
             <li>Adelaide</li>
           </ul>
         </mdb-col>
-        <mdb-co col="2">
+        <mdb-col col="2">
           <h5>About ToosMate</h5>
           <ul>
             <li>About us</li>
@@ -47,7 +47,7 @@
             <li>We're hiring</li>
             <li>Contact us</li>
           </ul>
-        </mdb-co>
+        </mdb-col>
       </mdb-row>
       <hr />
       <h6>@All rights reserved Toosmate from PrithakCreation</h6>
@@ -84,5 +84,8 @@ h5 {
 }
 ul {
   list-style-type: none;
+}
+li {
+  line-height: 2.3rem;
 }
 </style>

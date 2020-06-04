@@ -43,7 +43,7 @@
 
 <script>
 import { mdbContainer } from "mdbvue";
-import Banner from "../components/Home/Banner";
+import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 export default {
   name: "Login",
