@@ -5,8 +5,9 @@
       v-for="(list, index) in filterArray"
       :key="index"
       @click="handleClick(list)"
-      v-text="list"
-    ></div>
+    >
+      <p class="p-0 m-0" v-html="highlight(list)"></p>
+    </div>
   </div>
 </template>
 
@@ -40,6 +41,13 @@ export default {
   methods: {
     handleClick(value) {
       this.$emit("setVal", value);
+    },
+    highlight(word) {
+      return word.replace(
+        this.keyword,
+        `<span class="font-weight-bold"><mark>${this.keyword}<mark></span>`
+      );
+      //   return `<span class="make-it-bold">${word}</span>`;
     }
   },
   watch: {
@@ -49,11 +57,6 @@ export default {
       } else {
         this.visibility = true;
       }
-    },
-    keyword() {
-      document
-        .querySelectorAll("list-dir-list")
-        .forEach(el => el.replace(this.keyword, `<b>${this.keyword}</b>`));
     }
   }
 };
@@ -75,6 +78,7 @@ export default {
   cursor: pointer;
   width: 100%;
   padding: 1rem;
+  /* font-weight: bold; */
 }
 .list-dir-list:hover {
   background: #eee;

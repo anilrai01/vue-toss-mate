@@ -11,8 +11,8 @@ import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   components: {
-    Navbar,
-  },
+    Navbar
+  }
 };
 </script>
 
@@ -30,5 +30,8 @@ export default {
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
+}
+mark {
+  padding: 5px 0 !important;
 }
 </style>

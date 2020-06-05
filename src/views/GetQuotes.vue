@@ -56,7 +56,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getDropdown"])
+    ...mapGetters(["getDropdown", "getQuotes"])
   },
   methods: {
     setBusiness(par) {
@@ -78,6 +78,9 @@ export default {
       }
       // console.log(this.filterArray);
     }
+  },
+  created() {
+    this.business = this.getQuotes.business;
   }
 };
 </script>
