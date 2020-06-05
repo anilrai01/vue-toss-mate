@@ -5,7 +5,8 @@
       v-for="(list, index) in filterArray"
       :key="index"
       @click="handleClick(list)"
-    >{{list}}</div>
+      v-text="list"
+    ></div>
   </div>
 </template>
 
@@ -25,6 +26,10 @@ export default {
     width: {
       type: String,
       default: "0"
+    },
+    keyword: {
+      type: String,
+      default: ""
     }
   },
   computed: {
@@ -44,6 +49,11 @@ export default {
       } else {
         this.visibility = true;
       }
+    },
+    keyword() {
+      document
+        .querySelectorAll("list-dir-list")
+        .forEach(el => el.replace(this.keyword, `<b>${this.keyword}</b>`));
     }
   }
 };

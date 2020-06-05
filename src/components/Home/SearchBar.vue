@@ -5,7 +5,7 @@
       message="Please enter valid Business details and Postcode"
       @visibleOff="offVisible"
     />
-    <SearchList width="65" :filterArray="filterArray" @setVal="setBusiness" />
+    <SearchList width="65" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
 
     <input
       type="text"
@@ -86,9 +86,6 @@ export default {
       }
       // console.log(this.filterArray);
     }
-  },
-  created() {
-    this.enableFilter = true;
   }
 };
 </script>

@@ -7,7 +7,13 @@
       <div class="search-quote">
         <h3 class="my-4">You can Search for your required job here!</h3>
         <form>
-          <SearchList width="80" :filterArray="filterArray" />
+          <SearchList
+            width="80"
+            :filterArray="filterArray"
+            @setVal="setBusiness"
+            :keyword="business"
+          />
+
           <input
             type="text"
             class="form-controls form-i"
@@ -45,20 +51,30 @@ export default {
   data() {
     return {
       business: "",
-      filterArray: []
+      filterArray: [],
+      enableFilter: true
     };
   },
   computed: {
     ...mapGetters(["getDropdown"])
   },
+  methods: {
+    setBusiness(par) {
+      this.business = par;
+      this.filterArray = [];
+      this.enableFilter = false;
+    }
+  },
   watch: {
     business() {
-      if (this.business !== null && this.business !== "") {
+      if (this.business !== null && this.business !== "" && this.enableFilter) {
         this.filterArray = this.getDropdown.filter(el =>
           el.includes(this.business)
         );
       } else if (this.business == "") {
         this.filterArray = [];
+      } else {
+        this.enableFilter = true;
       }
       // console.log(this.filterArray);
     }
