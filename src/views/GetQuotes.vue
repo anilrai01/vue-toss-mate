@@ -7,13 +7,14 @@
       <div class="search-quote">
         <h3 class="my-4">You can Search for your required job here!</h3>
         <form>
+          <SearchList width="80" :filterArray="filterArray" />
           <input
             type="text"
             class="form-controls form-i"
             placeholder="Enter your trade or business name..."
             v-model="business"
           />
-          <button class="search-btn cus-btn" @click="handleSubmit">Go</button>
+          <button class="search-btn cus-btn">Go</button>
         </form>
         <h5 class="mt-4">How can you get the best search result from us ?</h5>
         <h6 class="mb-4">
@@ -31,13 +32,37 @@
 import Banner from "../components/Banner";
 import WorkProcess from "../components/Home/WorkProcess";
 import Footer from "../components/Footer";
+import SearchList from "../components/SearchList";
+import { mapGetters } from "vuex";
 export default {
   name: "GetQuotes",
   components: {
     Banner,
     WorkProcess,
     Footer,
+    SearchList
   },
+  data() {
+    return {
+      business: "",
+      filterArray: []
+    };
+  },
+  computed: {
+    ...mapGetters(["getDropdown"])
+  },
+  watch: {
+    business() {
+      if (this.business !== null && this.business !== "") {
+        this.filterArray = this.getDropdown.filter(el =>
+          el.includes(this.business)
+        );
+      } else if (this.business == "") {
+        this.filterArray = [];
+      }
+      // console.log(this.filterArray);
+    }
+  }
 };
 </script>
 
@@ -59,6 +84,7 @@ h6 {
   color: #fff;
 }
 form {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 70%;

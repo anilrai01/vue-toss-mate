@@ -44,7 +44,7 @@
               <mdb-btn
                 color="indigo"
                 size="md"
-                class="cus-btn my-0"
+                class="cus-btn my-0 text-center"
                 type="submit"
               >List your business</mdb-btn>
             </router-link>

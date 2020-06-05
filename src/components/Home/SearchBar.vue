@@ -5,9 +5,7 @@
       message="Please enter valid Business details and Postcode"
       @visibleOff="offVisible"
     />
-    <div class="list-dir" v-if="filterArray">
-      <div class="list-dir-list" v-for="(list, index) in filterArray" :key="index">{{list}}</div>
-    </div>
+    <SearchList width="65" :filterArray="filterArray" @setVal="setBusiness" />
 
     <input
       type="text"
@@ -21,25 +19,28 @@
       placeholder="Enter postcode"
       v-model="postCode"
     />
-    <button class="search-btn" @click="handleSubmit">Go</button>
+    <button class="search-btn text-center" @click="handleSubmit">Go</button>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import SearchList from "../SearchList";
 import Modals from "../Modals";
 
 export default {
   name: "SearchBar",
   components: {
-    Modals
+    Modals,
+    SearchList
   },
   data() {
     return {
       business: "",
       postCode: "",
       showModal: false,
-      filterArray: []
+      filterArray: [],
+      enableFilter: true
     };
   },
 
@@ -66,21 +67,28 @@ export default {
     offVisible() {
       this.showModal = false;
     },
-    greet() {
-      console.log(this.business);
+    setBusiness(par) {
+      this.business = par;
+      this.filterArray = [];
+      this.enableFilter = false;
     }
   },
   watch: {
     business() {
-      if (this.business !== null && this.business !== "") {
+      if (this.business !== null && this.business !== "" && this.enableFilter) {
         this.filterArray = this.getDropdown.filter(el =>
           el.includes(this.business)
         );
       } else if (this.business == "") {
         this.filterArray = [];
+      } else {
+        this.enableFilter = true;
       }
       // console.log(this.filterArray);
     }
+  },
+  created() {
+    this.enableFilter = true;
   }
 };
 </script>
@@ -100,27 +108,6 @@ export default {
 .form-i {
   width: 65%;
 }
-.list-dir {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  /* transform: translateY(50%); */
-  width: 65%;
-  height: auto;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-.list-dir-list {
-  cursor: pointer;
-  width: 100%;
-  padding: 1rem;
-}
-.list-dir-list:hover {
-  background: #eee;
-}
-
 .form-ii {
   width: 25%;
 }
@@ -132,5 +119,7 @@ export default {
   border: none;
   color: #fff;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
 }
 </style>

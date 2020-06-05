@@ -11,24 +11,24 @@ export default {
   name: "Banner",
   props: {
     height: {
-      type: String,
+      type: String
     },
     img_url: {
-      type: String,
+      type: String
     },
     light: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
   components: {
     mdbView,
-    mdbMask,
+    mdbMask
   },
   computed: {
     defineStyle() {
       return {
         height: this.height + "vh",
-        "background-image": `url(${this.img_url})`,
+        "background-image": `url(${this.img_url})`
       };
     },
     computeCSS() {
@@ -37,8 +37,8 @@ export default {
       } else {
         return "black-strong fix-vis";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

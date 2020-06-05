@@ -93,11 +93,17 @@ const mutations = {
     state.quote.postCode = value.postCode;
     console.log(state.quote);
   },
+  SET_BUSINESS(state, value) {
+    state.quote.business = value;
+  },
 };
 
 const actions = {
   setQuotes(context, value) {
     context.commit("SET_QUOTES", value);
+  },
+  setQuoteBusiness(context, value) {
+    context.commit("SET_BUSINESS", value);
   },
 };
 
