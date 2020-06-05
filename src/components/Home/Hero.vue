@@ -11,7 +11,7 @@
         <mdb-icon icon="briefcase" class="mr-2" />Become a Tradie - Start
         Earning now
       </h5>
-      <router-link to="/register">
+      <router-link to="/business-register">
         <mdb-btn
           color="indigo"
           outline="white"

@@ -16,8 +16,6 @@
             <router-link to="/">
               <mdb-nav-item href="#" class="active">Home</mdb-nav-item>
             </router-link>
-            <mdb-nav-item href="#">Articles</mdb-nav-item>
-            <mdb-nav-item href="#">Pricing</mdb-nav-item>
             <mdb-dropdown tag="li" class="nav-item">
               <mdb-dropdown-toggle
                 tag="a"
@@ -25,26 +23,22 @@
                 color="stylish"
                 slot="toggle"
                 waves-fixed
-                >Categories</mdb-dropdown-toggle
-              >
+              >Categories</mdb-dropdown-toggle>
               <mdb-dropdown-menu>
-                <mdb-dropdown-item>Plumbing</mdb-dropdown-item>
-                <mdb-dropdown-item>Carpenting</mdb-dropdown-item>
-                <mdb-dropdown-item>Tiling</mdb-dropdown-item>
+                <h2 class="mb-4 drop-title">Popular Categories</h2>
+                <div class="menus">
+                  <div class="menu" v-for="(menu,index) in getDropdown" :key="index">{{menu}}</div>
+                </div>
               </mdb-dropdown-menu>
             </mdb-dropdown>
+            <mdb-nav-item href="#">Articles</mdb-nav-item>
+            <mdb-nav-item href="#">Pricing</mdb-nav-item>
           </mdb-navbar-nav>
           <mdb-form-inline>
             <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
             <a href="#" class="cus-link">MarketPlace</a>
             <router-link to="get-quotes">
-              <mdb-btn
-                color="indigo"
-                size="md"
-                class="cus-btn my-0"
-                type="submit"
-                >Get Quotes</mdb-btn
-              >
+              <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
             </router-link>
             <router-link to="/business-register">
               <mdb-btn
@@ -52,8 +46,7 @@
                 size="md"
                 class="cus-btn my-0"
                 type="submit"
-                >List your business</mdb-btn
-              >
+              >List your business</mdb-btn>
             </router-link>
           </mdb-form-inline>
         </mdb-navbar-toggler>
@@ -68,7 +61,7 @@ import {
   mdbDropdown,
   mdbDropdownToggle,
   mdbDropdownMenu,
-  mdbDropdownItem,
+  // mdbDropdownItem,
   mdbNavbar,
   mdbNavbarBrand,
   mdbNavbarToggler,
@@ -76,8 +69,9 @@ import {
   mdbNavItem,
   mdbBtn,
   mdbIcon,
-  mdbFormInline,
+  mdbFormInline
 } from "mdbvue";
+import { mapGetters } from "vuex";
 export default {
   name: "Navbar",
   components: {
@@ -90,11 +84,14 @@ export default {
     mdbDropdown,
     mdbDropdownToggle,
     mdbDropdownMenu,
-    mdbDropdownItem,
+    // mdbDropdownItem,
     mdbBtn,
     mdbIcon,
-    mdbFormInline,
+    mdbFormInline
   },
+  computed: {
+    ...mapGetters(["getDropdown"])
+  }
 };
 </script>
 
@@ -129,5 +126,32 @@ h6 {
 .cus-link {
   color: #312e2e;
   padding: 0 2rem;
+}
+
+.dropdown-menu {
+  min-width: 55vw !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.menus {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.menu {
+  flex-basis: 25%;
+  cursor: pointer;
+  padding: 5px;
+}
+.menu:hover {
+  background: #eee;
+}
+.drop-title {
+  padding-left: 1rem;
+  border-left: 5px solid var(--brand);
 }
 </style>

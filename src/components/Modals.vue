@@ -2,8 +2,8 @@
   <div>
     <mdb-modal size="lg" :show="show" @close="handleVisiblity">
       <mdb-modal-header>
-        <mdb-modal-title
-          ><h3>
+        <mdb-modal-title>
+          <h3 class="text-danger">
             Alert !
           </h3>
         </mdb-modal-title>
