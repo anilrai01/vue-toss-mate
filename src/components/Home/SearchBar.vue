@@ -1,10 +1,9 @@
 <template>
   <div class="overlay-form">
-    <Modals
-      :show="showModal"
-      message="Please enter valid Business details and Postcode"
-      @visibleOff="offVisible"
-    />
+    <Modals :show="showModal" messageTitle="Alert!" @visibleOff="offVisible">
+      <h2 slot="header" class="text-danger">Alert !</h2>
+      <h4 slot="body">Please enter valid Business details and Postcode</h4>
+    </Modals>
     <SearchList width="65" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
 
     <input
@@ -57,6 +56,8 @@ export default {
         this.postCode !== ""
       ) {
         this.setQuotes({ business: this.business, postCode: this.postCode });
+        console.log("Business:", this.getQuotes.business);
+        console.log("PostCode:", this.getQuotes.postCode);
         this.$router.push("/get-quotes");
       } else {
         // alert("Please enter valid Business details and Postcode");
@@ -118,5 +119,14 @@ export default {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+}
+.modal-footer {
+  border: 0 !important;
+}
+.modal-header {
+  border: 0;
+}
+.modal-body {
+  border: 0;
 }
 </style>

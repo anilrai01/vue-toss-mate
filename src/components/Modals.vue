@@ -3,15 +3,13 @@
     <mdb-modal size="lg" :show="show" @close="handleVisiblity">
       <mdb-modal-header>
         <mdb-modal-title>
-          <h3 class="text-danger">
-            Alert !
-          </h3>
+          <slot name="header"></slot>
         </mdb-modal-title>
       </mdb-modal-header>
       <mdb-modal-body>
-        <h4>{{ message }}</h4>
+        <slot name="body"></slot>
       </mdb-modal-body>
-      <mdb-modal-footer>
+      <mdb-modal-footer v-show="!quoteModel">
         <mdb-btn class="cus-btn" @click.native="handleVisiblity">Close</mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
@@ -24,7 +22,7 @@ import {
   mdbModalTitle,
   mdbModalBody,
   mdbModalFooter,
-  mdbBtn,
+  mdbBtn
 } from "mdbvue";
 export default {
   components: {
@@ -33,22 +31,28 @@ export default {
     mdbModalTitle,
     mdbModalBody,
     mdbModalFooter,
-    mdbBtn,
+    mdbBtn
   },
   props: {
-    message: {
+    messageTitle: {
       type: String,
-      default: "Connection Error !",
+      default: "Connection Error !"
     },
     show: {
       type: Boolean,
-      default: false,
+      default: false
     },
+    quoteModel: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     handleVisiblity() {
       this.$emit("visibleOff");
-    },
-  },
+    }
+  }
 };
 </script>
+<style scoped>
+</style>

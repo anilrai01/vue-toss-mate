@@ -34,4 +34,33 @@ export default {
 mark {
   padding: 5px 0 !important;
 }
+.close {
+  font-size: 2.3rem;
+  padding: 1rem 1.5rem !important;
+}
+.modal-footer {
+  border: 0 !important;
+}
+.modal-header {
+  border: 0;
+  padding-bottom: 0;
+}
+.modal-body {
+  border: 0;
+}
+.modal-content {
+  padding: 1rem 2rem;
+}
+.progress-bar {
+  background-color: var(--brand);
+  transition: 0.6s ease;
+}
+.disabled,
+:disabled {
+  opacity: 0.3 !important;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: var(--brand);
+  background-color: var(--brand);
+}
 </style>
