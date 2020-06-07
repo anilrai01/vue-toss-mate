@@ -56,8 +56,8 @@ export default {
         this.postCode !== ""
       ) {
         this.setQuotes({ business: this.business, postCode: this.postCode });
-        console.log("Business:", this.getQuotes.business);
-        console.log("PostCode:", this.getQuotes.postCode);
+        // console.log("Business:", this.getQuotes.business);
+        // console.log("PostCode:", this.getQuotes.postCode);
         this.$router.push("/get-quotes");
       } else {
         // alert("Please enter valid Business details and Postcode");

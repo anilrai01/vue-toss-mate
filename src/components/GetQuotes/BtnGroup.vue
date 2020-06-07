@@ -29,7 +29,7 @@ export default {
   methods: {
     handleNext() {
       this.$emit("next");
-      console.log("Btn Method: ", this.stat);
+      // console.log("Btn Method: ", this.stat);
     },
     handlePrev() {
       this.$emit("handlePrev");
@@ -46,7 +46,7 @@ export default {
   },
   watch: {
     stat() {
-      console.log("BTN watch: ", this.stat);
+      // console.log("BTN watch: ", this.stat);
     }
   }
 };

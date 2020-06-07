@@ -13,6 +13,7 @@
           <div>
             <h3>Your Job</h3>
             <input type="text" v-model="business" disabled class="form-control w-full" />
+            <h6 class="my-3 text-dark">Click on Next to continue</h6>
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
         </div>
@@ -260,6 +261,7 @@
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
         </form>
+        <!-- Stage 8 -->
         <form class="m-form" v-show="progress == 80" @submit.prevent>
           <div class="options">
             <h3>What is the rough size in sqm?</h3>
@@ -321,6 +323,105 @@
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
         </form>
+        <!-- Stage 9 -->
+        <form class="m-form" v-show="progress == 90" @submit.prevent>
+          <div class="options">
+            <h3>What is the status of your job?</h3>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="jobStatus"
+                id="ready-to-hire"
+                value="ready-to-hire"
+                v-model="jobDetails.jobStatus"
+              />
+              <label class="custom-control-label" for="ready-to-hire">Ready to hire</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="jobStatus"
+                id="planning"
+                value="planning"
+                v-model="jobDetails.jobStatus"
+              />
+              <label class="custom-control-label" for="planning">Planning and Budgeting</label>
+            </div>
+          </div>
+          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
+        </form>
+        <!-- Stage 10 -->
+        <form class="m-form" v-show="progress==100" @submit.prevent>
+          <div class="options">
+            <h3>What is your budget?</h3>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="budget"
+                id="u-500"
+                value="u-500"
+                v-model="jobDetails.budget"
+              />
+              <label class="custom-control-label" for="u-500">Under $500</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="budget"
+                id="$500 - $2000"
+                value="500-2000"
+                v-model="jobDetails.budget"
+              />
+              <label class="custom-control-label" for="500-2000">$500 - $2000</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="budget"
+                id="2000-5000"
+                value="2000-5000"
+                v-model="jobDetails.budget"
+              />
+              <label class="custom-control-label" for="2000-5000">$2000 - $5000</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="budget"
+                id="m-5000"
+                value="m-5000"
+                v-model="jobDetails.budget"
+              />
+              <label class="custom-control-label" for="m-5000">More than $5000</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="budget"
+                id="not-sure"
+                value="not-sure"
+                v-model="jobDetails.budget"
+              />
+              <label class="custom-control-label" for="not-sure">Not Sure</label>
+            </div>
+
+            <h6
+              class="text-dark text-center my-5"
+            >By clicking agree and continue you agree to ToosMate policy and agreement !</h6>
+          </div>
+          <div class="btn-groupp">
+            <button class="cus-btn-outline p-2 px-4 mr-4" @click="decreaseProgress">No thanks</button>
+
+            <button class="cus-btn p-2 px-4 mx-auto" @click="redirectPage">Agree and Continue</button>
+          </div>
+        </form>
       </div>
       <!-- EOF Modal Body  -->
     </Modals>
@@ -368,6 +469,8 @@ import Modals from "../components/Modals";
 import { mapGetters } from "vuex";
 import { mdbProgress } from "mdbvue";
 import BtnGroup from "../components/GetQuotes/BtnGroup";
+import { mapActions } from "vuex";
+
 export default {
   name: "GetQuotes",
   components: {
@@ -390,8 +493,8 @@ export default {
         purchaseEquip: "no",
         areaOfTask: "wall",
         roughSize: "NotSure",
-        budget: "",
-        jobStatus: "",
+        budget: "not-sure",
+        jobStatus: "planning",
         jobDesc: "",
         personal: {
           name: "",
@@ -402,19 +505,8 @@ export default {
 
       filterArray: [],
       enableFilter: true,
-      showModal: true,
+      showModal: false,
       modalHeight: 60,
-      // stage1: 1,
-      // stage2: 1,
-      // stage3: 1,
-      // stage4: 1,
-      // stage5: 1,
-      // stage6: 1,
-      // stage7: 1,
-      // stage8: 1,
-      // stage9: 1,
-      // stage10: 1,
-      errorCount: 0,
       alertModal: false,
       progress: 10,
       progressBarHeight: 10
@@ -424,6 +516,7 @@ export default {
     ...mapGetters(["getDropdown", "getQuotes"])
   },
   methods: {
+    ...mapActions(["setJobDetails"]),
     setBusiness(par) {
       this.business = par;
       this.filterArray = [];
@@ -447,12 +540,16 @@ export default {
       this.showModal = false;
     },
     increaseProgress() {
-      if (this.progress < 100 && this.errorCount == 0) this.progress += 10;
-      console.log("GQ Inc: ", this.progress);
+      if (this.progress < 100) this.progress += 10;
+      // console.log("GQ Inc: ", this.progress);
     },
     decreaseProgress() {
       if (this.progress > 10) this.progress -= 10;
-      console.log("GQ Dec: ", this.progress);
+      // console.log("GQ Dec: ", this.progress);
+    },
+    redirectPage() {
+      this.setJobDetails(this.jobDetails);
+      this.$router.push("/profile/12");
     }
   },
   watch: {

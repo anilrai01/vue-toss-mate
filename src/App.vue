@@ -30,6 +30,13 @@ export default {
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
+  border: none;
+}
+.cus-btn-outline {
+  background: #fff;
+  color: var(--brand);
+  border: none;
+  border: 1px solid var(--brand);
 }
 mark {
   padding: 5px 0 !important;

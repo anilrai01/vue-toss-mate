@@ -85,16 +85,20 @@ const state = {
     "Window Tinting",
     "Windows",
   ],
+  jobDetails: {},
 };
 
 const mutations = {
   SET_QUOTES(state, value) {
     state.quote.business = value.business;
     state.quote.postCode = value.postCode;
-    console.log(state.quote);
+    // console.log(state.quote);
   },
   SET_BUSINESS(state, value) {
     state.quote.business = value;
+  },
+  SET_JOB_DETAILS(state, value) {
+    state.jobDetails = value;
   },
 };
 
@@ -104,6 +108,9 @@ const actions = {
   },
   setQuoteBusiness(context, value) {
     context.commit("SET_BUSINESS", value);
+  },
+  setJobDetails(context, value) {
+    context.commit("SET_JOB_DETAILS", value);
   },
 };
 
