@@ -372,7 +372,7 @@
                 type="radio"
                 class="custom-control-input"
                 name="budget"
-                id="$500 - $2000"
+                id="500-2000"
                 value="500-2000"
                 v-model="jobDetails.budget"
               />

@@ -119,6 +119,7 @@ export default {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .modal-footer {
   border: 0 !important;
