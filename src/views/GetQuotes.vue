@@ -6,11 +6,11 @@
     </Modals>
     <Modals :show="showModal" @visibleOff="offVisible" quoteModel>
       <!-- Modal Body  -->
-      <div class="p-3" slot="body">
+      <div class="p-2" slot="body">
         <mdb-progress :value="progress" :height="progressBarHeight" class="m-0 p-0 cus-progress" />
         <!-- Stage 1 -->
         <div class="m-form stage1" v-show="progress == 10">
-          <div>
+          <div class="options">
             <h3>Your Job</h3>
             <input type="text" v-model="business" disabled class="form-control w-full" />
             <h6 class="my-3 text-dark">Click on Next to continue</h6>
@@ -19,7 +19,7 @@
         </div>
         <!-- Stage 2 -->
         <form class="m-form stage2" v-show="progress == 20" @submit.prevent="increaseProgress">
-          <div class="py-4">
+          <div class="options py-4">
             <h3 class="text-center">Where do you want your job done?</h3>
             <input
               type="text"
@@ -35,7 +35,7 @@
         </form>
         <!-- Stage 3 -->
         <div class="m-form stage3" v-show="progress == 30">
-          <div class="top my-4">
+          <div class="options my-4">
             <h3
               class="text-center"
             >{{Math.round(Math.random() * (58 - 20)) + 20}} tradie available near you</h3>
@@ -624,5 +624,9 @@ h3 {
 .custom-control {
   padding: 1rem 2rem;
   border-top: 1px solid #eee;
+}
+.options {
+  height: calc(100% - 3rem);
+  overflow-y: auto;
 }
 </style>
