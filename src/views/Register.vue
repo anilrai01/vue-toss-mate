@@ -49,7 +49,7 @@
             <p class="text-center">Sign in</p>
           </router-link>
           <img
-            src="../assets/online-business.png"
+            src="../assets/completeTask_g.png"
             alt="BusinessJoining"
             class="my-3 business-img"
           />

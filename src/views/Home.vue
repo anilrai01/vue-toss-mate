@@ -5,7 +5,7 @@
     <WorkProcess />
 
     <Banner
-      class="mt-5"
+      class="my-5"
       height="35"
       img_url="https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
     >
@@ -38,8 +38,8 @@ export default {
     BrowseCategory,
     Testimonials,
     NewsLetter,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
 

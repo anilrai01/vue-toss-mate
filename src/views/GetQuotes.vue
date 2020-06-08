@@ -549,7 +549,7 @@ export default {
     },
     redirectPage() {
       this.setJobDetails(this.jobDetails);
-      this.$router.push("/profile/12");
+      this.$router.push("/profile");
     }
   },
   watch: {

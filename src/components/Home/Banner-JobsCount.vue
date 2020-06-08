@@ -1,39 +1,55 @@
 <template>
-  <mdb-container class="my-5">
-    <h1>We help to provide jobs at your pocket</h1>
-    <mdb-row class="mt-5">
-      <mdb-col>
+  <div class="banner-job">
+    <h3>We help to provide jobs at your pocket</h3>
+    <div class="s-row mt-4">
+      <div class="s-col">
         <h2 class="f1">2500+</h2>
         <h4>Happy Clients</h4>
-      </mdb-col>
-      <mdb-col>
+      </div>
+      <div class="s-col">
         <h2 class="f2">4500+</h2>
         <h4>Verified Tradie</h4>
-      </mdb-col>
-      <mdb-col>
+      </div>
+      <div class="s-col">
         <h2 class="f3">500+</h2>
         <h4>Cities</h4>
-      </mdb-col>
-    </mdb-row>
-  </mdb-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 export default {
-  name: "BannerJobs",
-  components: {
-    mdbContainer,
-    mdbRow,
-    mdbCol
-  }
+  name: "BannerJobs"
 };
 </script>
 
 <style scoped>
-h1 {
+.banner-job {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.s-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.s-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
   color: #fff;
   text-align: center;
+  font-weight: bold;
 }
 .col {
   text-align: center;
