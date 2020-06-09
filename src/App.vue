@@ -32,6 +32,9 @@ export default {
   color: #fff;
   border: none;
 }
+.cus-btn:hover {
+  color: #fff;
+}
 .cus-btn-outline {
   background: #fff;
   color: var(--brand);

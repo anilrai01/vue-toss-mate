@@ -2,35 +2,58 @@
   <div id="dash-nav">
     <div class="info">
       <div class="avatar"></div>
-      <h5 class="user-name ml-3">Prithak Creation</h5>
+      <div class="u-profile">
+        <h5 class="user-name m-0 ml-3">Prithak Creation</h5>
+        <h6 class="user-tag ml-3">@prithakCreation</h6>
+      </div>
     </div>
     <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
-    <mdb-list-group class="list-grp">
-      <mdb-list-group-item class="list-items" active
-        >My Jobs<mdb-badge color="primary" pill>14</mdb-badge>
-      </mdb-list-group-item>
-      <mdb-list-group-item class="list-items"
-        >My Message<mdb-badge color="primary" pill>2</mdb-badge>
-      </mdb-list-group-item>
-      <mdb-list-group-item class="list-items"
-        >Edit Profile<mdb-badge color="primary" pill>1</mdb-badge>
-      </mdb-list-group-item>
-      <mdb-list-group-item class="list-items"
-        >Change Password
-      </mdb-list-group-item>
-    </mdb-list-group>
+    <ul class="list-grp">
+      <li class="list-items" @click="activeToggler('activeJob')">
+        My Jobs
+        <mdb-badge color="primary" pill>14</mdb-badge>
+      </li>
+      <li class="list-items" @click="activeToggler('activeMessage')">
+        My Message
+        <mdb-badge color="primary" pill>2</mdb-badge>
+      </li>
+      <li class="list-items" @click="activeToggler('activeEditProfile')">
+        Edit Profile
+        <mdb-badge color="primary" pill>1</mdb-badge>
+      </li>
+      <li class="list-items" @click="activeToggler('activeChangePassword')">Change Password</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { mdbListGroup, mdbListGroupItem, mdbBadge } from "mdbvue";
+import { mdbBadge } from "mdbvue";
 export default {
   name: "DashNav",
   components: {
-    mdbListGroup,
-    mdbListGroupItem,
-    mdbBadge,
+    mdbBadge
   },
+  data() {
+    return {
+      tabs: {
+        activeJob: true,
+        activeMessage: false,
+        activeEditProfile: false,
+        activeChangePassword: false
+      }
+    };
+  },
+  methods: {
+    activeToggler(tab) {
+      console.log("param:", tab);
+      Object.keys(this.tabs).forEach(el =>
+        String(el) == String(tab)
+          ? (this.tabs[el] = true)
+          : (this.tabs[el] = false)
+      );
+      console.log(this.tabs);
+    }
+  }
 };
 </script>
 
@@ -58,11 +81,19 @@ export default {
 .user-name {
   font-weight: bold;
 }
+.user-tag {
+  color: #aaa;
+}
 .quotes-btn {
   width: 95%;
   box-sizing: border-box;
   display: block;
   margin: auto;
+}
+.active {
+  background: #fff;
+  color: #000;
+  border-left: 5px solid var(--brand);
 }
 .list-grp {
   border: none;
@@ -72,10 +103,15 @@ export default {
   background: transparent;
   border: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
-.active {
+ul {
+  list-style-type: none;
+}
+li {
+  padding: 1rem;
+}
+li:hover {
   background: #fff;
-  color: #000;
-  border-left: 5px solid var(--brand);
 }
 </style>
