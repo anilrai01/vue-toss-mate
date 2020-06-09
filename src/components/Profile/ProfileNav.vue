@@ -4,8 +4,8 @@
       <div class="info">
         <div class="avatar"></div>
         <div class="u-profile">
-          <h5 class="user-name m-0 ml-3">Prithak Creation</h5>
-          <h6 class="text-muted ml-3">@prithakCreation</h6>
+          <h6 class="font-weight-bold m-0 ml-3">Prithak Creation</h6>
+          <p class="text-muted m-0 ml-3 u-name">@prithakCreation</p>
         </div>
       </div>
       <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
@@ -16,7 +16,7 @@
           @click="activeToggler('activeJob')"
         >
           My Jobs
-          <mdb-badge color="primary" pill>14</mdb-badge>
+          <mdb-badge color="primary" pill class="f-right">14</mdb-badge>
         </li>
         <li
           class="list-items"
@@ -24,7 +24,7 @@
           @click="activeToggler('activeMessage')"
         >
           My Message
-          <mdb-badge color="primary" pill>2</mdb-badge>
+          <mdb-badge color="primary" pill class="f-right">2</mdb-badge>
         </li>
         <li
           class="list-items"
@@ -32,7 +32,7 @@
           @click="activeToggler('activeEditProfile')"
         >
           Edit Profile
-          <mdb-badge color="primary" pill>1</mdb-badge>
+          <mdb-badge color="primary" pill class="f-right">1</mdb-badge>
         </li>
         <li
           class="list-items"
@@ -102,8 +102,8 @@ export default {
   padding: 1rem;
 }
 .avatar {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   background: var(--brand);
   background-image: url("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1276&q=80");
@@ -111,15 +111,15 @@ export default {
   background-position: center;
   background-size: cover;
 }
-.user-name {
-  font-weight: bold;
+.u-name {
+  font-size: 0.8rem;
 }
-
 .quotes-btn {
   width: 95%;
   box-sizing: border-box;
   display: block;
   margin: auto;
+  font-size: 0.7rem;
 }
 .active {
   background: #fff !important;
@@ -135,6 +135,7 @@ export default {
   border: none;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  font-size: 0.9rem;
 }
 ul {
   list-style-type: none;

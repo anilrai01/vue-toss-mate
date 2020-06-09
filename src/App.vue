@@ -76,4 +76,7 @@ mark {
 .c-brand {
   color: var(--brand);
 }
+.f-right {
+  float: right;
+}
 </style>

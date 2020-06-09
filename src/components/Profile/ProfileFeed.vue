@@ -13,12 +13,12 @@
     >
       <div class="job-div">
         <div class="job-left">
-          <h5 class="font-weight-bold c-brand">{{task.taskName}}</h5>
+          <h6 class="font-weight-bold c-brand">{{task.taskName}}</h6>
           <div class="task-details">
             <p class="mr-3">{{task.address + ', ' + task.postCode}}</p>
             <p>Posted {{task.created_date}}</p>
           </div>
-          <h5>{{task.taskDesc}}</h5>
+          <h6>{{task.taskDesc}}</h6>
         </div>
         <div class="job-right">
           <div class="job-r-title px-2">
@@ -38,12 +38,12 @@
     >
       <div class="job-div">
         <div class="job-left">
-          <h5 class="font-weight-bold c-brand">{{task.taskName}}</h5>
+          <h6 class="font-weight-bold c-brand">{{task.taskName}}</h6>
           <div class="task-details">
             <p class="mr-3">{{task.address + ', ' + task.postCode}}</p>
             <p>Posted {{task.created_date}}</p>
           </div>
-          <h5>{{task.taskDesc}}</h5>
+          <h6>{{task.taskDesc}}</h6>
         </div>
         <div class="job-right">
           <div class="job-r-title px-2">
