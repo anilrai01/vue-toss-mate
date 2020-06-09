@@ -3,10 +3,10 @@
     <mdb-container class="my-3">
       <mdb-row>
         <mdb-col col="4">
-          <DashNav />
+          <ProfileNav />
         </mdb-col>
         <mdb-col>
-          <DashJobs />
+          <ProfileFeed />
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -15,17 +15,17 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
-import DashNav from "../components/Profile/DashNav";
-import DashJobs from "../components/Profile/DashJobs";
+import ProfileNav from "../components/Profile/ProfileNav";
+import ProfileFeed from "../components/Profile/ProfileFeed";
 export default {
   name: "Profile",
   components: {
     mdbContainer,
-    DashNav,
-    DashJobs,
+    ProfileNav,
+    ProfileFeed,
     mdbRow,
-    mdbCol,
-  },
+    mdbCol
+  }
 };
 </script>
 

@@ -73,4 +73,7 @@ mark {
   border-color: var(--brand);
   background-color: var(--brand);
 }
+.c-brand {
+  color: var(--brand);
+}
 </style>
