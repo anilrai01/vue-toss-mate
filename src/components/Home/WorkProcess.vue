@@ -22,7 +22,7 @@
       </mdb-col>
     </mdb-row>
     <router-link to="/get-quotes">
-      <mdb-btn class="align">Get Started</mdb-btn>
+      <mdb-btn class="align" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
     </router-link>
   </mdb-container>
 </template>

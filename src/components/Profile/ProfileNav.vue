@@ -2,7 +2,7 @@
   <div>
     <div id="dash-nav">
       <div class="info">
-        <div class="avatar"></div>
+        <div class="avatar bg-center-style"></div>
         <div class="u-profile">
           <h6 class="font-weight-bold m-0 ml-3">Prithak Creation</h6>
           <p class="text-muted m-0 ml-3 u-name">@prithakCreation</p>
@@ -106,10 +106,7 @@ export default {
   height: 4rem;
   border-radius: 50%;
   background: var(--brand);
-  background-image: url("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1276&q=80");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
 }
 .u-name {
   font-size: 0.8rem;

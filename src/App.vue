@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <NavTop />
     <Navbar />
     <router-view></router-view>
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import NavTop from "./components/Home/NavTop";
 
 export default {
   name: "App",
   components: {
-    Navbar
+    Navbar,
+    NavTop
   }
 };
 </script>
@@ -36,10 +39,13 @@ export default {
   color: #fff;
 }
 .cus-btn-outline {
-  background: #fff;
+  background: #fff !important;
   color: var(--brand);
   border: none;
-  border: 1px solid var(--brand);
+  border: 2px solid var(--brand);
+}
+.cus-btn-outline:hover {
+  color: var(--brand);
 }
 mark {
   padding: 5px 0 !important;
@@ -78,5 +84,10 @@ mark {
 }
 .f-right {
   float: right;
+}
+.bg-center-style {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
 </style>
