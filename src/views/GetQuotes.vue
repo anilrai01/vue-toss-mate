@@ -1,5 +1,5 @@
 <template>
-  <div id="#get-quotes">
+  <div id="#get-quote">
     <Modals :show="alertModal" @visibleOff="alertOff">
       <h2 slot="header" class="text-danger">Alert !</h2>
       <h4 slot="body">Please enter valid Business details from the list</h4>
@@ -134,7 +134,13 @@
             <h3>Please provide us your details for further procedure?</h3>
             <div class="form-group">
               <label for="u-name">Full Name *</label>
-              <input type="text" class="form-control w-full" placeholder="Your Full Name" required />
+              <input
+                type="text"
+                class="form-control w-full"
+                placeholder="Your Full Name"
+                required
+                v-model="jobDetails.personal.name"
+              />
             </div>
             <div class="form-group">
               <label for="email">Email *</label>
@@ -142,6 +148,7 @@
                 type="email"
                 class="form-control w-full"
                 placeholder="Your Email Address"
+                v-model="jobDetails.personal.email"
                 required
               />
             </div>
@@ -151,6 +158,7 @@
                 type="number"
                 class="form-control w-full"
                 placeholder="Enter your phone number"
+                v-model="jobDetails.personal.contact"
                 required
               />
             </div>
@@ -271,9 +279,20 @@ export default {
         this.alertModal = true;
       }
     },
+    resetVal() {
+      this.business = "";
+      this.postcode = "";
+      this.jobDetails.startTime = "";
+      this.jobDetails.jobStatus = "";
+      this.jobDetails.jobDesc = "";
+      this.jobDetails.personal.name = "";
+      this.jobDetails.personal.email = "";
+      this.jobDetails.personal.contact = "";
+    },
     finalSubmit() {
       this.setJobDetails(this.jobDetails);
       this.setQuotes({ business: this.business, postCode: this.postcode });
+      this.resetVal();
       this.$router.push("/profile");
     },
     alertOff() {

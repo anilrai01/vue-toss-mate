@@ -21,7 +21,7 @@
         <p>Have a direct contact with your tradie and make deal accordingly</p>
       </mdb-col>
     </mdb-row>
-    <router-link to="/register">
+    <router-link to="/get-quotes">
       <mdb-btn class="align">Get Started</mdb-btn>
     </router-link>
   </mdb-container>
@@ -35,8 +35,8 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbBtn,
-  },
+    mdbBtn
+  }
 };
 </script>
 

@@ -43,6 +43,11 @@ const state = {
     },
   ],
   testData: "ANil",
+  userAuthentication: {
+    u_token: "",
+    u_name: "",
+    u_email: "",
+  },
 };
 
 const mutations = {};

@@ -3,7 +3,9 @@
     <mdb-container class="center">
       <h2 class="my-2">Have any boring task pending on your list ?</h2>
       <h5 class="my-3">Join us and let the work done in few clicks now !</h5>
-      <mdb-btn outline="white">Get Quotes</mdb-btn>
+      <router-link to="/get-quotes">
+        <mdb-btn outline="white">Get Quotes</mdb-btn>
+      </router-link>
     </mdb-container>
   </div>
 </template>
