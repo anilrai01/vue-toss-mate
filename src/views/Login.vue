@@ -24,7 +24,7 @@
       <!-- Default form login -->
       <div class="rest-text my-5 text-center">
         <h5>Don't have account yet? No Worries !</h5>
-        <router-link to="/register">
+        <router-link to="/business-register">
           <h6>Register Now</h6>
         </router-link>
       </div>
