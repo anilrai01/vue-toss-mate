@@ -9,16 +9,20 @@
       <div class="p-2" slot="body">
         <mdb-progress :value="progress" :height="progressBarHeight" class="m-0 p-0 cus-progress" />
         <!-- Stage 1 -->
-        <div class="m-form stage1" v-show="progress == 10">
+        <!-- <div class="m-form stage1" v-show="progress == 25">
           <div class="options">
             <h3>Your Job</h3>
             <input type="text" v-model="business" disabled class="form-control w-full" />
             <h6 class="my-3 text-dark">Click on Next to continue</h6>
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </div>
-        <!-- Stage 2 -->
-        <form class="m-form stage2" v-show="progress == 20" @submit.prevent="increaseProgress">
+        </div>-->
+        <!-- Stage 1 -->
+        <form
+          class="m-form stage2"
+          v-show="progress == progressValue"
+          @submit.prevent="increaseProgress"
+        >
           <div class="options py-4">
             <h3 class="text-center">Where do you want your job done?</h3>
             <input
@@ -33,8 +37,8 @@
           </div>
           <BtnGroup @handlePrev="decreaseProgress" :stat="progress" />
         </form>
-        <!-- Stage 3 -->
-        <div class="m-form stage3" v-show="progress == 30">
+        <!-- Stage 2 -->
+        <div class="m-form stage3" v-show="progress == 2*progressValue">
           <div class="options my-4">
             <h3
               class="text-center"
@@ -45,8 +49,8 @@
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
         </div>
-        <!-- Stage 4 -->
-        <form class="m-form stage4" v-show="progress == 40" @submit.prevent>
+        <!-- Stage 3 -->
+        <form class="m-form stage4" v-show="progress == 3*progressValue" @submit.prevent>
           <div class="options">
             <h3 class="text-center mb-4">When do you need the work to start?</h3>
             <div class="custom-control custom-radio">
@@ -107,311 +111,49 @@
           </div>
           <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
         </form>
-        <!-- Stage 5 -->
-        <form class="m-form" v-show="progress == 50" @submit.prevent>
+        <!-- Stage 4 -->
+        <form class="m-form" v-show="progress == 4*progressValue" @submit.prevent>
           <div class="options">
-            <h3 class="text-center mb-4">Type of {{business}} job?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobType"
-                id="replace"
-                value="replace"
-                v-model="jobDetails.jobType"
-              />
-              <label class="custom-control-label" for="replace">Replace Existing Tiles</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobType"
-                id="repair"
-                value="repair"
-                v-model="jobDetails.jobType"
-              />
-              <label class="custom-control-label" for="repair">Repair Existing</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobType"
-                id="lay-new"
-                value="lay-new"
-                v-model="jobDetails.jobType"
-              />
-              <label class="custom-control-label" for="lay-new">Lay new tiles</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobType"
-                id="other"
-                value="others"
-                v-model="jobDetails.jobType"
-              />
-              <label class="custom-control-label" for="other">Others</label>
-            </div>
-          </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </form>
-        <!-- STAGE 6 -->
-        <form class="m-form" v-show="progress == 60" @submit.prevent>
-          <div class="options">
-            <h3>Have you purchased the {{business}} yet ?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="purchase"
-                id="yes"
-                value="yes"
-                v-model="jobDetails.purchaseEquip"
-              />
-              <label class="custom-control-label" for="yes">Yes</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="purchase"
-                id="no"
-                value="no"
-                v-model="jobDetails.purchaseEquip"
-              />
-              <label class="custom-control-label" for="no">No</label>
-            </div>
-          </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </form>
-        <!-- STAGE 7 -->
-        <form class="m-form" v-show="progress == 70" @submit.prevent>
-          <div class="options">
-            <h3>Which area do you need to {{business}} ?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="Floor"
-                value="Floor"
-                v-model="jobDetails.areaOfTask"
-              />
-              <label class="custom-control-label" for="Floor">Floor</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="shower/bath"
-                value="shower/bath"
-                v-model="jobDetails.areaOfTask"
-              />
-              <label class="custom-control-label" for="shower/bath">Shower/Bath</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="wall"
-                value="wall"
-                v-model="jobDetails.areaOfTask"
-                checked
-              />
-              <label class="custom-control-label" for="wall">Wall</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="splashBack"
-                value="splashBack"
-                v-model="jobDetails.areaOfTask"
-              />
-              <label class="custom-control-label" for="splashBack">SplashBack</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="outdoor"
-                value="outdoor"
-                v-model="jobDetails.areaOfTask"
-              />
-              <label class="custom-control-label" for="outdoor">Outdoor</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="areaOfTask"
-                id="Otherr"
-                value="Otherr"
-                v-model="jobDetails.areaOfTask"
-              />
-              <label class="custom-control-label" for="Otherr">Others</label>
-            </div>
-          </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </form>
-        <!-- Stage 8 -->
-        <form class="m-form" v-show="progress == 80" @submit.prevent>
-          <div class="options">
-            <h3>What is the rough size in sqm?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="roughSize"
-                id="less-5"
-                value="less-5"
-                v-model="jobDetails.roughSize"
-              />
-              <label class="custom-control-label" for="less-5">Less than 5 Sqm</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="roughSize"
-                id="5-20"
-                value="5-20"
-                v-model="jobDetails.roughSize"
-              />
-              <label class="custom-control-label" for="5-20">5 - 20 Sqm</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="roughSize"
-                id="20-50"
-                value="20-50"
-                v-model="jobDetails.roughSize"
-              />
-              <label class="custom-control-label" for="20-50">20 - 50 Sqm</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="roughSize"
-                id="more-50"
-                value="more-50"
-                v-model="jobDetails.roughSize"
-              />
-              <label class="custom-control-label" for="more-50">More than 50 Sqm</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="roughSize"
-                id="NotSure"
-                value="NotSure"
-                v-model="jobDetails.roughSize"
-              />
-              <label class="custom-control-label" for="NotSure">NotSure</label>
-            </div>
-          </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </form>
-        <!-- Stage 9 -->
-        <form class="m-form" v-show="progress == 90" @submit.prevent>
-          <div class="options">
-            <h3>What is the status of your job?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobStatus"
-                id="ready-to-hire"
-                value="ready-to-hire"
-                v-model="jobDetails.jobStatus"
-              />
-              <label class="custom-control-label" for="ready-to-hire">Ready to hire</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="jobStatus"
-                id="planning"
-                value="planning"
-                v-model="jobDetails.jobStatus"
-              />
-              <label class="custom-control-label" for="planning">Planning and Budgeting</label>
-            </div>
-          </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
-        </form>
-        <!-- Stage 10 -->
-        <form class="m-form" v-show="progress==100" @submit.prevent>
-          <div class="options">
-            <h3>What is your budget?</h3>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="budget"
-                id="u-500"
-                value="u-500"
-                v-model="jobDetails.budget"
-              />
-              <label class="custom-control-label" for="u-500">Under $500</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="budget"
-                id="500-2000"
-                value="500-2000"
-                v-model="jobDetails.budget"
-              />
-              <label class="custom-control-label" for="500-2000">$500 - $2000</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="budget"
-                id="2000-5000"
-                value="2000-5000"
-                v-model="jobDetails.budget"
-              />
-              <label class="custom-control-label" for="2000-5000">$2000 - $5000</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="budget"
-                id="m-5000"
-                value="m-5000"
-                v-model="jobDetails.budget"
-              />
-              <label class="custom-control-label" for="m-5000">More than $5000</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input
-                type="radio"
-                class="custom-control-input"
-                name="budget"
-                id="not-sure"
-                value="not-sure"
-                v-model="jobDetails.budget"
-              />
-              <label class="custom-control-label" for="not-sure">Not Sure</label>
-            </div>
+            <h3>Describe something about your job?</h3>
 
+            <textarea
+              name="jobDesc"
+              id="jobDesc"
+              placeholder="Any notes about your job reuirements ?"
+              cols="30"
+              rows="10"
+              class="form-control"
+              v-model="jobDetails.jobDesc"
+            ></textarea>
+          </div>
+          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
+        </form>
+        <!-- Stage 5 -->
+        <form class="m-form" v-show="progress== 5*progressValue" @submit.prevent="finalSubmit">
+          <div class="options">
+            <h3>Please provide us your details for further procedure?</h3>
+            <div class="form-group">
+              <label for="u-name">Full Name *</label>
+              <input type="text" class="form-control w-full" placeholder="Your Full Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                class="form-control w-full"
+                placeholder="Your Email Address"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="contact">Contact Details*</label>
+              <input
+                type="number"
+                class="form-control w-full"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
             <h6
               class="text-dark text-center my-5"
             >By clicking agree and continue you agree to ToosMate policy and agreement !</h6>
@@ -419,7 +161,7 @@
           <div class="btn-groupp">
             <button class="cus-btn-outline p-2 px-4 mr-4" @click="decreaseProgress">No thanks</button>
 
-            <button class="cus-btn p-2 px-4 mx-auto" @click="redirectPage">Agree and Continue</button>
+            <button class="cus-btn p-2 px-4 mx-auto">Agree and Continue</button>
           </div>
         </form>
       </div>
@@ -446,7 +188,7 @@
             v-model="business"
             required
           />
-          <button class="search-btn cus-btn">Go</button>
+          <button class="search-btn cus-btn" @click="setProgress">Go</button>
         </form>
         <h5 class="mt-4">How can you get the best search result from us ?</h5>
         <h6 class="mb-4">
@@ -489,11 +231,6 @@ export default {
 
       jobDetails: {
         startTime: "flexible",
-        jobType: "others",
-        purchaseEquip: "no",
-        areaOfTask: "wall",
-        roughSize: "NotSure",
-        budget: "not-sure",
         jobStatus: "planning",
         jobDesc: "",
         personal: {
@@ -508,7 +245,8 @@ export default {
       showModal: false,
       modalHeight: 60,
       alertModal: false,
-      progress: 10,
+      progress: 20,
+      progressValue: 20,
       progressBarHeight: 10
     };
   },
@@ -516,7 +254,7 @@ export default {
     ...mapGetters(["getDropdown", "getQuotes"])
   },
   methods: {
-    ...mapActions(["setJobDetails"]),
+    ...mapActions(["setJobDetails", "setQuotes"]),
     setBusiness(par) {
       this.business = par;
       this.filterArray = [];
@@ -533,6 +271,11 @@ export default {
         this.alertModal = true;
       }
     },
+    finalSubmit() {
+      this.setJobDetails(this.jobDetails);
+      this.setQuotes({ business: this.business, postCode: this.postcode });
+      this.$router.push("/profile");
+    },
     alertOff() {
       this.alertModal = false;
     },
@@ -540,16 +283,20 @@ export default {
       this.showModal = false;
     },
     increaseProgress() {
-      if (this.progress < 100) this.progress += 10;
+      if (this.progress < 100) this.progress += this.progressValue;
       // console.log("GQ Inc: ", this.progress);
     },
     decreaseProgress() {
-      if (this.progress > 10) this.progress -= 10;
+      if (this.progress > this.progressValue)
+        this.progress -= this.progressValue;
       // console.log("GQ Dec: ", this.progress);
     },
-    redirectPage() {
-      this.setJobDetails(this.jobDetails);
-      this.$router.push("/profile");
+    setProgress() {
+      if (this.business !== "" && this.postcode == "") {
+        this.progress = 20;
+      } else if (this.business !== "" && this.postcode !== "") {
+        this.progress = 40;
+      }
     }
   },
   watch: {
@@ -566,11 +313,15 @@ export default {
       // console.log(this.filterArray);
     }
   },
-  created() {
+  mounted() {
     this.business = this.getQuotes.business;
+    this.postcode = this.getQuotes.postCode;
+
     if (this.getQuotes.business !== "") {
       this.enableFilter = false;
+      this.showModal = true;
     }
+    this.setProgress();
   }
 };
 </script>
@@ -628,5 +379,8 @@ h3 {
 .options {
   height: calc(100% - 3rem);
   overflow-y: auto;
+}
+.w-full {
+  width: 98%;
 }
 </style>

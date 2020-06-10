@@ -7,6 +7,7 @@ const state = {
       postCode: 3000,
       created_date: "4th June 2020",
       taskDesc: "This is test task Details and description",
+      taskAvailability: "Flexible",
       taskStatus: "in-progress",
     },
     {
@@ -16,6 +17,7 @@ const state = {
       postCode: 3000,
       created_date: "4th June 2020",
       taskDesc: "This is test task Details and description",
+      taskAvailability: "Flexible",
       taskStatus: "completed",
     },
     {
@@ -25,6 +27,8 @@ const state = {
       postCode: 2500,
       created_date: "4th June 2020",
       taskDesc: "This is test task Details and description",
+      taskAvailability: "Flexible",
+
       taskStatus: "in-progress",
     },
     {
@@ -34,6 +38,7 @@ const state = {
       postCode: 1514,
       created_date: "4th June 2020",
       taskDesc: "This is test task Details and description",
+      taskAvailability: "Flexible",
       taskStatus: "in-progress",
     },
   ],
