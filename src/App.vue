@@ -27,6 +27,7 @@ export default {
 }
 :root {
   --brand: #376c13;
+  --brandDivs: #eee;
   --lightBg: #f1f1f1;
   --brOverlayUnit: 28rem;
 }

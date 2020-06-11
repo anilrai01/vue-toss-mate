@@ -59,24 +59,16 @@ export default {
     mdbBadge,
     mdbIcon
   },
-  data() {
-    return {
-      tabs: {
-        activeJob: true,
-        activeMessage: false,
-        activeEditProfile: false,
-        activeChangePassword: false
-      }
-    };
+  props: {
+    tabs: {
+      type: Object,
+      default: () => {}
+    }
   },
   methods: {
     activeToggler(tab) {
       // console.log("param:", tab);
-      Object.keys(this.tabs).forEach(el =>
-        String(el) == String(tab)
-          ? (this.tabs[el] = true)
-          : (this.tabs[el] = false)
-      );
+      this.$emit("handleActiveStat", tab);
       // console.log(this.tabs);
     }
   }
