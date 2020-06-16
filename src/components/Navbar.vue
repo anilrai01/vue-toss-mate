@@ -1,5 +1,5 @@
 <template>
-  <mdb-navbar class="custom-nav sticky-top" light>
+  <mdb-navbar class="custom-nav" light>
     <mdb-container>
       <mdb-navbar-brand href="#">
         <router-link to="/">
@@ -18,11 +18,17 @@
               color="stylish"
               slot="toggle"
               waves-fixed
+              class="position-relative"
             >Categories</mdb-dropdown-toggle>
             <mdb-dropdown-menu>
-              <h2 class="mb-4 drop-title">Popular Categories</h2>
+              <h4 class="mb-4 drop-title">Popular Categories</h4>
               <div class="menus">
-                <div class="menu" v-for="(menu,index) in getDropdown" :key="index">{{menu}}</div>
+                <div
+                  class="menu"
+                  v-for="(menu,index) in getDropdown"
+                  :key="index"
+                  @click="handleClickRoute(menu)"
+                >{{menu}}</div>
               </div>
             </mdb-dropdown-menu>
           </mdb-dropdown>
@@ -32,7 +38,7 @@
         <mdb-form-inline>
           <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
           <a href="#" class="cus-link">MarketPlace</a>
-          <router-link to="get-quotes">
+          <router-link to="/get-quotes">
             <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
           </router-link>
           <router-link to="/business-register">
@@ -75,7 +81,7 @@ import {
   mdbBtn,
   mdbFormInline
 } from "mdbvue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Navbar",
   components: {
@@ -97,6 +103,13 @@ export default {
     u_style() {
       return { "background-image": `url(${this.getUserAuth.u_img})` };
     }
+  },
+  methods: {
+    ...mapActions(["setQuoteBusiness"]),
+    handleClickRoute(name) {
+      // this.setQuoteBusiness(name);
+      this.$router.push(`/categories-view/${name}`);
+    }
   }
 };
 </script>
@@ -105,6 +118,10 @@ export default {
 .custom-nav {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
   background: #fff !important;
+  /* z-index: 1 !important; */
+}
+.sticky-top {
+  z-index: 2 !important;
 }
 .logo {
   width: 5rem;
@@ -117,11 +134,12 @@ export default {
   padding: 0 2rem;
 }
 .dropdown-menu {
-  min-width: 55vw !important;
+  position: absolute !important;
+  min-width: 50vw !important;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.7rem;
 }
 .menus {
   display: flex;
@@ -132,7 +150,8 @@ export default {
 .menu {
   flex-basis: 25%;
   cursor: pointer;
-  padding: 5px;
+  padding: 3px;
+  font-size: 0.9rem;
 }
 .menu:hover {
   background: #eee;

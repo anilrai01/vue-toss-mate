@@ -12,6 +12,7 @@
         </mdb-col>
       </mdb-row>
     </mdb-container>
+    <Footer />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import ProfileNav from "../components/Profile/ProfileNav";
 import ProfileFeed from "../components/Profile/ProfileFeed";
 import EditProfile from "../components/Profile/EditProfile";
 import ChangePassword from "../components/Profile/ChangePassword";
+import Footer from "../components/Footer";
 export default {
   name: "Profile",
   components: {
@@ -30,7 +32,8 @@ export default {
     mdbRow,
     mdbCol,
     EditProfile,
-    ChangePassword
+    ChangePassword,
+    Footer
   },
   data() {
     return {

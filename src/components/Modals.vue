@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="modal-grp">
     <mdb-modal size="lg" :show="show" @close="handleVisiblity">
       <mdb-modal-header>
         <mdb-modal-title>
@@ -55,4 +55,8 @@ export default {
 };
 </script>
 <style scoped>
+.modal-grp {
+  position: relative;
+  z-index: 999 !important;
+}
 </style>

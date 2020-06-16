@@ -8,7 +8,9 @@
           <p class="text-muted m-0 ml-3 u-name">@prithakCreation</p>
         </div>
       </div>
-      <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
+      <router-link to="/get-quotes">
+        <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
+      </router-link>
       <ul class="list-grp">
         <li
           class="list-items"

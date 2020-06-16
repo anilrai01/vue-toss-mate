@@ -44,12 +44,13 @@ export default {
 
 <style scoped>
 .fix-vis {
-  z-index: -1;
+  z-index: -1 !important;
   opacity: 0.8 !important;
 }
-.slot-vis {
-  z-index: 5;
-}
+/* .slot-vis {
+  position: absolute;
+  z-index: 1 !important;
+} */
 .banner-pic {
   position: relative;
   z-index: 1;

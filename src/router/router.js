@@ -48,6 +48,12 @@ const routes = [
       ),
   },
   {
+    path: "/categories-view/:name",
+    name: "CategoriesView",
+    component: () =>
+      import(/* webpackChunkName: "categories-view" */ "../views/CategoryView"),
+  },
+  {
     path: "/not-found",
     name: "NotFound",
     component: NotFound,
