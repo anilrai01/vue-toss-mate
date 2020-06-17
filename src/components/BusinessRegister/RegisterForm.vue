@@ -10,38 +10,38 @@
       <div class="style-form">
         <div class="form-group">
           <label for="firstName" class="white-text">First name</label>
-          <input type="text" id="firstName" class="form-control" />
+          <input type="text" id="firstName" class="form-control" v-model="fname" />
         </div>
 
         <div class="form-group">
           <label for="lastName" class="white-text">Last name</label>
-          <input type="text" id="lastName" class="form-control" />
+          <input type="text" id="lastName" class="form-control" v-model="lname" />
         </div>
 
         <div class="form-group">
           <label for="email" class="white-text">Your email</label>
-          <input type="email" id="email" class="form-control" />
+          <input type="email" id="email" class="form-control" v-model="email" />
         </div>
 
         <div class="form-group">
           <label for="email2" class="white-text">Confirm your email</label>
-          <input type="email2" id="phone" class="form-control" />
+          <input type="email2" id="phone" class="form-control" v-model="email2" />
         </div>
 
         <div class="form-group">
           <label for="phone" class="white-text">Your Phone No.</label>
-          <input type="phone" id="phone" class="form-control" />
+          <input type="phone" id="phone" class="form-control" v-model="phone" />
         </div>
 
         <div class="form-group">
           <label for="post-code" class="white-text">PostCode</label>
-          <input type="post-code" id="phone" class="form-control" />
+          <input type="post-code" id="phone" class="form-control" v-model="postCode" />
         </div>
       </div>
 
       <div class="form-group">
         <label for="selectBus" class="white-text">Select your business type</label>
-        <select class="custom-select" id="selectBus">
+        <select class="custom-select" id="selectBus" v-model="businessType">
           <option selected disabled>Select your business type...</option>
           <option value="Sole Trader">Sole Trader</option>
           <option value="Business Owner">Business Owner</option>
@@ -59,7 +59,18 @@
 
 <script>
 export default {
-  name: "RegisterForm"
+  name: "RegisterForm",
+  data() {
+    return {
+      fname: "",
+      lname: "",
+      email: "",
+      email2: "",
+      phone: "",
+      postCode: "",
+      businessType: ""
+    };
+  }
 };
 </script>
 

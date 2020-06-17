@@ -4,16 +4,20 @@
       type="submit"
       class="outline-btn"
       @click="handlePrev"
-      :disabled="stat == 10 ? true : false"
+      :disabled="stat == 20 ? true : false"
       value="Previous"
-    >Previous</button>
+    >
+      Previous
+    </button>
     <button
       type="submit"
       class="brand-btn"
       @click="handleNext"
       :disabled="decideNext"
       value="Next"
-    >Next</button>
+    >
+      Next
+    </button>
   </div>
 </template>
 
@@ -23,8 +27,8 @@ export default {
 
   props: {
     stat: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   methods: {
     handleNext() {
@@ -33,7 +37,7 @@ export default {
     },
     handlePrev() {
       this.$emit("handlePrev");
-    }
+    },
   },
   computed: {
     decideNext() {
@@ -42,13 +46,13 @@ export default {
       } else {
         return false;
       }
-    }
+    },
   },
   watch: {
     stat() {
       // console.log("BTN watch: ", this.stat);
-    }
-  }
+    },
+  },
 };
 </script>
 
