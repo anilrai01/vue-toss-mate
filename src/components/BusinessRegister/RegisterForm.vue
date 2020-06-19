@@ -48,6 +48,35 @@
           <option value="Looking for employment">Looking for Employment</option>
         </select>
       </div>
+      <div class="smooth" v-if="businessType !== ''">
+        <div class="form-group" v-if="businessType == 'Sole Trader'">
+          <label for="tradeName" class="white-text">What is your Trade Name</label>
+          <input type="text" id="tradeName" class="form-control" v-model="soleTradeName" />
+        </div>
+
+        <div class="form-group" v-if="businessType == 'Business Owner'">
+          <label for="businessName" class="white-text">What is your Business Name</label>
+          <input type="text" id="businessName" class="form-control" v-model="businessName" />
+        </div>
+
+        <div class="form-group">
+          <label for="selectTrade" class="white-text">Select a Trade</label>
+          <select class="custom-select" id="selectTrade" v-model="tradeSelect">
+            <option selected disabled>Select your trade type...</option>
+            <option value="Air Conditioning Specialist">Air Conditioning Specialist</option>
+            <option value="Antenna Service">Antenna Service</option>
+            <option value="Appliance Installation">Appliance Installation</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="how" class="white-text">How did you hear about us?</label>
+          <input type="text" class="form-control" v-model="findHow" />
+        </div>
+      </div>
+
+      <div v-if="businessType == 'Business Owner'"></div>
+
       <div class="text-center mt-4">
         <button class="btn cus-btn" type="submit">Register</button>
       </div>
@@ -68,7 +97,11 @@ export default {
       email2: "",
       phone: "",
       postCode: "",
-      businessType: ""
+      businessType: "",
+      soleTradeName: "",
+      businessName: "",
+      tradeSelect: "",
+      findHow: ""
     };
   }
 };
@@ -117,6 +150,9 @@ h4 {
   align-items: center;
   justify-content: center;
   width: 60%;
+}
+.smooth {
+  transition: 0.3s ease-in-out;
 }
 .style-form {
   display: flex;
