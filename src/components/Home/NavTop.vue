@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .address-bar {
-  background: var(--lightBg);
+  background: var(--cream);
   display: flex;
   flex-direction: row;
   justify-content: center;

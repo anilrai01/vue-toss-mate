@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .task-list {
-  background: #eee;
+  background: var(--cream);
   width: 100%;
 }
 .task-list .task-details {

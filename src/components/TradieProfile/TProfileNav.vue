@@ -1,46 +1,44 @@
 <template>
-  <div class="set-position ">
+  <div class="set-position">
     <div id="dash-nav">
       <div class="info">
         <div class="avatar bg-center-style"></div>
-        <div class="u-profile">
-          <h6 class="font-weight-bold m-0 ml-3">Prithak Creation</h6>
-          <p class="text-muted m-0 ml-3 u-name">@prithakCreation</p>
+        <div class="u-profile mt-3">
+          <h6 class="font-weight-bold text-center m-0">Prithak Creation</h6>
+          <p class="text-muted text-center m-0 u-name">@prithakCreation</p>
         </div>
       </div>
-      <router-link to="/get-quotes">
-        <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
-      </router-link>
+      <button class="btn cus-btn quotes-btn">Post a Task</button>
       <ul class="list-grp">
         <li
           class="list-items"
-          :class="{ active : tabs.activeJob }"
-          @click="activeToggler('activeJob')"
+          :class="{active : tabs.activeDash}"
+          @click="activeToggler('activeDash')"
         >
-          My Jobs
+          Dashboard
           <mdb-badge color="primary" pill class="f-right">14</mdb-badge>
         </li>
         <li
           class="list-items"
-          :class="{ active : tabs.activeMessage }"
-          @click="activeToggler('activeMessage')"
+          :class="{active : tabs.activePaymentHistory}"
+          @click="activeToggler('activePaymentHistory')"
         >
-          My Message
+          Payment History
           <mdb-badge color="primary" pill class="f-right">2</mdb-badge>
         </li>
         <li
           class="list-items"
-          :class="{ active : tabs.activeEditProfile }"
-          @click="activeToggler('activeEditProfile')"
+          :class="{active: tabs.activeNotification}"
+          @click="activeToggler('activeNotification')"
         >
-          Edit Profile
+          Notification
           <mdb-badge color="primary" pill class="f-right">1</mdb-badge>
         </li>
         <li
           class="list-items"
-          :class="{ active : tabs.activeChangePassword }"
-          @click="activeToggler('activeChangePassword')"
-        >Change Password</li>
+          :class="{active : tabs.activeSettings}"
+          @click="activeToggler('activeSettings')"
+        >Settings</li>
       </ul>
     </div>
     <div class="dash-support p-4">
@@ -56,7 +54,7 @@
 <script>
 import { mdbBadge, mdbIcon } from "mdbvue";
 export default {
-  name: "ProfileNav",
+  name: "TProfileNav",
   components: {
     mdbBadge,
     mdbIcon
@@ -94,14 +92,14 @@ export default {
 }
 .info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
 }
 .avatar {
-  width: 4rem;
-  height: 4rem;
+  width: 11rem;
+  height: 11rem;
   border-radius: 50%;
   background: var(--brand);
   background-image: url("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
@@ -116,21 +114,32 @@ export default {
   margin: auto;
   font-size: 0.7rem;
 }
-.active {
-  background: #fff !important;
-  color: #000;
-  border-left: 5px solid var(--brand) !important;
-}
+
 .list-grp {
   border: none;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .list-items {
+  position: relative;
   background: transparent;
   border: none;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   font-size: 0.9rem;
+}
+.list-items::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--brand);
+  transition: 0.3s ease-in-out;
+}
+.list-items.active::before,
+.list-items:hover::before {
+  width: 5px;
 }
 ul {
   list-style-type: none;

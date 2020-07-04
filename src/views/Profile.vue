@@ -2,7 +2,7 @@
   <div id="#profile">
     <mdb-container class="my-3">
       <mdb-row>
-        <mdb-col col="3">
+        <mdb-col col="3 position-relative">
           <ProfileNav :tabs="tabs" @handleActiveStat="handleActiveToggle" />
         </mdb-col>
         <mdb-col>

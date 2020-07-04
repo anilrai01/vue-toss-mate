@@ -8,8 +8,8 @@
       <!-- Modal Body  -->
       <div class="p-2" slot="body">
         <mdb-progress :value="progress" :height="progressBarHeight" class="m-0 p-0 cus-progress" />
-        <!-- Stage 1 -->
-        <!-- <div class="m-form stage1" v-show="progress == 25">
+        <!-- Stage Prime -->
+        <!-- <div class="m-form stage1" v-show="progress == progressValue">
           <div class="options">
             <h3>Your Job</h3>
             <input type="text" v-model="business" disabled class="form-control w-full" />
@@ -24,17 +24,71 @@
           @submit.prevent="increaseProgress"
         >
           <div class="options py-4">
-            <h3 class="text-center">Where do you want your job done?</h3>
-            <input
-              type="text"
-              name="postcode"
-              id="postcode"
-              class="form-control w-full"
-              placeholder="Enter your postcode"
-              v-model="postcode"
-              required="required"
-            />
+            <h4 class="font-weight-bold mb-3">Please fill up the basic job details</h4>
+            <div class="form-group">
+              <label
+                for="postcode"
+                class="font-weight-bold text-grey"
+              >Where do you want your job done?</label>
+              <input
+                type="text"
+                name="postcode"
+                id="postcode"
+                class="form-control w-full"
+                placeholder="Enter your postcode"
+                v-model="postcode"
+                required="required"
+              />
+            </div>
+
+            <div class="form-group mt-4">
+              <p class="m-0 font-weight-bold text-grey">Please specify your job type</p>
+              <!-- Group of default radios - option 1 -->
+              <div class="custom-control custom-radio normal-radio">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  id="quotes"
+                  name="jobType"
+                  value="Quote"
+                  v-model="jobDetails.jobType"
+                />
+                <label class="custom-control-label text-muted" for="quotes">Quotes</label>
+              </div>
+
+              <!-- Group of default radios - option 2 -->
+              <div class="custom-control custom-radio normal-radio">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  id="offer"
+                  name="jobType"
+                  value="Offer"
+                  v-model="jobDetails.jobType"
+                />
+                <label class="custom-control-label text-muted" for="offer">Offer</label>
+              </div>
+            </div>
+
+            <div class="form-group mt-3" v-if="jobDetails.jobType == 'Offer'">
+              <label
+                for="budget"
+                class="font-weight-bold text-grey"
+              >What is your budget for the task?</label>
+              <!-- <input
+                type="text"
+                class="form-control w-full"
+                v-model="jobDetails.jobBudget"
+                id="budget"
+                required
+              />-->
+              <mdb-input basic class="mb-3 w-full" id="budget" v-model="jobDetails.jobBudget">
+                <span class="input-group-text" slot="prepend">$</span>
+                <span class="input-group-text" slot="append">.00</span>
+              </mdb-input>
+            </div>
           </div>
+
           <BtnGroup @handlePrev="decreaseProgress" :stat="progress" />
         </form>
         <!-- Stage 2 -->
@@ -206,7 +260,7 @@
 
 <script>
 import Modals from "../Modals";
-import { mdbProgress } from "mdbvue";
+import { mdbInput, mdbProgress } from "mdbvue";
 import BtnGroup from "./BtnGroup";
 import { mapGetters, mapActions } from "vuex";
 import SearchList from "../SearchList";
@@ -217,7 +271,8 @@ export default {
     Modals,
     mdbProgress,
     BtnGroup,
-    SearchList
+    SearchList,
+    mdbInput
   },
   props: {
     url_name: {
@@ -230,6 +285,8 @@ export default {
       postcode: "",
 
       jobDetails: {
+        jobType: "Quote",
+        jobBudget: "",
         startTime: "flexible",
         jobStatus: "planning",
         jobDesc: "",
@@ -386,6 +443,10 @@ h3 {
 .custom-control {
   padding: 1rem 2rem;
   border-top: 1px solid #eee;
+}
+.normal-radio {
+  border: none;
+  padding: 0.3rem 2rem;
 }
 .options {
   height: calc(100% - 3rem);

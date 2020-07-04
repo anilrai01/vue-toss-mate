@@ -33,7 +33,7 @@ export default {
 .e-profile {
   width: 100%;
   height: auto;
-  background: var(--brandDivs);
+  background: var(--cream);
 }
 
 .f-shape {

@@ -29,8 +29,42 @@ export default {
   --brand: #376c13;
   --brandDivs: #eee;
   --lightBg: #f1f1f1;
+  /* --cream: #fbfffb; */
+  /* --cream: #ffffff; */
+  /* --white: #fdfefe; */
+  --cream: #f8f8f8;
+  --grey: #5c5c5c;
   --brOverlayUnit: 28rem;
 }
+body {
+  /* background: #f6f8fd; */
+  background: #fff;
+}
+.f-row {
+  flex-direction: row;
+}
+.f-col {
+  flex-direction: column;
+}
+.j-c {
+  justify-content: center;
+}
+.a-c {
+  align-items: center;
+}
+.j-sb {
+  justify-content: space-between;
+}
+.a-sb {
+  align-items: space-between;
+}
+.j-fs {
+  justify-content: flex-start;
+}
+.a-fs {
+  align-items: flex-start;
+}
+
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
@@ -38,6 +72,12 @@ export default {
 }
 .cus-btn:hover {
   color: #fff;
+}
+.text-grey {
+  color: var(--grey);
+}
+.text-brand {
+  color: var(--brand);
 }
 .cus-btn-outline {
   background: #fff !important;

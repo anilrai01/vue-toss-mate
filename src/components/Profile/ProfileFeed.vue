@@ -51,7 +51,7 @@ export default {
 .d-nav {
   width: 100%;
   height: 3rem;
-  background: #eee;
+  background: var(--cream);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

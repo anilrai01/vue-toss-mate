@@ -34,6 +34,12 @@ const routes = [
       import(/* webpackChunkName: "profile" */ "../views/Profile"),
   },
   {
+    path: "/profile/tradie",
+    name: "ProfileTradie",
+    component: () =>
+      import(/* webpackChunkName: "profile-tradie" */ "../views/ProfileTradie"),
+  },
+  {
     path: "/get-quotes",
     name: "GetQuotes",
     component: () =>

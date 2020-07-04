@@ -78,7 +78,7 @@ export default {
 .button-div {
   width: 100%;
   height: auto;
-  background: var(--brandDivs);
+  background: var(--cream);
 }
 h5 {
   border-bottom: 1px solid #ccc;

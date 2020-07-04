@@ -64,15 +64,15 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbIcon,
-  },
+    mdbIcon
+  }
 };
 </script>
 
 <style scoped>
 .footer-bg {
   width: 100%;
-  background: #eee;
+  background: var(--cream);
 }
 .icon {
   font-size: 1.2rem;

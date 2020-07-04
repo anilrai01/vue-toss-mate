@@ -118,7 +118,11 @@ export default {
 .custom-nav {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
   background: #fff !important;
-  /* z-index: 1 !important; */
+  /* position: fixed;
+  width: 100%; */
+  /* position: sticky;
+  top: 0; */
+  z-index: 500 !important;
 }
 .sticky-top {
   z-index: 2 !important;
