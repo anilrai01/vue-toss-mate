@@ -40,6 +40,8 @@
                   </div>
                 </div>
               </div>
+              <hr class="m-0" />
+              <h6 class="text-center mb-0 py-2 my-2 text-grey c-p">Show all Categories</h6>
             </mdb-dropdown-menu>
           </mdb-dropdown>
           <mdb-nav-item href="#">Articles</mdb-nav-item>
@@ -153,7 +155,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 1.7rem;
+  padding: 2rem 2rem 0;
 }
 
 .drop-title {

@@ -64,7 +64,9 @@ body {
 .a-fs {
   align-items: flex-start;
 }
-
+.c-p {
+  cursor: pointer;
+}
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
