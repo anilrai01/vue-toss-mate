@@ -52,6 +52,7 @@
                   name="jobType"
                   value="Quote"
                   v-model="jobDetails.jobType"
+                  required
                 />
                 <label class="custom-control-label text-muted" for="quotes">Quotes</label>
               </div>
@@ -65,6 +66,7 @@
                   name="jobType"
                   value="Offer"
                   v-model="jobDetails.jobType"
+                  required
                 />
                 <label class="custom-control-label text-muted" for="offer">Offer</label>
               </div>
@@ -285,7 +287,7 @@ export default {
       postcode: "",
 
       jobDetails: {
-        jobType: "Quote",
+        jobType: "",
         jobBudget: "",
         startTime: "flexible",
         jobStatus: "planning",
@@ -368,7 +370,7 @@ export default {
       if (this.business !== "" && this.postcode == "") {
         this.progress = 20;
       } else if (this.business !== "" && this.postcode !== "") {
-        this.progress = 40;
+        this.progress = 20;
       }
     }
   },

@@ -22,13 +22,23 @@
             >Categories</mdb-dropdown-toggle>
             <mdb-dropdown-menu>
               <h4 class="mb-4 drop-title">Popular Categories</h4>
-              <div class="menus">
+              <!-- <div class="menus">
                 <div
                   class="menu"
                   v-for="(menu,index) in getDropdown"
                   :key="index"
                   @click="handleClickRoute(menu)"
                 >{{menu}}</div>
+              </div>-->
+              <div class="menus">
+                <div class="menu">
+                  <div class="menu-head">Air Conditioning</div>
+                  <div class="menu-list">
+                    <li>Air Conditioning Engineers</li>
+                    <li>Air Conditioning Installation</li>
+                    <li>Air Conditioning Maintainance</li>
+                  </div>
+                </div>
               </div>
             </mdb-dropdown-menu>
           </mdb-dropdown>
@@ -122,7 +132,7 @@ export default {
   width: 100%; */
   /* position: sticky;
   top: 0; */
-  z-index: 500 !important;
+  /* z-index: 500 !important; */
 }
 .sticky-top {
   z-index: 2 !important;
@@ -145,6 +155,11 @@ export default {
   flex-direction: column;
   padding: 1.7rem;
 }
+
+.drop-title {
+  padding-left: 1rem;
+  border-left: 5px solid var(--brand);
+}
 .menus {
   display: flex;
   flex-direction: row;
@@ -157,13 +172,24 @@ export default {
   padding: 3px;
   font-size: 0.9rem;
 }
-.menu:hover {
+.menu-head {
+  /* font-weight: bold; */
+  font-size: 1rem;
+  color: #fff;
+  background: var(--brand);
+  padding: 0 0.5rem;
+}
+.menu-list {
+  /* font-size: 1rem; */
+  margin: 0.8rem 0 1rem 1rem;
+}
+.menu-list li {
+  margin-bottom: 0.5rem;
+}
+/* .menu:hover {
   background: #eee;
-}
-.drop-title {
-  padding-left: 1rem;
-  border-left: 5px solid var(--brand);
-}
+} */
+
 .u-profile {
   width: 3rem;
   height: 3rem;
