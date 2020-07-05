@@ -8,7 +8,7 @@
         <mdb-col>
           <TProfileDash v-if="tabs.activeDash" />
           <TProfileBrowse v-if="tabs.activeBrowse" :propsTask="getTradieTasks" />
-          <TProfileBrowse v-if="tabs.activeTaskList" :propsTask="getCompletedTasks" />
+          <TProfileCompletedTask v-if="tabs.activeTaskList" :propsTask="getCompletedTasks" />
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -21,6 +21,7 @@ import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import TProfileNav from "../components/TradieProfile/TProfileNav";
 import TProfileDash from "../components/TradieProfile/TProfileDash";
 import TProfileBrowse from "../components/TradieProfile/TradieBrowseTask";
+import TProfileCompletedTask from "../components/TradieProfile/TProfileCompletedTask";
 import Footer from "../components/Footer";
 import { mapGetters } from "vuex";
 
@@ -33,6 +34,7 @@ export default {
     TProfileNav,
     TProfileDash,
     TProfileBrowse,
+    TProfileCompletedTask,
     Footer
   },
   data() {

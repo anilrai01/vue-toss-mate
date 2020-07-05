@@ -35,10 +35,6 @@ export default {
       tabActive: {
         quotesActive: true,
         offerActive: false
-      },
-      tasksActive: {
-        browse: true,
-        offer: false
       }
     };
   },
@@ -59,9 +55,10 @@ export default {
       );
     }
   },
-  created() {
-    console.log(this.getTradieTasks);
-  }
+  // mounted() {
+  //   this.tabActive.quotesActive = true;
+  //   this.tabActive.offerActive = false;
+  // }
 };
 </script>
 

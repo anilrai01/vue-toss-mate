@@ -3,7 +3,7 @@
     <div class="tradie-task p-3" v-for="task in taskList" :key="task.id">
       <div class="title-budg d-flex j-sb">
         <h4 class="font-weight-normal c-brand">{{task.taskName}}</h4>
-        <h3 class="font-weight-bold text-grey">{{$100}}</h3>
+        <h3 class="font-weight-bold text-grey">$100</h3>
       </div>
       <div class="loc-profile d-flex j-sb">
         <div class="location">
