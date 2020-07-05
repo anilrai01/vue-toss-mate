@@ -6,8 +6,9 @@
           <TProfileNav :tabs="tabs" @handleActiveStat="handleActiveToggle" />
         </mdb-col>
         <mdb-col>
-          <TProfileDash />
-          <TProfileBrowse />
+          <TProfileDash v-if="tabs.activeDash" />
+          <TProfileBrowse v-if="tabs.activeBrowse" :propsTask="getTradieTasks" />
+          <TProfileBrowse v-if="tabs.activeTaskList" :propsTask="getCompletedTasks" />
         </mdb-col>
       </mdb-row>
     </mdb-container>
@@ -20,8 +21,8 @@ import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import TProfileNav from "../components/TradieProfile/TProfileNav";
 import TProfileDash from "../components/TradieProfile/TProfileDash";
 import TProfileBrowse from "../components/TradieProfile/TradieBrowseTask";
-
 import Footer from "../components/Footer";
+import { mapGetters } from "vuex";
 
 export default {
   name: "TradieProfile",
@@ -38,6 +39,8 @@ export default {
     return {
       tabs: {
         activeDash: true,
+        activeBrowse: false,
+        activeTaskList: false,
         activePaymentHistory: false,
         activeNotification: false,
         activeSettings: false
@@ -52,6 +55,9 @@ export default {
           : (this.tabs[el] = false)
       );
     }
+  },
+  computed: {
+    ...mapGetters(["getTradieTasks", "getCompletedTasks"])
   }
 };
 </script>

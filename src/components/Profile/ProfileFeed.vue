@@ -5,10 +5,10 @@
       <li :class="{active : tabs.pastActive}" @click="toggleActive('pastActive')">Past</li>
     </div>
     <!-- Current Jobs Details  -->
-    <Feed :progressTask="progressingTask" :vis="tabs.currentActive" />
+    <Feed :progressTask="progressingTask" v-if="tabs.currentActive" />
     <!-- EOF Current Job Details -->
     <!-- Completed Job -->
-    <Feed :progressTask="completedTask" :vis="tabs.pastActive" />
+    <Feed :progressTask="completedTask" v-if="tabs.pastActive" />
     <!-- EOF Completed Job -->
   </div>
 </template>

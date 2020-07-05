@@ -2,16 +2,17 @@
   <div>
     <div class="tprofile-tabs">
       <li
-        :class="{active : tabActive.browseActive}"
-        @click="activeToggler('browseActive')"
-      >Browse Task</li>
-      <li :class="{active : tabActive.taskActive}" @click="activeToggler('taskActive')">My Task</li>
+        class="mr-2"
+        :class="{active : tabActive.quotesActive}"
+        @click="activeToggler('quotesActive')"
+      >Quotes</li>
+      <li :class="{active : tabActive.offerActive}" @click="activeToggler('offerActive')">Offer</li>
     </div>
     <div class="tradie-task-list w-100 my-3">
-      <Tasks />
-      <Tasks />
-      <Tasks />
-      <Tasks />
+      <!-- Quotes Task -->
+      <Tasks :taskList="quotesTask" v-if="tabActive.quotesActive" />
+      <!-- Offer Task -->
+      <Tasks :taskList="offerTask" v-if="tabActive.offerActive" />
     </div>
   </div>
 </template>
@@ -23,13 +24,31 @@ export default {
   components: {
     Tasks
   },
+  props: {
+    propsTask: {
+      type: Array,
+      default: () => []
+    }
+  },
   data() {
     return {
       tabActive: {
-        browseActive: true,
-        taskActive: false
+        quotesActive: true,
+        offerActive: false
+      },
+      tasksActive: {
+        browse: true,
+        offer: false
       }
     };
+  },
+  computed: {
+    quotesTask() {
+      return this.propsTask.filter(el => el.taskType == "quotes");
+    },
+    offerTask() {
+      return this.propsTask.filter(el => el.taskType == "offer");
+    }
   },
   methods: {
     activeToggler(tag) {
@@ -39,6 +58,9 @@ export default {
           : (this.tabActive[el] = false)
       );
     }
+  },
+  created() {
+    console.log(this.getTradieTasks);
   }
 };
 </script>

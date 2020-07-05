@@ -16,7 +16,23 @@
           @click="activeToggler('activeDash')"
         >
           Dashboard
-          <mdb-badge color="primary" pill class="f-right">14</mdb-badge>
+          <!-- <mdb-badge color="primary" pill class="f-right">14</mdb-badge> -->
+        </li>
+        <li
+          class="list-items"
+          :class="{active : tabs.activeBrowse}"
+          @click="activeToggler('activeBrowse')"
+        >
+          Browse Task
+          <mdb-badge color="primary" pill class="f-right">7</mdb-badge>
+        </li>
+        <li
+          class="list-items"
+          :class="{active : tabs.activeTaskList}"
+          @click="activeToggler('activeTaskList')"
+        >
+          My Task
+          <mdb-badge color="primary" pill class="f-right">2</mdb-badge>
         </li>
         <li
           class="list-items"

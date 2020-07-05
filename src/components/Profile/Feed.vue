@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="task-list my-3 p-3" v-for="task in progressTask" :key="task.id" v-show="vis">
+    <div class="task-list my-3 p-3" v-for="task in progressTask" :key="task.id">
       <div class="job-div">
         <div class="job-left">
           <h5 class="font-weight-bold c-brand">{{task.taskName}}</h5>
