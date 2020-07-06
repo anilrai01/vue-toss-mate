@@ -16,7 +16,7 @@
     </Banner>
 
     <mdb-container class="my-5">
-      <h1 class="d-block font-weight-bold">These are some the list of categories</h1>
+      <h1 class="d-block font-weight-bold">These are the list of categories</h1>
       <div class="catCont my-3">
         <div class="catHead my-5" v-for="(list, index) in alphabeticalData" :key="index">
           <h2 class="font-weight-bold text-grey">{{list.title}}</h2>
