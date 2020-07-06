@@ -60,6 +60,14 @@ const routes = [
       import(/* webpackChunkName: "categories-view" */ "../views/CategoryView"),
   },
   {
+    path: "/all-categories",
+    name: "AllCategoriesView",
+    component: () =>
+      import(
+        /* webpackChunkName: "business-register" */ "../views/AllCategoriesView"
+      ),
+  },
+  {
     path: "/not-found",
     name: "NotFound",
     component: NotFound,

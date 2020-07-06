@@ -40,11 +40,20 @@ body {
   /* background: #f6f8fd; */
   background: #fff;
 }
+.container {
+  max-width: 80% !important;
+}
+.d-in {
+  display: inline;
+}
 .f-row {
   flex-direction: row;
 }
 .f-col {
   flex-direction: column;
+}
+.f-wrap {
+  flex-wrap: wrap;
 }
 .j-c {
   justify-content: center;

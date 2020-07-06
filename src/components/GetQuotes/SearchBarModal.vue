@@ -232,7 +232,10 @@
       <!-- EOF Modal Body  -->
     </Modals>
 
-    <form @submit.prevent="handleBusinessSubmit" v-if="this.$route.name=='GetQuotes'">
+    <form
+      @submit.prevent="handleBusinessSubmit"
+      v-if="this.$route.name=='GetQuotes' || this.$route.name=='AllCategoriesView'"
+    >
       <SearchList width="80" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
 
       <input

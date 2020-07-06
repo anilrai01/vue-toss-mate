@@ -9,7 +9,7 @@
       <mdb-navbar-toggler>
         <mdb-navbar-nav>
           <router-link to="/">
-            <mdb-nav-item href="#" class="active">Home</mdb-nav-item>
+            <mdb-nav-item href="#">Home</mdb-nav-item>
           </router-link>
           <mdb-dropdown tag="li" class="nav-item">
             <mdb-dropdown-toggle
@@ -31,17 +31,26 @@
                 >{{menu}}</div>
               </div>-->
               <div class="menus">
-                <div class="menu">
-                  <div class="menu-head">Air Conditioning</div>
-                  <div class="menu-list">
-                    <li>Air Conditioning Engineers</li>
-                    <li>Air Conditioning Installation</li>
-                    <li>Air Conditioning Maintainance</li>
+                <div class="menu" v-for="(drop, index) in getDropdown2" :key="index">
+                  <div class="menu-head">
+                    <mdb-icon icon="angle-right mr-2" />
+                    {{drop.title}}
+                    <!-- {{drop.links.length}} -->
                   </div>
+
+                  <!-- <div
+                    class="menu-list"
+                    v-for="idrop in drop.links.slice(0,4)"
+                    :key="drop.links.indexOf(idrop)"
+                  >
+                    <li>{{idrop}}</li>
+                  </div>-->
                 </div>
               </div>
               <hr class="m-0" />
-              <h6 class="text-center mb-0 py-2 my-2 text-grey c-p">Show all Categories</h6>
+              <router-link to="/all-categories">
+                <h6 class="text-center mb-0 py-2 my-2 text-grey c-p">Show all Categories</h6>
+              </router-link>
             </mdb-dropdown-menu>
           </mdb-dropdown>
           <mdb-nav-item href="#">Articles</mdb-nav-item>
@@ -91,7 +100,8 @@ import {
   mdbNavbarNav,
   mdbNavItem,
   mdbBtn,
-  mdbFormInline
+  mdbFormInline,
+  mdbIcon
 } from "mdbvue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -108,10 +118,16 @@ export default {
     mdbDropdownMenu,
     // mdbDropdownItem,
     mdbBtn,
-    mdbFormInline
+    mdbFormInline,
+    mdbIcon
+  },
+  data() {
+    return {
+      subDrop: false
+    };
   },
   computed: {
-    ...mapGetters(["getDropdown", "getUserAuth"]),
+    ...mapGetters(["getDropdown", "getUserAuth", "getDropdown2"]),
     u_style() {
       return { "background-image": `url(${this.getUserAuth.u_img})` };
     }
@@ -120,7 +136,11 @@ export default {
     ...mapActions(["setQuoteBusiness"]),
     handleClickRoute(name) {
       // this.setQuoteBusiness(name);
-      this.$router.push(`/categories-view/${name}`);
+      // this.$router.push(`/categories-view/${name}`);
+      console.log(name);
+    },
+    handleDropDownClick() {
+      console.log("Hey");
     }
   }
 };
@@ -151,7 +171,8 @@ export default {
 }
 .dropdown-menu {
   position: absolute !important;
-  min-width: 50vw !important;
+
+  width: 65vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -163,10 +184,8 @@ export default {
   border-left: 5px solid var(--brand);
 }
 .menus {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
 }
 .menu {
   flex-basis: 25%;
@@ -175,16 +194,25 @@ export default {
   font-size: 0.9rem;
 }
 .menu-head {
-  /* font-weight: bold; */
   font-size: 1rem;
-  color: #fff;
-  background: var(--brand);
-  padding: 0 0.5rem;
+  position: relative;
+  transition: 0.3s ease-in-out;
 }
-.menu-list {
-  /* font-size: 1rem; */
-  margin: 0.8rem 0 1rem 1rem;
+.menu-head span,
+.menu-head .fas {
+  transition: all 0.3s ease-in-out;
 }
+.menu-head .fas {
+  position: relative;
+}
+.menu-head:hover {
+  color: var(--brand);
+  background: #eee;
+}
+.menu-head:hover .fas {
+  left: 5px;
+}
+
 .menu-list li {
   margin-bottom: 0.5rem;
 }

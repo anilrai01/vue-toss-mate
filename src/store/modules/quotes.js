@@ -1033,6 +1033,9 @@ const getters = {
   getDropdown: (state) => {
     return state.dropdownMenu;
   },
+  getDropdown2: (state) => {
+    return state.dropdownMenu2;
+  },
 };
 
 export default {
