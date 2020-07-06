@@ -2,30 +2,35 @@
   <div class="tradie-task-list">
     <div class="tradie-task p-3" v-for="task in taskList" :key="task.id">
       <div class="title-budg d-flex j-sb">
-        <h4 class="font-weight-normal c-brand">{{task.taskName}}</h4>
-        <h3 class="font-weight-bold text-grey">$100</h3>
-      </div>
-      <div class="loc-profile d-flex j-sb">
-        <div class="location">
-          <div class="loc">
-            <mdb-icon icon="map-marker-alt" class="text-grey mr-2" />
-            <span>{{task.address}}</span>
-          </div>
-          <div class="time">
-            <mdb-icon icon="calendar" class="text-grey mr-2" />
-            <span>{{task.created_date}}</span>
-          </div>
-        </div>
         <div class="profile">
-          <img
-            src="https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-            alt="Profile"
-          />
+          <img :src="task.imgAddress" alt="Profile" />
+        </div>
+        <div div class="desc">
+          <h4 class="font-weight-bold c-brand">{{task.taskName}}</h4>
+          <div class="loc-profile d-flex j-sb f-col">
+            <div class="location d-flex f-row">
+              <div class="loc mr-3">
+                <mdb-icon icon="map-marker-alt" class="text-grey mr-2" />
+                <span>{{task.address}}</span>
+              </div>
+              <div class="time">
+                <mdb-icon icon="calendar" class="text-grey mr-2" />
+                <span>{{task.created_date}}</span>
+              </div>
+            </div>
+            <h5 class="mt-3 f-norm font-weight-bold text-grey">Job Description</h5>
+            <p class="f-norm">{{task.taskDesc}}</p>
+          </div>
         </div>
       </div>
-      <hr />
-      <div class="msg">
-        <span class="text-brand font-weight-bold">{{task.taskStat}}</span>
+
+      <hr class="my-2" />
+      <div class="msg d-flex j-sb a-c">
+        <span class>
+          Status :
+          <span class="text-brand font-weight-bold">{{task.taskStat}}</span>
+        </span>
+        <button class="cus-btn px-2 py-1">Enquire</button>
       </div>
     </div>
   </div>
@@ -52,18 +57,26 @@ export default {
   background: var(--cream);
   display: flex;
   flex-direction: column;
-  border-left: 4px solid var(--brand);
+  border-right: 4px solid #9ddd72;
   margin-bottom: 1rem;
   cursor: pointer;
 }
 .profile {
   width: 4rem;
-  height: 4rem;
+  height: 5rem;
 }
 .profile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+}
+.title-budg .profile {
+  flex-basis: 15%;
+}
+.title-budg .desc {
+  flex-basis: 80%;
+}
+.desc h4 {
+  font-size: 1.25rem;
 }
 </style>

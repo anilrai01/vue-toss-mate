@@ -76,6 +76,12 @@ body {
 .c-p {
   cursor: pointer;
 }
+.f-head {
+  font-size: 1.25rem;
+}
+.f-norm {
+  font-size: 1rem;
+}
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
