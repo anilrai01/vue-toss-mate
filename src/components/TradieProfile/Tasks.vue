@@ -4,6 +4,7 @@
       <div class="title-budg d-flex j-sb">
         <div class="profile">
           <img :src="task.imgAddress" alt="Profile" />
+          <!-- :style="(task.taskStat == 'Completed') ? {height: '8rem'} : ''" -->
         </div>
         <div div class="desc">
           <h4 class="font-weight-bold c-brand">{{task.taskName}}</h4>
