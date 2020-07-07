@@ -34,6 +34,8 @@ export default {
   /* --white: #fdfefe; */
   --cream: #f8f8f8;
   --grey: #5c5c5c;
+  --black: #373737;
+  --lblack: #424242;
   --brOverlayUnit: 28rem;
 }
 body {
@@ -95,6 +97,9 @@ body {
 }
 .text-brand {
   color: var(--brand);
+}
+.text-black {
+  color: var(--black);
 }
 .cus-btn-outline {
   background: #fff !important;

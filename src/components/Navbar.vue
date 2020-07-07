@@ -36,15 +36,14 @@
                     <mdb-icon icon="angle-right mr-2" />
                     {{drop.title}}
                     <!-- {{drop.links.length}} -->
+                    <div class="menu-list">
+                        <li
+                          v-for="idrop in drop.links.slice()"
+                          :key="drop.links.indexOf(idrop)"
+                          @click="handleClickRoute(idrop)"
+                        >{{idrop}}</li>
+                    </div>
                   </div>
-
-                  <!-- <div
-                    class="menu-list"
-                    v-for="idrop in drop.links.slice(0,4)"
-                    :key="drop.links.indexOf(idrop)"
-                  >
-                    <li>{{idrop}}</li>
-                  </div>-->
                 </div>
               </div>
               <hr class="m-0" />
@@ -136,8 +135,8 @@ export default {
     ...mapActions(["setQuoteBusiness"]),
     handleClickRoute(name) {
       // this.setQuoteBusiness(name);
-      // this.$router.push(`/categories-view/${name}`);
-      console.log(name);
+      this.$router.push(`/categories-view/${name}`);
+      // console.log(name);
     },
     handleDropDownClick() {
       console.log("Hey");
@@ -194,8 +193,8 @@ export default {
   font-size: 0.9rem;
 }
 .menu-head {
-  font-size: 1rem;
   position: relative;
+  font-size: 1rem;
   transition: 0.3s ease-in-out;
 }
 .menu-head span,
@@ -205,16 +204,37 @@ export default {
 .menu-head .fas {
   position: relative;
 }
-.menu-head:hover {
-  color: var(--brand);
+.menu-head:hover  {
+  /* color: var(--brand); */
   background: #eee;
 }
 .menu-head:hover .fas {
-  left: 5px;
+  /* left: 5px; */
+  transform: rotate(90deg);
 }
-
+.menu-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 50;
+  padding: 1rem;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
+}
 .menu-list li {
   margin-bottom: 0.5rem;
+}
+.menu:hover .menu-list {
+  visibility: visible;
+  opacity: 1;
+}
+.menu-list li:hover {
+  background: var(--cream);
 }
 /* .menu:hover {
   background: #eee;
