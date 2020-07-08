@@ -9,7 +9,7 @@
       <mdb-modal-body>
         <slot name="body"></slot>
       </mdb-modal-body>
-      <mdb-modal-footer v-show="!quoteModel">
+      <mdb-modal-footer v-if="!quoteModel && !taskModel">
         <mdb-btn class="cus-btn" @click.native="handleVisiblity">Close</mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
@@ -43,6 +43,10 @@ export default {
       default: false
     },
     quoteModel: {
+      type: Boolean,
+      default: false
+    },
+    taskModel: {
       type: Boolean,
       default: false
     }

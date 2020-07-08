@@ -51,6 +51,9 @@ export default {
     }
   },
   watch: {
+    // keyword() {
+    //   console.log(this.keyword);
+    // },
     filterArray() {
       if (this.filterArray == []) {
         this.visibilitty = false;
@@ -72,6 +75,7 @@ export default {
   background: #fff;
   display: flex;
   flex-direction: column;
+  /* z-index: 500; */
 }
 
 .list-dir-list {

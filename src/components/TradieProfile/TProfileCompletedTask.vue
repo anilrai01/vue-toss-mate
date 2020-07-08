@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="tprofile-tabs">
+      <li :class="{active : tabActive.offerActive}" @click="activeToggler('offerActive')">Offer</li>
       <li
         class="mr-2"
         :class="{active : tabActive.quotesActive}"
         @click="activeToggler('quotesActive')"
       >Quotes</li>
-      <li :class="{active : tabActive.offerActive}" @click="activeToggler('offerActive')">Offer</li>
     </div>
     <div class="tradie-task-list w-100 my-3">
       <!-- Quotes Task -->
@@ -33,8 +33,8 @@ export default {
   data() {
     return {
       tabActive: {
-        quotesActive: true,
-        offerActive: false
+        offerActive: true,
+        quotesActive: false,
       }
     };
   },
@@ -54,7 +54,7 @@ export default {
           : (this.tabActive[el] = false)
       );
     }
-  },
+  }
   // mounted() {
   //   this.tabActive.quotesActive = true;
   //   this.tabActive.offerActive = false;

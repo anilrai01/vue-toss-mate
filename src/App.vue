@@ -84,6 +84,15 @@ body {
 .f-norm {
   font-size: 1rem;
 }
+.fb-50 {
+  flex-basis: 50%;
+}
+.fb-40 {
+  flex-basis: 40%;
+}
+.fb-60 {
+  flex-basis: 60%;
+}
 .cus-btn {
   background: var(--brand) !important;
   color: #fff;
@@ -100,6 +109,12 @@ body {
 }
 .text-black {
   color: var(--black);
+}
+.text-c {
+  color: #ccc;
+}
+.text-lblack {
+  color: var(--lblack);
 }
 .cus-btn-outline {
   background: #fff !important;

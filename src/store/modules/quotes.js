@@ -997,7 +997,11 @@ const state = {
       ],
     },
   ],
+  //After Entering all data through multi step form the data will be in jobDetails
   jobDetails: {},
+
+  //After selecting job list.. it will temporarily store in currentJob
+  currentJob: {},
 };
 
 const mutations = {
@@ -1012,6 +1016,9 @@ const mutations = {
   SET_JOB_DETAILS(state, value) {
     state.jobDetails = value;
   },
+  SET_CURRENT_JOB(state, value) {
+    state.currentJob = value;
+  },
 };
 
 const actions = {
@@ -1024,6 +1031,9 @@ const actions = {
   setJobDetails(context, value) {
     context.commit("SET_JOB_DETAILS", value);
   },
+  setCurrentJob(context, value) {
+    context.commit("SET_CURRENT_JOB", value);
+  },
 };
 
 const getters = {
@@ -1035,6 +1045,9 @@ const getters = {
   },
   getDropdown2: (state) => {
     return state.dropdownMenu2;
+  },
+  getCurrentJob: (state) => {
+    return state.currentJob;
   },
 };
 
