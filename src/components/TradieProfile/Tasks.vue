@@ -18,8 +18,16 @@
             <div class="budget-title" v-if="getCurrentJob.taskType=='offer'">Task Budget</div>
             <div class="budget-title" v-if="getCurrentJob.taskType=='quotes'">Start to Quote now</div>
             <div class="task-amount">{{getCurrentJob.taskBudget}}</div>
-            <button class="btn cus-btn" v-if="getCurrentJob.taskType=='offer'">Make an Offer</button>
-            <button class="btn cus-btn" v-if="getCurrentJob.taskType=='quotes'">Make a Quote</button>
+            <button
+              class="btn cus-btn"
+              v-if="getCurrentJob.taskType=='offer'"
+              @click="showApplyModal"
+            >Make an Offer</button>
+            <button
+              class="btn cus-btn"
+              v-if="getCurrentJob.taskType=='quotes'"
+              @click="showApplyModal"
+            >Make a Quote</button>
           </div>
 
           <div class="task-o-details fb-50" v-if="getCurrentJob.taskStat == 'Completed'">
@@ -56,6 +64,21 @@
             <p class="f-norm">{{getCurrentJob.taskDesc}}</p>
           </div>
         </div>
+      </div>
+    </Modals>
+    <Modals :show="applyModal" @visibleOff="applyModalOff" taskModel>
+      <h3 slot="header" class="text-brand font-weight-bold">Apply Now!</h3>
+      <div slot="body">
+        <form @submit.prevent="handleTaskApply">
+          <div class="form-group mt-3">
+            <label for="budget" class="font-weight-bold text-grey">Quote your own amount</label>
+            <mdb-input basic class="mb-3 w-full" id="budget" v-model="quoteAmt" required>
+              <span class="input-group-text" slot="prepend">$</span>
+              <span class="input-group-text" slot="append">.00</span>
+            </mdb-input>
+          </div>
+          <button class="cus-btn px-3 py-1">Apply</button>
+        </form>
       </div>
     </Modals>
     <div class="tradie-task p-3" v-for="task in taskList" :key="task.id">
@@ -102,18 +125,21 @@
 </template>
 
 <script>
-import { mdbIcon } from "mdbvue";
+import { mdbInput, mdbIcon } from "mdbvue";
 import Modals from "../Modals";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "TradieTask",
   components: {
     mdbIcon,
+    mdbInput,
     Modals
   },
   data() {
     return {
-      alertModal: false
+      alertModal: false,
+      applyModal: false,
+      quoteAmt: ""
     };
   },
   props: {
@@ -130,10 +156,22 @@ export default {
     alertOff() {
       this.alertModal = false;
     },
+    applyModalOff() {
+      this.applyModal = false;
+    },
     showModal(data) {
       this.setCurrentJob(data);
       this.alertModal = true;
       // console.log("Ehy");
+    },
+    showApplyModal() {
+      this.applyModal = true;
+      this.alertModal = false;
+      this.quoteAmt = "";
+    },
+    handleTaskApply() {
+      alert("You have successfully submitted the quote");
+      this.applyModal = false;
     }
   }
 };

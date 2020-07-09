@@ -2,7 +2,14 @@
   <div class="set-position">
     <div id="dash-nav">
       <div class="info">
-        <div class="avatar bg-center-style"></div>
+        <div class="avatar bg-center-style position-relative">
+          <div class="verified-logo text-white d-flex j-c a-c" v-if="getUserAuth.u_verified">
+            <mdb-tooltip trigger="hover" :options="{placement: 'top'}">
+              <span slot="tip">Verified User</span>
+              <mdb-icon slot="reference" icon="check" class="c-p" />
+            </mdb-tooltip>
+          </div>
+        </div>
         <div class="u-profile mt-3">
           <h6 class="font-weight-bold text-center m-0">Prithak Creation</h6>
           <p class="text-muted text-center m-0 u-name">@prithakCreation</p>
@@ -68,18 +75,23 @@
 </template>
 
 <script>
-import { mdbBadge, mdbIcon } from "mdbvue";
+import { mdbBadge, mdbIcon, mdbTooltip } from "mdbvue";
+import { mapGetters } from "vuex";
 export default {
   name: "TProfileNav",
   components: {
     mdbBadge,
-    mdbIcon
+    mdbIcon,
+    mdbTooltip
   },
   props: {
     tabs: {
       type: Object,
       default: () => {}
     }
+  },
+  computed: {
+    ...mapGetters(["getUserAuth"])
   },
   methods: {
     activeToggler(tab) {
@@ -165,5 +177,17 @@ li {
 }
 li:hover {
   background: #fff;
+}
+.verified-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--brand);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.verified-logo i {
+  font-size: 0.8rem;
 }
 </style>
