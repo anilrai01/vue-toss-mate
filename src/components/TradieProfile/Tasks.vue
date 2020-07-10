@@ -72,7 +72,14 @@
         <form @submit.prevent="handleTaskApply">
           <div class="form-group mt-3">
             <label for="budget" class="font-weight-bold text-grey">Quote your own amount</label>
-            <mdb-input basic class="mb-3 w-full" id="budget" v-model="quoteAmt" required>
+            <mdb-input
+              basic
+              class="mb-3 w-full"
+              id="budget"
+              v-model="quoteAmt"
+              required
+              :disabled="isUserVerified && getCurrentJob.taskType == 'quotes'"
+            >
               <span class="input-group-text" slot="prepend">$</span>
               <span class="input-group-text" slot="append">.00</span>
             </mdb-input>
@@ -187,7 +194,7 @@ export default {
         return false;
       }
     }
-  },
+  }
   // mounted() {
   //   console.log(this.isUserVerified());
   // }
