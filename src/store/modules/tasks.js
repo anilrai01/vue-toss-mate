@@ -90,15 +90,27 @@ const state = {
         "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=681&q=80",
     },
   ],
+  currentJob: {},
 };
-const mutations = {};
-const actions = {};
+const mutations = {
+  SET_CURRENT_JOB(state, value) {
+    state.currentJob = value;
+  },
+};
+const actions = {
+  setCurrentJob(context, value) {
+    context.commit("SET_CURRENT_JOB", value);
+  },
+};
 const getters = {
   getTradieTasks: (state) => {
     return state.taskList;
   },
   getCompletedTasks: (state) => {
     return state.completedTaskList;
+  },
+  getCurrentJob: (state) => {
+    return state.currentJob;
   },
 };
 

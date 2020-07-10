@@ -48,7 +48,7 @@ const state = {
     u_email: "",
     u_img:
       "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
-    u_verified: true,
+    u_verified: false,
   },
 };
 

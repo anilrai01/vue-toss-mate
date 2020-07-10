@@ -77,7 +77,14 @@
               <span class="input-group-text" slot="append">.00</span>
             </mdb-input>
           </div>
-          <button class="cus-btn px-3 py-1">Apply</button>
+          <h6
+            class="font-weight-bold text-black text-danger"
+            v-if="isUserVerified && getCurrentJob.taskType == 'quotes'"
+          >You need to become a member of ToosMate to enjoy Quotes Task too</h6>
+          <button
+            class="cus-btn px-3 py-1"
+            :disabled="isUserVerified && getCurrentJob.taskType == 'quotes'"
+          >Apply</button>
         </form>
       </div>
     </Modals>
@@ -149,7 +156,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getCurrentJob"])
+    ...mapGetters(["getCurrentJob", "getUserAuth"])
   },
   methods: {
     ...mapActions(["setCurrentJob"]),
@@ -172,8 +179,18 @@ export default {
     handleTaskApply() {
       alert("You have successfully submitted the quote");
       this.applyModal = false;
+    },
+    isUserVerified() {
+      if (this.getUserAuth.u_verified) {
+        return true;
+      } else {
+        return false;
+      }
     }
-  }
+  },
+  // mounted() {
+  //   console.log(this.isUserVerified());
+  // }
 };
 </script>
 

@@ -1001,7 +1001,6 @@ const state = {
   jobDetails: {},
 
   //After selecting job list.. it will temporarily store in currentJob
-  currentJob: {},
 };
 
 const mutations = {
@@ -1015,9 +1014,6 @@ const mutations = {
   },
   SET_JOB_DETAILS(state, value) {
     state.jobDetails = value;
-  },
-  SET_CURRENT_JOB(state, value) {
-    state.currentJob = value;
   },
 };
 
@@ -1045,9 +1041,6 @@ const getters = {
   },
   getDropdown2: (state) => {
     return state.dropdownMenu2;
-  },
-  getCurrentJob: (state) => {
-    return state.currentJob;
   },
 };
 
