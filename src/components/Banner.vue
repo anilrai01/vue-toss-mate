@@ -47,10 +47,10 @@ export default {
   z-index: -1 !important;
   opacity: 0.8 !important;
 }
-/* .slot-vis {
+.slot-vis {
   position: absolute;
-  z-index: 1 !important;
-} */
+  z-index: 50 !important;
+}
 .banner-pic {
   position: relative;
   z-index: 1;

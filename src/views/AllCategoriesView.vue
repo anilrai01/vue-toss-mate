@@ -21,7 +21,7 @@
         <div class="catHead my-5" v-for="(list, index) in alphabeticalData" :key="index">
           <h2 class="font-weight-bold text-grey">{{list.title}}</h2>
 
-          <div class="catList my-2">
+          <div class="catList my-3">
             <p class="cList d-in" v-for="(iList, index) in list.links" :key="index">{{iList}}</p>
           </div>
         </div>
@@ -83,6 +83,6 @@ h6 {
 .catList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-  gap: .5rem;
+  gap: 1rem;
 }
 </style>

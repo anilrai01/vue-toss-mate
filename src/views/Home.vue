@@ -4,11 +4,7 @@
     <Hero />
     <WorkProcess />
 
-    <Banner
-      class="my-5"
-      height="35"
-      img_url="https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-    >
+    <Banner class="my-5" height="70" :img_url="sendNewbannerTrio">
       <BannerJobs />
     </Banner>
     <BrowseCategory />
@@ -27,6 +23,7 @@ import BrowseCategory from "@/components/Home/BrowseCategory";
 import Testimonials from "@/components/Home/Testimonials";
 import NewsLetter from "@/components/Home/NewsLetter";
 import Footer from "@/components/Footer";
+import NewBannerTrio from "@/assets/newBannerTrio.png";
 
 export default {
   name: "Home",
@@ -39,6 +36,11 @@ export default {
     Testimonials,
     NewsLetter,
     Footer
+  },
+  computed: {
+    sendNewbannerTrio() {
+      return NewBannerTrio;
+    }
   }
 };
 </script>

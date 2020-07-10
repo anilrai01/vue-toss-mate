@@ -81,18 +81,18 @@ export default {
             "https://images.unsplash.com/photo-1556103255-4443dbae8e5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=638&q=80",
           taskDesc: "Photographer",
         },
-        // {
-        //   taskID: 7,
-        //   taskImg:
-        //     "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
-        //   taskDesc: "Carpet Cleaning"
-        // },
-        // {
-        //   taskID: 8,
-        //   taskImg:
-        //     "https://images.unsplash.com/photo-1555955207-b96159c16808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        //   taskDesc: "Gardening"
-        // },
+        {
+          taskID: 7,
+          taskImg:
+            "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+          taskDesc: "Carpet Cleaning"
+        },
+        {
+          taskID: 8,
+          taskImg:
+            "https://images.unsplash.com/photo-1555955207-b96159c16808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+          taskDesc: "Gardening"
+        },
       ],
     };
   },

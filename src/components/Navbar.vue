@@ -1,15 +1,13 @@
 <template>
-  <mdb-navbar class="custom-nav" light>
-    <mdb-container>
+  <mdb-navbar class="custom-nav" dark>
+    <div class="container inner-cont">
       <mdb-navbar-brand href="#">
-        <router-link to="/">
-          <img src="../assets/toss-logo.png" class="logo" alt />
-        </router-link>
+        <img src="../assets/wlogo@4x.png" class="logo c-p" alt @click="redirectHome" />
       </mdb-navbar-brand>
       <mdb-navbar-toggler>
         <mdb-navbar-nav>
           <router-link to="/">
-            <mdb-nav-item href="#">Home</mdb-nav-item>
+            <mdb-nav-item href="#" class="text-white">Home</mdb-nav-item>
           </router-link>
           <mdb-dropdown tag="li" class="nav-item">
             <mdb-dropdown-toggle
@@ -37,11 +35,11 @@
                     {{drop.title}}
                     <!-- {{drop.links.length}} -->
                     <div class="menu-list">
-                        <li
-                          v-for="idrop in drop.links.slice()"
-                          :key="drop.links.indexOf(idrop)"
-                          @click="handleClickRoute(idrop)"
-                        >{{idrop}}</li>
+                      <li
+                        v-for="idrop in drop.links.slice()"
+                        :key="drop.links.indexOf(idrop)"
+                        @click="handleClickRoute(idrop)"
+                      >{{idrop}}</li>
                     </div>
                   </div>
                 </div>
@@ -57,7 +55,7 @@
         </mdb-navbar-nav>
         <mdb-form-inline>
           <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
-          <a href="#" class="cus-link">MarketPlace</a>
+          <a href="#" class="cus-link text-white">MarketPlace</a>
           <router-link to="/get-quotes">
             <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
           </router-link>
@@ -72,7 +70,7 @@
           <router-link to="/login">
             <mdb-btn
               size="md"
-              class="cus-btn-outline font-weight-bold my-0 text-center"
+              class="cus-btn-outline font-weight-bold my-0 text-center bg-transparent text-white"
               type="submit"
               v-if="!getUserAuth.u_token"
             >Sign In</mdb-btn>
@@ -82,13 +80,12 @@
           </router-link>
         </mdb-form-inline>
       </mdb-navbar-toggler>
-    </mdb-container>
+    </div>
   </mdb-navbar>
 </template>
 
 <script>
 import {
-  mdbContainer,
   mdbDropdown,
   mdbDropdownToggle,
   mdbDropdownMenu,
@@ -106,7 +103,6 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Navbar",
   components: {
-    mdbContainer,
     mdbNavbar,
     mdbNavbarBrand,
     mdbNavbarToggler,
@@ -140,6 +136,9 @@ export default {
     },
     handleDropDownClick() {
       console.log("Hey");
+    },
+    redirectHome() {
+      this.$router.push("/");
     }
   }
 };
@@ -147,23 +146,21 @@ export default {
 
 <style scoped>
 .custom-nav {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-  background: #fff !important;
-  /* position: fixed;
-  width: 100%; */
-  /* position: sticky;
-  top: 0; */
-  /* z-index: 500 !important; */
-}
-.sticky-top {
+  position: fixed;
+  top: 0;
+  max-height: 70px;
+  width: 100vw;
   z-index: 2 !important;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+.inner-cont {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(116, 209, 76, 0.61);
 }
 .logo {
   width: 5rem;
 }
-.nav-items {
-  color: #000 !important;
-}
+
 .cus-link {
   color: #312e2e;
   padding: 0 2rem;
@@ -204,7 +201,7 @@ export default {
 .menu-head .fas {
   position: relative;
 }
-.menu-head:hover  {
+.menu-head:hover {
   /* color: var(--brand); */
   background: #eee;
 }
@@ -239,11 +236,14 @@ export default {
 /* .menu:hover {
   background: #eee;
 } */
-
 .u-profile {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background: var(--brand);
+}
+/* New Nav Style */
+.router-link-active {
+  background: rgba(116, 209, 76, 0.51);
 }
 </style>

@@ -1,32 +1,45 @@
 <template>
   <div id="app">
-    <NavTop />
+    <!-- <NavTop /> -->
     <Navbar />
-    <router-view></router-view>
+    <router-view :class="computeMargin"></router-view>
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import NavTop from "./components/Home/NavTop";
+// import NavTop from "./components/Home/NavTop";
 
 export default {
   name: "App",
   components: {
-    Navbar,
-    NavTop
+    Navbar
+    // NavTop
+  },
+  computed: {
+    computeMargin() {
+      if (this.$route.path !== "/") {
+        return "maintain-margin";
+      } else {
+        return "";
+      }
+    }
   }
 };
 </script>
 
 <style>
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 :root {
   --brand: #376c13;
+  --brandL2: #3c8f1a;
+  --brandL3: #74d14c;
   --brandDivs: #eee;
   --lightBg: #f1f1f1;
   /* --cream: #fbfffb; */
@@ -37,13 +50,21 @@ export default {
   --black: #373737;
   --lblack: #424242;
   --brOverlayUnit: 28rem;
+  --fontHelvNeue: Helvetica Neue, sans-serif;
 }
 body {
   /* background: #f6f8fd; */
   background: #fff;
+  font-family: Helvetica, sans-serif !important;
 }
 .container {
-  max-width: 80% !important;
+  max-width: 90% !important;
+}
+.font-helvNeue {
+  font-family: var(--fontHelvNeue) !important;
+}
+.maintain-margin {
+  margin-top: 80px;
 }
 .d-in {
   display: inline;
@@ -94,7 +115,7 @@ body {
   flex-basis: 60%;
 }
 .cus-btn {
-  background: var(--brand) !important;
+  background: var(--brandL2) !important;
   color: #fff;
   border: none;
 }
@@ -107,6 +128,9 @@ body {
 .text-brand {
   color: var(--brand);
 }
+.text-brand2 {
+  color: var(--brandL2);
+}
 .text-black {
   color: var(--black);
 }
@@ -116,14 +140,19 @@ body {
 .text-lblack {
   color: var(--lblack);
 }
+.bg-transparent {
+  background-color: transparent !important;
+}
+.bg-brand2 {
+  background: var(--brandL2) !important;
+}
 .cus-btn-outline {
-  background: #fff !important;
-  color: var(--brand);
+  color: var(--brandL2);
   border: none;
-  border: 2px solid var(--brand);
+  border: 2px solid var(--brandL2);
 }
 .cus-btn-outline:hover {
-  color: var(--brand);
+  color: var(--brandL2);
 }
 mark {
   padding: 5px 0 !important;

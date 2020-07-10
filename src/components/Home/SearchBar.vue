@@ -18,7 +18,7 @@
       placeholder="Enter postcode"
       v-model="postCode"
     />
-    <button class="search-btn text-center" @click="handleSubmit">Go</button>
+    <button class="search-btn text-center" @click="handleSubmit">Search</button>
   </div>
 </template>
 
@@ -94,24 +94,24 @@ export default {
 <style scoped>
 .overlay-form {
   position: relative;
-  z-index: 5;
+  z-index: 55 !important;
   display: flex;
   flex-direction: row;
   width: 60%;
-  border: 20px solid rgba(0, 0, 0, 0.6);
+  /* border: 20px solid rgba(0, 0, 0, 0.6); */
 }
 .form-controls {
-  padding: 1rem 1.5rem;
+  padding: 0.7rem 1.5rem;
 }
 .form-i {
-  width: 65%;
+  width: 60%;
 }
 .form-ii {
   width: 25%;
 }
 .search-btn {
-  width: 10%;
-  background: var(--brand) !important;
+  width: 20%;
+  background: var(--brandL2) !important;
   padding: 0 2.5rem;
   outline: none;
   border: none;

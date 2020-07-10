@@ -1,6 +1,6 @@
 <template>
-  <mdb-container class="my-5">
-    <h1>How to operate with us ?</h1>
+  <mdb-container class="wp-margin">
+    <h1 class="text-brand2 wp-heading font-helvNeue">So... how does it work?</h1>
     <mdb-row class="my-5">
       <mdb-col col="4">
         <img src="../../assets/search_g.png" />
@@ -21,8 +21,12 @@
         <p>Have a direct contact with your tradie and make deal accordingly</p>
       </mdb-col>
     </mdb-row>
+    <p class="text-center">
+      Watch a
+      <span class="text-brand2 font-weight-bold">video</span> instead ?
+    </p>
     <router-link to="/get-quotes">
-      <mdb-btn class="align" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
+      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
     </router-link>
   </mdb-container>
 </template>
@@ -41,9 +45,10 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  text-align: center;
-  font-weight: bold;
+.wp-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 5rem 0;
 }
 .col-4 {
   display: flex;
@@ -59,11 +64,13 @@ h6 {
   margin: 1rem 0;
 }
 img {
-  height: 13rem;
+  height: 10rem;
 }
 .align {
   display: block;
   margin: 0 auto;
-  background: var(--brand) !important;
+}
+.wp-margin {
+  margin: 7rem auto;
 }
 </style>
