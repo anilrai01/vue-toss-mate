@@ -68,7 +68,7 @@ export default {
   width: 100%;
   height: 90%;
   z-index: 999 !important;
-  background: red;
+  /* background: red; */
 }
 .logo-n-all {
   width: 100%;
@@ -95,6 +95,7 @@ export default {
 }
 .aus-fn {
   font-size: 4.5rem;
+  line-height: 2.5rem;
 }
 .company-info {
   margin-top: 3rem;

@@ -60,7 +60,7 @@ export default {
 </script>
 <style scoped>
 .modal-grp {
-  position: fixed;
-  z-index: 999 !important;
+  position: relative;
+  z-index: 50 !important;
 }
 </style>
