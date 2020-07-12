@@ -1,5 +1,5 @@
 <template>
-  <div class="news-bg mt-5">
+  <div class="news-bg">
     <mdb-container class="center">
       <h2 class="my-2">Have any boring task pending on your list ?</h2>
       <h5 class="my-3">Join us and let the work done in few clicks now !</h5>

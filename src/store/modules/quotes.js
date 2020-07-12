@@ -999,8 +999,10 @@ const state = {
   ],
   //After Entering all data through multi step form the data will be in jobDetails
   jobDetails: {},
-
   //After selecting job list.. it will temporarily store in currentJob
+
+  quoteValidationStat: false,
+  multiFormDisplayStat: false,
 };
 
 const mutations = {
@@ -1014,6 +1016,12 @@ const mutations = {
   },
   SET_JOB_DETAILS(state, value) {
     state.jobDetails = value;
+  },
+  SET_QUOTE_VALIDATION_STAT(state, value) {
+    state.quoteValidationStat = value;
+  },
+  SET_MFORM_DISP_STAT(state, value) {
+    state.multiFormDisplayStat = value;
   },
 };
 
@@ -1030,6 +1038,12 @@ const actions = {
   setCurrentJob(context, value) {
     context.commit("SET_CURRENT_JOB", value);
   },
+  setQuoteValidationStat(context, value) {
+    context.commit("SET_QUOTE_VALIDATION_STAT", value);
+  },
+  setMFormDispStat(context, value) {
+    context.commit("SET_MFORM_DISP_STAT", value);
+  },
 };
 
 const getters = {
@@ -1041,6 +1055,12 @@ const getters = {
   },
   getDropdown2: (state) => {
     return state.dropdownMenu2;
+  },
+  getQuoteValidationStat: (state) => {
+    return state.quoteValidationStat;
+  },
+  getMFormDispStat: (state) => {
+    return state.multiFormDisplayStat;
   },
 };
 

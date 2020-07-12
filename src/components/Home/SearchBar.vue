@@ -1,6 +1,6 @@
 <template>
   <div class="overlay-form">
-    <Modals :show="showModal" messageTitle="Alert!" @visibleOff="offVisible">
+    <Modals :show="getQuoteValidationStat" messageTitle="Alert!" @visibleOff="offVisible">
       <h2 slot="header" class="text-danger">Alert !</h2>
       <h4 slot="body">Please enter valid Business details and Postcode</h4>
     </Modals>
@@ -30,24 +30,23 @@ import Modals from "../Modals";
 export default {
   name: "SearchBar",
   components: {
-    Modals,
-    SearchList
+    SearchList,
+    Modals
   },
   data() {
     return {
       business: "",
       postCode: "",
-      showModal: false,
       filterArray: [],
       enableFilter: true
     };
   },
 
   computed: {
-    ...mapGetters(["getQuotes", "getDropdown"])
+    ...mapGetters(["getQuotes", "getDropdown", "getQuoteValidationStat"])
   },
   methods: {
-    ...mapActions(["setQuotes"]),
+    ...mapActions(["setQuotes", "setQuoteValidationStat"]),
     handleSubmit() {
       if (
         this.business !== null &&
@@ -61,12 +60,12 @@ export default {
         this.$router.push("/get-quotes");
       } else {
         // alert("Please enter valid Business details and Postcode");
-        this.showModal = true;
-        // console.log(this.showModal);
+        // console.log("Fuck you Vue js");
+        this.setQuoteValidationStat(true);
       }
     },
     offVisible() {
-      this.showModal = false;
+      this.setQuoteValidationStat(false);
     },
     setBusiness(par) {
       this.business = par;

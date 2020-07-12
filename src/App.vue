@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <NavTop /> -->
-    <Navbar />
+    <Navbar v-show="showNav" :class="navStyle" />
     <router-view :class="computeMargin"></router-view>
   </div>
 </template>
@@ -9,22 +9,41 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 // import NavTop from "./components/Home/NavTop";
+import { mapGetters } from "vuex";
 
 export default {
   name: "App",
   components: {
-    Navbar
+    Navbar,
     // NavTop
   },
   computed: {
+    ...mapGetters(["getQuoteValidationStat", "getMFormDispStat"]),
     computeMargin() {
       if (this.$route.path !== "/") {
         return "maintain-margin";
       } else {
         return "";
       }
-    }
-  }
+    },
+    navStyle() {
+      if (this.$route.path !== "/") {
+        return "navStyle";
+      } else {
+        return "";
+      }
+    },
+    showNav() {
+      if (
+        this.getQuoteValidationStat == false &&
+        this.getMFormDispStat == false
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 };
 </script>
 
@@ -51,6 +70,7 @@ export default {
   --lblack: #424242;
   --brOverlayUnit: 28rem;
   --fontHelvNeue: Helvetica Neue, sans-serif;
+  --greenMask: rgba(32, 85, 10, 0.91);
 }
 body {
   /* background: #f6f8fd; */
@@ -64,7 +84,13 @@ body {
   font-family: var(--fontHelvNeue) !important;
 }
 .maintain-margin {
-  margin-top: 80px;
+  margin-top: 70px;
+}
+.navStyle {
+  background: var(--greenMask);
+}
+.navStyle .inner-cont {
+  border: 0 !important;
 }
 .d-in {
   display: inline;
@@ -113,6 +139,18 @@ body {
 }
 .fb-60 {
   flex-basis: 60%;
+}
+.z-2 {
+  z-index: 2;
+}
+.green-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(32, 85, 10, 0.91);
+  z-index: -1;
 }
 .cus-btn {
   background: var(--brandL2) !important;

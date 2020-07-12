@@ -1,10 +1,10 @@
 <template>
   <div id="search-bar-modal">
-    <Modals :show="alertModal" @visibleOff="alertOff">
+    <Modals :show="getQuoteValidationStat" @visibleOff="alertOff">
       <h2 slot="header" class="text-danger">Alert !</h2>
       <h4 slot="body">Please enter valid Business details from the list</h4>
     </Modals>
-    <Modals :show="showModal" @visibleOff="offVisible" quoteModel>
+    <Modals :show="getMFormDispStat" @visibleOff="offVisible" quoteModel>
       <!-- Modal Body  -->
       <div class="p-2" slot="body">
         <mdb-progress :value="progress" :height="progressBarHeight" class="m-0 p-0 cus-progress" />
@@ -304,19 +304,27 @@ export default {
 
       filterArray: [],
       enableFilter: true,
-      showModal: false,
       modalHeight: 60,
-      alertModal: false,
       progress: 20,
       progressValue: 20,
       progressBarHeight: 10
     };
   },
   computed: {
-    ...mapGetters(["getDropdown", "getQuotes"])
+    ...mapGetters([
+      "getDropdown",
+      "getQuotes",
+      "getQuoteValidationStat",
+      "getMFormDispStat"
+    ])
   },
   methods: {
-    ...mapActions(["setJobDetails", "setQuotes"]),
+    ...mapActions([
+      "setJobDetails",
+      "setQuotes",
+      "setQuoteValidationStat",
+      "setMFormDispStat"
+    ]),
     setBusiness(par) {
       this.business = par;
       this.filterArray = [];
@@ -328,15 +336,15 @@ export default {
         this.business !== null &&
         this.getDropdown.includes(this.business)
       ) {
-        this.showModal = true;
+        this.setMFormDispStat(true);
       } else if (!this.getDropdown.includes(this.business)) {
-        this.alertModal = true;
+        this.setQuoteValidationStat(true);
       }
     },
     handlePostCodeSubmit() {
       this.business = this.url_name;
 
-      this.showModal = true;
+      this.setMFormDispStat(true);
     },
     resetVal() {
       this.business = "";
@@ -355,10 +363,10 @@ export default {
       this.$router.push("/profile");
     },
     alertOff() {
-      this.alertModal = false;
+      this.setQuoteValidationStat(false);
     },
     offVisible() {
-      this.showModal = false;
+      this.setMFormDispStat(false);
     },
     increaseProgress() {
       if (this.progress < 100) this.progress += this.progressValue;
@@ -397,7 +405,7 @@ export default {
 
     if (this.getQuotes.business !== "") {
       this.enableFilter = false;
-      this.showModal = true;
+      this.setMFormDispStat(true);
     }
     this.setProgress();
   }
