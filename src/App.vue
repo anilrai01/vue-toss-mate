@@ -88,7 +88,7 @@ body {
 }
 .navStyle {
   background: var(--greenMask);
-  z-index: 10 !important;
+  z-index: 1 !important;
 }
 .navStyle .inner-cont {
   border: 0 !important;
@@ -153,9 +153,9 @@ body {
   background: rgba(32, 85, 10, 0.91);
   z-index: -1;
 }
-.modal-content {
+/* .modal-content {
   margin: 5rem 0;
-}
+} */
 .cus-btn {
   background: var(--brandL2) !important;
   color: #fff;

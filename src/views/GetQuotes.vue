@@ -3,6 +3,7 @@
     <Banner
       height="50"
       img_url="https://images.unsplash.com/photo-1531235968168-51f35786b2a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      class="position-relative"
     >
       <div class="search-quote">
         <h3 class="my-4">You can Search for your required job here!</h3>
@@ -38,6 +39,7 @@ export default {
 
 <style scoped>
 .search-quote {
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;

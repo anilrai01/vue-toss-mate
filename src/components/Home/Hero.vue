@@ -67,7 +67,7 @@ export default {
   align-items: center;
   width: 100%;
   height: 90%;
-  z-index: 999 !important;
+  /* z-index: 999 !important; */
   /* background: red; */
 }
 .logo-n-all {

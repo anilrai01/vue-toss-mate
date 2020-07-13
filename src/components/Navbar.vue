@@ -252,6 +252,6 @@ export default {
 }
 .transform-nav .inner-cont {
   border: none;
-  z-index: 500;
+  /* z-index: 500; */
 }
 </style>

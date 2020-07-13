@@ -50,7 +50,7 @@ export default {
 }
 .slot-vis {
   position: absolute;
-  z-index: 50 !important;
+  /* z-index: 50 !important; */
 }
 .banner-pic {
   position: relative;
