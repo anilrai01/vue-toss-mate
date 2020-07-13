@@ -415,7 +415,7 @@ export default {
 <style scoped>
 #search-bar-modal {
   position: relative !important;
-  z-index: 55 !important;
+  /* z-index: 55 !important; */
   width: 70%;
 }
 h5 {

@@ -12,7 +12,7 @@ export default {
   props: {
     height: {
       type: String,
-      default: 'auto'
+      default: "auto"
     },
     img_url: {
       type: String
@@ -45,7 +45,6 @@ export default {
 
 <style scoped>
 .fix-vis {
-  z-index: -1 !important;
   opacity: 0.8 !important;
 }
 .slot-vis {
@@ -54,7 +53,6 @@ export default {
 }
 .banner-pic {
   position: relative;
-  z-index: 1;
   width: 100%;
   /* height: 40vh; */
   /* background-image: url("https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
