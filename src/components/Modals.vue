@@ -9,7 +9,7 @@
       <mdb-modal-body>
         <slot name="body"></slot>
       </mdb-modal-body>
-      <mdb-modal-footer v-if="!quoteModel && !taskModel">
+      <mdb-modal-footer v-if="!quoteModel && !taskModel && !wpVidModel">
         <mdb-btn class="cus-btn" @click.native="handleVisiblity">Close</mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
@@ -22,7 +22,7 @@ import {
   mdbModalTitle,
   mdbModalBody,
   mdbModalFooter,
-  mdbBtn
+  mdbBtn,
 } from "mdbvue";
 export default {
   components: {
@@ -31,31 +31,35 @@ export default {
     mdbModalTitle,
     mdbModalBody,
     mdbModalFooter,
-    mdbBtn
+    mdbBtn,
   },
   props: {
     messageTitle: {
       type: String,
-      default: "Connection Error !"
+      default: "Connection Error !",
     },
     show: {
       type: Boolean,
-      default: false
+      default: false,
     },
     quoteModel: {
       type: Boolean,
-      default: false
+      default: false,
     },
     taskModel: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    wpVidModel: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     handleVisiblity() {
       this.$emit("visibleOff");
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

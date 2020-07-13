@@ -1,11 +1,13 @@
 <template>
   <div
     class="p-card d-flex f-row j-sb a-c"
-    :class="{'bigMargin' : (computeCss == true), 'medMargin' : (computeMedCss == true)}"
+    :class="{ bigMargin: computeCss == true, medMargin: computeMedCss == true }"
   >
     <img class="p-img" :src="img" />
     <div class="p-desc d-flex f-col j-c">
-      <div class="p-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+      <div class="p-title">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
       <div class="p-det d-flex f-row j-sb">
         <div class="p-name">Air Conditioning</div>
         <div class="p-price text-brand2 font-weight-bold">$200</div>
@@ -20,16 +22,16 @@ export default {
   props: {
     big: {
       type: Boolean,
-      default: false
+      default: false,
     },
     med: {
       type: Boolean,
-      default: false
+      default: false,
     },
     img: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     computeCss() {
@@ -45,8 +47,8 @@ export default {
       } else {
         return false;
       }
-    }
-  }
+    },
+  },
   //   mounted() {
   //     console.log("Big: ", this.big);
   //     console.log("MEd: ", this.med);
@@ -67,13 +69,13 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
 }
 .bigMargin {
-  flex-basis: 22%;
-  /* width: 20rem !important; */
+  /* flex-basis: 22%; */
+  width: 22rem !important;
   padding: 1rem;
 }
 .medMargin {
-  flex-basis: 18%;
-  /* width: 17rem !important; */
+  /* flex-basis: 18%; */
+  width: 17rem !important;
   padding: 0.8rem;
 }
 .medMargin img {

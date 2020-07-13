@@ -10,11 +10,15 @@
 import Navbar from "./components/Navbar.vue";
 // import NavTop from "./components/Home/NavTop";
 import { mapGetters } from "vuex";
+//Slick Slider
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "App",
   components: {
-    Navbar
+    Navbar,
     // NavTop
   },
   computed: {
@@ -42,8 +46,8 @@ export default {
       } else {
         return false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -71,6 +75,11 @@ export default {
   --brOverlayUnit: 28rem;
   --fontHelvNeue: Helvetica Neue, sans-serif;
   --greenMask: rgba(32, 85, 10, 0.91);
+}
+.car-item {
+  background: var(--brand);
+  width: 10rem;
+  color: #fff;
 }
 body {
   /* background: #f6f8fd; */

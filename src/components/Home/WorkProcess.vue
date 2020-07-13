@@ -1,6 +1,21 @@
 <template>
   <mdb-container class="wp-margin">
-    <h1 class="text-brand2 wp-heading font-helvNeue">So... how does it work?</h1>
+    <Modals :show="showVideoModel" @visibleOff="videoModelOff" wpVidModel>
+      <h4 slot="header" class="font-weight-bold">
+        Learn through our tutorials ...
+      </h4>
+      <iframe
+        src="https://www.youtube.com/embed/CyD8hAjj8L8"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        slot="body"
+        class="w-100 wpVid"
+      ></iframe>
+    </Modals>
+    <h1 class="text-brand2 wp-heading font-helvNeue">
+      So... how does it work?
+    </h1>
     <mdb-row class="my-5">
       <mdb-col col="4">
         <img src="../../assets/search_g.png" />
@@ -23,24 +38,44 @@
     </mdb-row>
     <p class="text-center">
       Watch a
-      <span class="text-brand2 font-weight-bold">video</span> instead ?
+      <span class="text-brand2 font-weight-bold c-p" @click="enableVideoModel"
+        >video</span
+      >
+      instead ?
     </p>
     <router-link to="/get-quotes">
-      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
+      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'"
+        >Get Started</mdb-btn
+      >
     </router-link>
   </mdb-container>
 </template>
 
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbBtn } from "mdbvue";
+import Modals from "../Modals";
 export default {
   name: "WorkProcess",
   components: {
     mdbContainer,
     mdbRow,
     mdbCol,
-    mdbBtn
-  }
+    mdbBtn,
+    Modals,
+  },
+  data() {
+    return {
+      showVideoModel: false,
+    };
+  },
+  methods: {
+    enableVideoModel() {
+      this.showVideoModel = true;
+    },
+    videoModelOff() {
+      this.showVideoModel = false;
+    },
+  },
 };
 </script>
 
@@ -72,5 +107,8 @@ img {
 }
 .wp-margin {
   margin: 7rem auto;
+}
+.wpVid {
+  height: 25rem;
 }
 </style>
