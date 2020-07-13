@@ -219,6 +219,9 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+.banner-testimonial * {
+  z-index: 10;
+}
 .testimonials {
   margin-top: 3rem;
   width: 80%;

@@ -151,7 +151,6 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(32, 85, 10, 0.91);
-  z-index: -1;
 }
 /* .modal-content {
   margin: 5rem 0;

@@ -93,7 +93,7 @@ export default {
 <style scoped>
 .overlay-form {
   position: relative;
-  z-index: 55 !important;
+  /* z-index: 55 !important; */
   display: flex;
   flex-direction: row;
   width: 60%;

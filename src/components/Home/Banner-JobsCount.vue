@@ -101,6 +101,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.banner-job * {
+  z-index: 10;
+}
 .banner-job h1 {
   margin-bottom: 4rem;
 }
