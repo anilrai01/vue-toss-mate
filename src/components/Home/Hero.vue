@@ -3,7 +3,7 @@
     <div class="hero-banner-content">
       <div class="logo-n-all mt-5">
         <img :src="sendLogo" alt class="blogo" />
-        <h2 class="text-white mt-5">Change the way you tradie in</h2>
+        <h2 class="text-white">Change the way you tradie in</h2>
         <h1 class="font-weight-bold mb-5 text-white aus-fn">AUSTRALIA</h1>
         <SearchBar />
       </div>
@@ -55,6 +55,7 @@ export default {
 .blogo {
   width: 10rem;
   height: 10rem;
+  margin-bottom: 3rem;
 }
 .hero-banner-content {
   position: absolute;
@@ -63,7 +64,7 @@ export default {
   transform: translate(-50%, -50%); */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: 90%;

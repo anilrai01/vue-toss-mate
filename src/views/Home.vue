@@ -12,20 +12,10 @@
       <img :src="returnImage" alt class="modelImg" />
       <h1 class="text-brand2 font-weight-bold text-left z-2 mb-5">What are others doing?</h1>
       <div class="big-card">
-        <ProfileCard
-          big
-          v-for="(card, index) in wodProfile.slice(0, 4)"
-          :key="index"
-          :img="wodProfile[index].img_url"
-        />
+        <ProfileCard big v-for="(card, index) in wodProfile[0]" :key="index" :img="card.img_url" />
       </div>
       <div class="small-card">
-        <ProfileCard
-          med
-          v-for="(card, index) in wodProfile.slice(4, 9)"
-          :key="index"
-          :img="wodProfile[index].img_url"
-        />
+        <ProfileCard med v-for="(card, index) in wodProfile[1]" :key="index" :img="card.img_url" />
       </div>
     </div>
     <!-- New Section Two -->
@@ -37,14 +27,15 @@
         <div class="testimonials">
           <div class="testi-card">
             <img
-              src="https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=681&q=80"
+              src="https://images.unsplash.com/photo-1520155707862-5b32817388d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
               alt
             />
 
             <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
-            <p
-              class="text-justify text-grey"
-            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum culpa architecto voluptatem accusanti</p>
+            <p class="text-justify text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
+              culpa architecto voluptatem accusanti
+            </p>
           </div>
           <div class="testi-card">
             <img
@@ -53,20 +44,22 @@
             />
 
             <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
-            <p
-              class="text-justify text-grey"
-            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum culpa architecto voluptatem accusanti</p>
+            <p class="text-justify text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
+              culpa architecto voluptatem accusanti
+            </p>
           </div>
           <div class="testi-card">
             <img
-              src="https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=681&q=80"
+              src="https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
               alt
             />
 
             <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
-            <p
-              class="text-justify text-grey"
-            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum culpa architecto voluptatem accusanti</p>
+            <p class="text-justify text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
+              culpa architecto voluptatem accusanti
+            </p>
           </div>
         </div>
       </div>
@@ -77,8 +70,8 @@
       <h3 class="font-weight-bold">Browse our extensive categories</h3>
       <div class="cat-list">
         <div class="list-col" v-for="(list, index) in categoryList" :key="index">
-          <h5 class="font-weight-bold">{{list.title}}</h5>
-          <p v-for="(listt, index) in list.links.slice(0,9)" :key="index">{{listt}}</p>
+          <h5 class="font-weight-bold">{{ list.title }}</h5>
+          <p v-for="(listt, index) in list.links.slice(0, 9)" :key="index">{{ listt }}</p>
         </div>
       </div>
     </div>
@@ -132,46 +125,47 @@ export default {
   data() {
     return {
       wodProfile: [
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1520155707862-5b32817388d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-        },
-        {
-          img_url:
-            "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-        }
+        [
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80"
+          }
+        ],
+        [
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
+          },
+
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1520155707862-5b32817388d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          },
+          {
+            img_url:
+              "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+          }
+        ]
       ]
     };
   }
@@ -246,7 +240,7 @@ export default {
   object-fit: cover;
 }
 .browse-ex-cat {
-  padding: 5rem 0 5rem 10rem;
+  margin: 5rem;
 }
 .cat-list {
   display: flex;

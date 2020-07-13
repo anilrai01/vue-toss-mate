@@ -49,7 +49,8 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 30vh;
+  height: auto;
+  padding: 5rem 0;
 }
 
 h2,

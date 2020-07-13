@@ -101,4 +101,24 @@ export default {
 .p-name {
   font-size: 0.8rem;
 }
+
+/* Typography */
+.bigMargin .p-desc .p-title {
+  font-size: 1rem;
+}
+.bigMargin .p-desc .p-det .p-price {
+  font-size: 1.7rem;
+}
+.bigMargin .p-desc .p-det .p-name {
+  font-size: 0.9rem;
+}
+.medMargin .p-desc .p-title {
+  font-size: 0.8rem;
+}
+.medMargin .p-desc .p-det .p-price {
+  font-size: 1.5rem;
+}
+.medMargin .p-desc .p-det .p-name {
+  font-size: 0.7rem;
+}
 </style>
