@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <NavTop /> -->
-    <Navbar v-show="showNav" :class="navStyle" />
+    <Navbar :class="navStyle" />
     <router-view :class="computeMargin"></router-view>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "App",
   components: {
-    Navbar,
+    Navbar
     // NavTop
   },
   computed: {
@@ -42,8 +42,8 @@ export default {
       } else {
         return false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -88,6 +88,7 @@ body {
 }
 .navStyle {
   background: var(--greenMask);
+  z-index: 10 !important;
 }
 .navStyle .inner-cont {
   border: 0 !important;
@@ -151,6 +152,9 @@ body {
   height: 100%;
   background: rgba(32, 85, 10, 0.91);
   z-index: -1;
+}
+.modal-content {
+  margin: 5rem 0;
 }
 .cus-btn {
   background: var(--brandL2) !important;

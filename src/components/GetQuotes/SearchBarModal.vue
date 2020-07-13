@@ -1,6 +1,6 @@
 <template>
   <div id="search-bar-modal">
-    <Modals :show="getQuoteValidationStat" @visibleOff="alertOff">
+    <Modals :show="getQuoteValidationStat" @visibleOff="alertOff" class="mt-5">
       <h2 slot="header" class="text-danger">Alert !</h2>
       <h4 slot="body">Please enter valid Business details from the list</h4>
     </Modals>

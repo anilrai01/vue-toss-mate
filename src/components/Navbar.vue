@@ -2,12 +2,7 @@
   <mdb-navbar id="myNav" class="custom-nav" dark>
     <div class="container inner-cont">
       <mdb-navbar-brand href="#">
-        <img
-          src="../assets/wlogo@4x.png"
-          class="logo c-p"
-          alt
-          @click="redirectHome"
-        />
+        <img src="../assets/wlogo@4x.png" class="logo c-p" alt @click="redirectHome" />
       </mdb-navbar-brand>
       <mdb-navbar-toggler>
         <mdb-navbar-nav>
@@ -22,8 +17,7 @@
               slot="toggle"
               waves-fixed
               class="position-relative"
-              >Categories</mdb-dropdown-toggle
-            >
+            >Categories</mdb-dropdown-toggle>
             <mdb-dropdown-menu>
               <h4 class="mb-4 drop-title">Popular Categories</h4>
               <!-- <div class="menus">
@@ -35,11 +29,7 @@
                 >{{menu}}</div>
               </div>-->
               <div class="menus">
-                <div
-                  class="menu"
-                  v-for="(drop, index) in getDropdown2"
-                  :key="index"
-                >
+                <div class="menu" v-for="(drop, index) in getDropdown2" :key="index">
                   <div class="menu-head">
                     <mdb-icon icon="angle-right mr-2" />
                     {{ drop.title }}
@@ -49,18 +39,14 @@
                         v-for="idrop in drop.links.slice()"
                         :key="drop.links.indexOf(idrop)"
                         @click="handleClickRoute(idrop)"
-                      >
-                        {{ idrop }}
-                      </li>
+                      >{{ idrop }}</li>
                     </div>
                   </div>
                 </div>
               </div>
               <hr class="m-0" />
               <router-link to="/all-categories">
-                <h6 class="text-center mb-0 py-2 my-2 text-grey c-p">
-                  Show all Categories
-                </h6>
+                <h6 class="text-center mb-0 py-2 my-2 text-grey c-p">Show all Categories</h6>
               </router-link>
             </mdb-dropdown-menu>
           </mdb-dropdown>
@@ -71,9 +57,7 @@
           <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
           <a href="#" class="cus-link text-white">MarketPlace</a>
           <router-link to="/get-quotes">
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit"
-              >Get Quotes</mdb-btn
-            >
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
           </router-link>
           <router-link to="/business-register">
             <mdb-btn
@@ -81,8 +65,7 @@
               size="md"
               class="cus-btn my-0 text-center"
               type="submit"
-              >List your business</mdb-btn
-            >
+            >List your business</mdb-btn>
           </router-link>
           <router-link to="/login">
             <mdb-btn
@@ -90,15 +73,10 @@
               class="cus-btn-outline font-weight-bold my-0 text-center bg-transparent text-white"
               type="submit"
               v-if="!getUserAuth.u_token"
-              >Sign In</mdb-btn
-            >
+            >Sign In</mdb-btn>
           </router-link>
           <router-link to="/profile">
-            <div
-              class="u-profile bg-center-style"
-              :style="u_style"
-              v-if="getUserAuth.u_token"
-            ></div>
+            <div class="u-profile bg-center-style" :style="u_style" v-if="getUserAuth.u_token"></div>
           </router-link>
         </mdb-form-inline>
       </mdb-navbar-toggler>
@@ -119,7 +97,7 @@ import {
   mdbNavItem,
   mdbBtn,
   mdbFormInline,
-  mdbIcon,
+  mdbIcon
 } from "mdbvue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -136,18 +114,18 @@ export default {
     // mdbDropdownItem,
     mdbBtn,
     mdbFormInline,
-    mdbIcon,
+    mdbIcon
   },
   data() {
     return {
-      subDrop: false,
+      subDrop: false
     };
   },
   computed: {
     ...mapGetters(["getDropdown", "getUserAuth", "getDropdown2"]),
     u_style() {
       return { "background-image": `url(${this.getUserAuth.u_img})` };
-    },
+    }
   },
   methods: {
     ...mapActions(["setQuoteBusiness"]),
@@ -161,8 +139,8 @@ export default {
     },
     redirectHome() {
       this.$router.push("/");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -172,7 +150,7 @@ export default {
   top: 0;
   max-height: 70px;
   width: 100vw;
-  z-index: 200 !important;
+  z-index: 20;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 .inner-cont {
