@@ -11,7 +11,8 @@ export default {
   name: "Banner",
   props: {
     height: {
-      type: String
+      type: String,
+      default: 'auto'
     },
     img_url: {
       type: String

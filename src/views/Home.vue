@@ -4,7 +4,7 @@
     <Hero />
     <WorkProcess />
 
-    <Banner class="mt-5" height="70" :img_url="sendNewbannerTrio">
+    <Banner class="mt-5" :img_url="sendNewbannerTrio">
       <BannerJobs />
     </Banner>
     <!-- New section One  -->
@@ -29,7 +29,7 @@
       </div>
     </div>
     <!-- New Section Two -->
-    <Banner height="90" :img_url="returnSecImg">
+    <Banner :img_url="returnSecImg">
       <div class="banner-testimonial">
         <div class="green-mask"></div>
 

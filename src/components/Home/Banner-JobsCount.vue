@@ -95,6 +95,7 @@ export default {
   width: 80%;
   height: 100%;
   margin: auto;
+  padding: 6rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
