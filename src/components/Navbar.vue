@@ -244,7 +244,7 @@ export default {
 }
 /* New Nav Style */
 .router-link-active {
-  background: rgba(116, 209, 76, 0.51);
+  /* background: rgba(116, 209, 76, 0.51); */
 }
 .transform-nav {
   background: var(--greenMask);

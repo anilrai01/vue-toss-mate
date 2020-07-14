@@ -18,7 +18,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "App",
   components: {
-    Navbar,
+    Navbar
     // NavTop
   },
   computed: {
@@ -46,8 +46,8 @@ export default {
       } else {
         return false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -246,5 +246,8 @@ mark {
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
+}
+.set-zindex * {
+  z-index: 10;
 }
 </style>

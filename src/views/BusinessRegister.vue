@@ -3,6 +3,7 @@
     <Banner
       height="40"
       img_url="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+      class="set-zindex"
     >
       <div class="own-overlay"></div>
       <div class="register-msg">
@@ -64,6 +65,6 @@ h4 {
   height: 0;
 
   opacity: 0.4;
-  z-index: -1;
+  /* z-index: -1; */
 }
 </style>
