@@ -1,7 +1,7 @@
 <template>
   <Banner height="100" :img_url="sendMainBG" class="hero-img">
     <div class="hero-banner-content">
-      <div class="logo-n-all mt-5">
+      <div class="logo-n-all">
         <img :src="sendLogo" alt class="blogo" />
         <h2 class="text-white">Change the way you tradie in</h2>
         <h1 class="font-weight-bold mb-5 text-white aus-fn">AUSTRALIA</h1>
@@ -77,6 +77,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 4.5rem;
 }
 .bot-overlay {
   position: absolute;
@@ -99,7 +100,7 @@ export default {
   line-height: 2.7rem;
 }
 .company-info {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 .connected {
   border-right: 1px solid #fff;
