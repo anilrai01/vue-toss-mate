@@ -235,7 +235,7 @@ export default {
 
         autoplaySpeed: 4500,
         cssEase: "linear",
-
+        pauseOnHover: false,
         // touchThreshold: 5,
         centerMode: true,
         centerPadding: "-10%"
@@ -253,7 +253,7 @@ export default {
 
         autoplaySpeed: 5000,
         cssEase: "linear",
-
+        pauseOnHover: false,
         // touchThreshold: 5,
         centerMode: true,
         centerPadding: "-5%"
