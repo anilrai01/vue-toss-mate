@@ -153,6 +153,9 @@ body {
 .z-2 {
   z-index: 2;
 }
+.o-50 {
+  opacity: 50%;
+}
 .green-mask {
   position: absolute;
   top: 0;

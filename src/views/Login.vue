@@ -1,12 +1,8 @@
 <template>
-  <div id="#login">
-    <Banner
-      height="35"
-      img_url="https://images.unsplash.com/photo-1454988501794-2992f706932e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"
-    />
-    <mdb-container>
+  <div id="login ">
+    <mdb-container class="py-3">
       <!-- Default form login -->
-      <h3 class="form-label text-center mt-5">Login now and start hiring !</h3>
+      <h3 class="form-label text-center mt-5">Login now and get your work done !</h3>
       <form class="login-form">
         <!-- <div class="avatar"></div>
         <p class="h4 text-center mb-4 form-label">Sign in</p>-->
@@ -35,12 +31,10 @@
 
 <script>
 import { mdbContainer } from "mdbvue";
-import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 export default {
   name: "Login",
   components: {
-    Banner,
     mdbContainer,
     Footer
   }

@@ -1,9 +1,7 @@
 <template>
   <mdb-container class="wp-margin">
     <Modals :show="showVideoModel" @visibleOff="videoModelOff" wpVidModel>
-      <h4 slot="header" class="font-weight-bold">
-        Learn through our tutorials ...
-      </h4>
+      <h4 slot="header" class="font-weight-bold">Learn through our tutorials ...</h4>
       <iframe
         src="https://www.youtube.com/embed/CyD8hAjj8L8"
         frameborder="0"
@@ -13,9 +11,7 @@
         class="w-100 wpVid"
       ></iframe>
     </Modals>
-    <h1 class="text-brand2 wp-heading font-helvNeue">
-      So... how does it work?
-    </h1>
+    <h1 class="text-brand2 wp-heading font-helvNeue">So... how does it work?</h1>
     <mdb-row class="my-5">
       <mdb-col col="4">
         <img src="../../assets/search_g.png" />
@@ -38,15 +34,11 @@
     </mdb-row>
     <p class="text-center">
       Watch a
-      <span class="text-brand2 font-weight-bold c-p" @click="enableVideoModel"
-        >video</span
-      >
+      <span class="text-brand2 font-weight-bold c-p" @click="enableVideoModel">video</span>
       instead ?
     </p>
-    <router-link to="/get-quotes">
-      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'"
-        >Get Started</mdb-btn
-      >
+    <router-link to="/browse-task">
+      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
     </router-link>
   </mdb-container>
 </template>
@@ -61,11 +53,11 @@ export default {
     mdbRow,
     mdbCol,
     mdbBtn,
-    Modals,
+    Modals
   },
   data() {
     return {
-      showVideoModel: false,
+      showVideoModel: false
     };
   },
   methods: {
@@ -74,8 +66,8 @@ export default {
     },
     videoModelOff() {
       this.showVideoModel = false;
-    },
-  },
+    }
+  }
 };
 </script>
 

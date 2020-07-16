@@ -1,14 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home";
-// import Register from "../views/Register";
-// import Login from "../views/Login";
-// import Profile from "../views/Profile";
 import NotFound from "../components/NotFound";
-// import GetQuotes from "../views/GetQuotes";
-// import BusinessRegister from "../views/BusinessRegister";
 
 Vue.use(VueRouter);
+
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
 
 const routes = [
   {
@@ -40,10 +39,10 @@ const routes = [
       import(/* webpackChunkName: "profile-tradie" */ "../views/ProfileTradie"),
   },
   {
-    path: "/get-quotes",
+    path: "/browse-task",
     name: "GetQuotes",
     component: () =>
-      import(/* webpackChunkName: "getQuotes" */ "../views/GetQuotes"),
+      import(/* webpackChunkName: "getQuotes" */ "../views/BrowseTask"),
   },
   {
     path: "/business-register",

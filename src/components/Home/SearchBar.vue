@@ -4,7 +4,7 @@
       <h2 slot="header" class="text-danger">Alert !</h2>
       <h4 slot="body">Please enter valid Business details and Postcode</h4>
     </Modals>
-    <SearchList width="65" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
+    <SearchList width="60" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
 
     <input
       type="text"
@@ -103,7 +103,7 @@ export default {
   padding: 0.7rem 1.5rem;
 }
 .form-i {
-  width: 60%;
+  width: 55%;
 }
 .form-ii {
   width: 25%;

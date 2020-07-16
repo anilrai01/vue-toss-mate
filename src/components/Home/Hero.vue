@@ -55,7 +55,7 @@ export default {
 .blogo {
   width: 10rem;
   height: 10rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .hero-banner-content {
   position: absolute;
@@ -96,10 +96,10 @@ export default {
 }
 .aus-fn {
   font-size: 4.5rem;
-  line-height: 2.5rem;
+  line-height: 2.7rem;
 }
 .company-info {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .connected {
   border-right: 1px solid #fff;

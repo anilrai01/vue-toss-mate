@@ -3,13 +3,13 @@
     <div class="green-mask"></div>
     <h1 class="text-white font-weight-bold font-helvNeue">What needs to be done ?</h1>
     <div class="s-row mt-4">
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Plumber')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('plumber')" class="svg-i-icon"></object>
         </div>
         <h6>Plumbing</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Electrician')">
         <div class="svg-icon">
           <object
             type="image/svg+xml"
@@ -19,31 +19,31 @@
         </div>
         <h6>Electrician</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Painting')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('painting')" class="svg-i-icon">Paining</object>
         </div>
         <h6>Painting</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Repairing')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('repair')" class="svg-i-icon">Repairing</object>
         </div>
         <h6>Repairing</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Gardening')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('gardening')" class="svg-i-icon">Gardening</object>
         </div>
         <h6>Gardening</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Air Conditioning')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('ac')" class="svg-i-icon">Ac</object>
         </div>
         <h6>Air Conditioning</h6>
       </div>
-      <div class="s-col">
+      <div class="s-col" @click="handleRouteClick('Moving')">
         <div class="svg-icon">
           <object type="image/svg+xml" :data="showIcon('moving')" class="svg-i-icon">Moving</object>
         </div>
@@ -62,10 +62,12 @@ import Ac from "../../assets/Icon awesome-air-freshener.svg";
 import Moving from "../../assets/Icon awesome-truck-moving.svg";
 import Gardening from "../../assets/Icon material-nature.svg";
 
+import { mapActions } from "vuex";
 export default {
   name: "BannerJobs",
   computed: {},
   methods: {
+    ...mapActions(["setQuoteBusiness"]),
     showIcon(icon) {
       switch (icon) {
         case "plumber":
@@ -85,6 +87,10 @@ export default {
         default:
           return "";
       }
+    },
+    handleRouteClick(param) {
+      this.$router.push(`/categories-view/${param}`);
+      this.setQuoteBusiness(param);
     }
   }
 };

@@ -51,13 +51,13 @@
             </mdb-dropdown-menu>
           </mdb-dropdown>
           <mdb-nav-item href="#">Articles</mdb-nav-item>
-          <mdb-nav-item href="#">Pricing</mdb-nav-item>
+          <!-- <mdb-nav-item href="#">Pricing</mdb-nav-item> -->
         </mdb-navbar-nav>
         <mdb-form-inline>
           <!-- <mdb-input class="mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> -->
-          <a href="#" class="cus-link text-white">MarketPlace</a>
-          <router-link to="/get-quotes">
-            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Get Quotes</mdb-btn>
+          <!-- <a href="#" class="cus-link text-white">MarketPlace</a> -->
+          <router-link to="/browse-task">
+            <mdb-btn color="indigo" size="md" class="cus-btn my-0" type="submit">Browse Task</mdb-btn>
           </router-link>
           <router-link to="/business-register">
             <mdb-btn
@@ -132,6 +132,7 @@ export default {
     handleClickRoute(name) {
       // this.setQuoteBusiness(name);
       this.$router.push(`/categories-view/${name}`);
+      this.setQuoteBusiness(name);
       // console.log(name);
     },
     handleDropDownClick() {
@@ -150,7 +151,7 @@ export default {
   top: 0;
   max-height: 70px;
   width: 100vw;
-  z-index: 20;
+  z-index: 30 !important;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 .inner-cont {

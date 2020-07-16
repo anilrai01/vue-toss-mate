@@ -242,7 +242,7 @@ export default {
       },
       small_settings: {
         arrows: false,
-  
+
         autoplay: true,
         dots: false,
         focusOnSelect: true,
@@ -261,7 +261,7 @@ export default {
       testimonials_settings: {
         autoplay: true,
         arrows: false,
-        dots: true,
+        dots: false,
         focusOnSelect: true,
         infinite: true,
         speed: 500,

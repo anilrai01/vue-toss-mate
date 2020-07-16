@@ -3,10 +3,10 @@
     <Banner
       height="40"
       img_url="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
-      class="set-zindex"
     >
-      <div class="own-overlay"></div>
       <div class="register-msg">
+        <div class="green-mask o-50"></div>
+
         <h2>List your business now and start earning</h2>
         <h4>Get Job Offers by sitting at home</h4>
         <h5>Your Job, Your Skills, Your Choice</h5>
@@ -51,6 +51,9 @@ h4 {
   flex-direction: column;
   justify-content: center;
   padding: 1rem 3rem;
+}
+.register-msg * {
+  z-index: 10 !important;
 }
 .own-overlay {
   position: absolute;
