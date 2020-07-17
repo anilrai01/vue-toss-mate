@@ -40,9 +40,9 @@ const routes = [
   },
   {
     path: "/browse-task",
-    name: "GetQuotes",
+    name: "BrowseTask",
     component: () =>
-      import(/* webpackChunkName: "getQuotes" */ "../views/BrowseTask"),
+      import(/* webpackChunkName: "browsetask" */ "../views/BrowseTask"),
   },
   {
     path: "/business-register",

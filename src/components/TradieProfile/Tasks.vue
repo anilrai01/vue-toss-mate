@@ -95,8 +95,13 @@
         </form>
       </div>
     </Modals>
-    <div class="tradie-task p-3" v-for="task in taskList" :key="task.id">
-      <div class="title-budg d-flex j-fs">
+    <div
+      class="tradie-task p-3"
+      v-for="task in taskList"
+      :key="task.id"
+      @click="handleBTJobPost(task)"
+    >
+      <div class="title-budg d-flex j-fs" :class="btImgSize">
         <div class="profile">
           <img :src="task.imgAddress" alt="Profile" />
           <!-- :style="(task.taskStat == 'Completed') ? {height: '8rem'} : ''" -->
@@ -120,8 +125,10 @@
                 <span>{{task.created_date}}</span>
               </div>
             </div>
-            <h5 class="mt-3 f-norm font-weight-bold text-grey">Job Description</h5>
-            <p class="f-norm">{{task.taskDesc}}</p>
+            <div v-if="showDis">
+              <h5 class="mt-3 f-norm font-weight-bold text-grey">Job Description</h5>
+              <p class="f-norm">{{task.taskDesc}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -132,7 +139,7 @@
           Status :
           <span class="text-brand font-weight-bold">{{task.taskStat}}</span>
         </span>
-        <button class="cus-btn px-2 py-1" @click="showModal(task)">Enquire</button>
+        <button class="cus-btn px-2 py-1" @click="showModal(task)" v-if="showDis">Enquire</button>
       </div>
     </div>
   </div>
@@ -163,10 +170,24 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getCurrentJob", "getUserAuth"])
+    ...mapGetters(["getCurrentJob", "getUserAuth"]),
+    showDis() {
+      if (this.$route.name == "BrowseTask") {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    btImgSize() {
+      if (this.$route.name == "BrowseTask") {
+        return "btImgSize";
+      } else {
+        return "";
+      }
+    }
   },
   methods: {
-    ...mapActions(["setCurrentJob"]),
+    ...mapActions(["setCurrentJob", "setCurrentBrowseJob"]),
     alertOff() {
       this.alertModal = false;
     },
@@ -193,6 +214,10 @@ export default {
       } else {
         return false;
       }
+    },
+    handleBTJobPost(data) {
+      // alert(data.taskName);
+      this.setCurrentBrowseJob(data);
     }
   }
   // mounted() {
@@ -209,6 +234,10 @@ export default {
   border-right: 4px solid #9ddd72;
   margin-bottom: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.tradie-task:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 .profile {
   /* width: 4rem;
@@ -220,11 +249,17 @@ export default {
   height: 8rem;
   object-fit: cover;
 }
+.btImgSize img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
+
 .title-budg .profile {
   flex-basis: 15%;
 }
 .title-budg .desc {
-  flex-basis: calc(100% - 9rem);
+  flex-basis: 95%;
 }
 .desc h4 {
   font-size: 1.25rem;

@@ -90,16 +90,26 @@ const state = {
         "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=681&q=80",
     },
   ],
+  //For Tradie Browse
   currentJob: {},
+  //For Normal Browse
+  currentBrowseJob: "",
 };
 const mutations = {
   SET_CURRENT_JOB(state, value) {
     state.currentJob = value;
   },
+  SET_CURRENT_BROWSE_JOB(state, value) {
+    state.currentBrowseJob = value;
+  },
 };
 const actions = {
   setCurrentJob(context, value) {
     context.commit("SET_CURRENT_JOB", value);
+  },
+  setCurrentBrowseJob(context, value) {
+    // alert(value.taskName);
+    context.commit("SET_CURRENT_BROWSE_JOB", value);
   },
 };
 const getters = {
@@ -111,6 +121,9 @@ const getters = {
   },
   getCurrentJob: (state) => {
     return state.currentJob;
+  },
+  getCurrentBrowseJob: (state) => {
+    return state.currentBrowseJob;
   },
 };
 

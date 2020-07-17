@@ -111,7 +111,7 @@ export default {
 .tradie-tasks .task-desc {
   flex-basis: 38.5%;
 } */
-
+/* 
 .task-desc {
   background: var(--cream);
   width: 100%;
@@ -123,5 +123,5 @@ export default {
 }
 .choice-img {
   width: 15rem;
-}
+} */
 </style>
