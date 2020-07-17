@@ -15,13 +15,13 @@
       <!-- Offer Task -->
       <Tasks :taskList="offerTask" v-if="tabActive.offerActive" />
 
-      <div class="task-desc">
+      <!-- <div class="task-desc">
         <img class="choice-img" src="../../assets/choose_list.svg" />
         <h4 class="text-center text-brand my-5 px-5">Check on all the available list of tasks</h4>
         <h5
           class="text-center px-5 text-muted"
         >Remember You need to be a part of Toosmate community in order to enjoy the Quote Task as well</h5>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
     return {
       tabActive: {
         offerActive: true,
-        quotesActive: false,
+        quotesActive: false
       }
     };
   },
@@ -100,7 +100,7 @@ export default {
   transform: scaleX(1);
 }
 
-.tradie-tasks {
+/* .tradie-tasks {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -110,7 +110,7 @@ export default {
 }
 .tradie-tasks .task-desc {
   flex-basis: 38.5%;
-}
+} */
 
 .task-desc {
   background: var(--cream);

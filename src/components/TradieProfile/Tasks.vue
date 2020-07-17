@@ -96,12 +96,12 @@
       </div>
     </Modals>
     <div class="tradie-task p-3" v-for="task in taskList" :key="task.id">
-      <div class="title-budg d-flex j-sb">
+      <div class="title-budg d-flex j-fs">
         <div class="profile">
           <img :src="task.imgAddress" alt="Profile" />
           <!-- :style="(task.taskStat == 'Completed') ? {height: '8rem'} : ''" -->
         </div>
-        <div div class="desc">
+        <div div class="desc ml-3">
           <div class="title-budge d-flex f-row j-sb">
             <h4 class="font-weight-bold c-brand">{{task.taskName}}</h4>
             <h5
@@ -211,19 +211,20 @@ export default {
   cursor: pointer;
 }
 .profile {
-  width: 4rem;
-  height: 5rem;
+  /* width: 4rem;
+  height: 6rem; */
+  flex-basis: 15%;
 }
 .profile img {
-  width: 100%;
-  height: 100%;
+  width: 8rem;
+  height: 8rem;
   object-fit: cover;
 }
 .title-budg .profile {
   flex-basis: 15%;
 }
 .title-budg .desc {
-  flex-basis: 80%;
+  flex-basis: calc(100% - 9rem);
 }
 .desc h4 {
   font-size: 1.25rem;
