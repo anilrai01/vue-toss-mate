@@ -63,6 +63,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.search-quote * {
+  z-index: 10 !important;
+}
 .search-quote h3,
 h5 {
   color: #fff;
