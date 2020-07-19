@@ -43,7 +43,6 @@
       >
       instead ?
     </p>
-    <MultiStepForm />
 
     <mdb-btn
       class="align bg-brand2"
@@ -56,7 +55,6 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbBtn } from "mdbvue";
-import MultiStepForm from "../MultiStepForm";
 import Modals from "../Modals";
 import { mapActions } from "vuex";
 export default {
@@ -67,7 +65,6 @@ export default {
     mdbCol,
     mdbBtn,
     Modals,
-    MultiStepForm,
   },
   data() {
     return {
