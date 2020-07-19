@@ -1003,6 +1003,7 @@ const state = {
 
   quoteValidationStat: false,
   multiFormDisplayStat: false,
+  nMultiFormDispStat: false,
 };
 
 const mutations = {
@@ -1022,6 +1023,9 @@ const mutations = {
   },
   SET_MFORM_DISP_STAT(state, value) {
     state.multiFormDisplayStat = value;
+  },
+  SET_N_MULTI_FORM_DISP_STAT(state, value) {
+    state.nMultiFormDispStat = value;
   },
 };
 
@@ -1044,6 +1048,9 @@ const actions = {
   setMFormDispStat(context, value) {
     context.commit("SET_MFORM_DISP_STAT", value);
   },
+  setNmultiStepFormDispStat(context, value) {
+    context.commit("SET_N_MULTI_FORM_DISP_STAT", value);
+  },
 };
 
 const getters = {
@@ -1061,6 +1068,9 @@ const getters = {
   },
   getMFormDispStat: (state) => {
     return state.multiFormDisplayStat;
+  },
+  getNmultiStepFormDispStat: (state) => {
+    return state.nMultiFormDispStat;
   },
 };
 

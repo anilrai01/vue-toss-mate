@@ -7,7 +7,11 @@
     <Modals :show="getMFormDispStat" @visibleOff="offVisible" quoteModel>
       <!-- Modal Body  -->
       <div class="p-2" slot="body">
-        <mdb-progress :value="progress" :height="progressBarHeight" class="m-0 p-0 cus-progress" />
+        <mdb-progress
+          :value="progress"
+          :height="progressBarHeight"
+          class="m-0 p-0 cus-progress"
+        />
         <!-- Stage Prime -->
         <!-- <div class="m-form stage1" v-show="progress == progressValue">
           <div class="options">
@@ -24,12 +28,13 @@
           @submit.prevent="increaseProgress"
         >
           <div class="options py-4">
-            <h4 class="font-weight-bold mb-3">Please fill up the basic job details</h4>
+            <h4 class="font-weight-bold mb-3">
+              Please fill up the basic job details
+            </h4>
             <div class="form-group">
-              <label
-                for="postcode"
-                class="font-weight-bold text-grey"
-              >Where do you want your job done?</label>
+              <label for="postcode" class="font-weight-bold text-grey"
+                >Where do you want your job done?</label
+              >
               <input
                 type="text"
                 name="postcode"
@@ -42,7 +47,9 @@
             </div>
 
             <div class="form-group mt-4">
-              <p class="m-0 font-weight-bold text-grey">Please specify your job type</p>
+              <p class="m-0 font-weight-bold text-grey">
+                Please specify your job type
+              </p>
               <!-- Group of default radios - option 1 -->
               <div class="custom-control custom-radio normal-radio">
                 <input
@@ -54,7 +61,9 @@
                   v-model="jobDetails.jobType"
                   required
                 />
-                <label class="custom-control-label text-muted" for="quotes">Quotes</label>
+                <label class="custom-control-label text-muted" for="quotes"
+                  >Quotes</label
+                >
               </div>
 
               <!-- Group of default radios - option 2 -->
@@ -68,15 +77,16 @@
                   v-model="jobDetails.jobType"
                   required
                 />
-                <label class="custom-control-label text-muted" for="offer">Offer</label>
+                <label class="custom-control-label text-muted" for="offer"
+                  >Offer</label
+                >
               </div>
             </div>
 
             <div class="form-group mt-3" v-if="jobDetails.jobType == 'Offer'">
-              <label
-                for="budget"
-                class="font-weight-bold text-grey"
-              >What is your budget for the task?</label>
+              <label for="budget" class="font-weight-bold text-grey"
+                >What is your budget for the task?</label
+              >
               <!-- <input
                 type="text"
                 class="form-control w-full"
@@ -84,7 +94,12 @@
                 id="budget"
                 required
               />-->
-              <mdb-input basic class="mb-3 w-full" id="budget" v-model="jobDetails.jobBudget">
+              <mdb-input
+                basic
+                class="mb-3 w-full"
+                id="budget"
+                v-model="jobDetails.jobBudget"
+              >
                 <span class="input-group-text" slot="prepend">$</span>
                 <span class="input-group-text" slot="append">.00</span>
               </mdb-input>
@@ -94,21 +109,33 @@
           <BtnGroup @handlePrev="decreaseProgress" :stat="progress" />
         </form>
         <!-- Stage 2 -->
-        <div class="m-form stage3" v-show="progress == 2*progressValue">
+        <div class="m-form stage3" v-show="progress == 2 * progressValue">
           <div class="options my-4">
-            <h3
-              class="text-center"
-            >{{Math.round(Math.random() * (58 - 20)) + 20}} tradie available near you</h3>
-            <h6
-              class="text-center text-dark"
-            >Please go through few more questions so we can find the best tradie for you</h6>
+            <h3 class="text-center">
+              {{ Math.round(Math.random() * (58 - 20)) + 20 }} tradie available
+              near you
+            </h3>
+            <h6 class="text-center text-dark">
+              Please go through few more questions so we can find the best
+              tradie for you
+            </h6>
           </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
+          <BtnGroup
+            @next="increaseProgress"
+            @handlePrev="decreaseProgress"
+            :stat="progress"
+          />
         </div>
         <!-- Stage 3 -->
-        <form class="m-form stage4" v-show="progress == 3*progressValue" @submit.prevent>
+        <form
+          class="m-form stage4"
+          v-show="progress == 3 * progressValue"
+          @submit.prevent
+        >
           <div class="options">
-            <h3 class="text-center mb-4">When do you need the work to start?</h3>
+            <h3 class="text-center mb-4">
+              When do you need the work to start?
+            </h3>
             <div class="custom-control custom-radio">
               <input
                 type="radio"
@@ -118,7 +145,9 @@
                 value="emergency"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Emergency">Emergency</label>
+              <label class="custom-control-label" for="Emergency"
+                >Emergency</label
+              >
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -140,7 +169,9 @@
                 value="next-few-days"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Next few days">Next few days</label>
+              <label class="custom-control-label" for="Next few days"
+                >Next few days</label
+              >
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -151,7 +182,9 @@
                 value="flexible"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="I'm Flexible">I'm Flexible</label>
+              <label class="custom-control-label" for="I'm Flexible"
+                >I'm Flexible</label
+              >
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -162,13 +195,23 @@
                 value="few-months"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Few Months">Few Months</label>
+              <label class="custom-control-label" for="Few Months"
+                >Few Months</label
+              >
             </div>
           </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
+          <BtnGroup
+            @next="increaseProgress"
+            @handlePrev="decreaseProgress"
+            :stat="progress"
+          />
         </form>
         <!-- Stage 4 -->
-        <form class="m-form" v-show="progress == 4*progressValue" @submit.prevent>
+        <form
+          class="m-form"
+          v-show="progress == 4 * progressValue"
+          @submit.prevent
+        >
           <div class="options">
             <h3>Describe something about your job?</h3>
 
@@ -182,10 +225,18 @@
               v-model="jobDetails.jobDesc"
             ></textarea>
           </div>
-          <BtnGroup @next="increaseProgress" @handlePrev="decreaseProgress" :stat="progress" />
+          <BtnGroup
+            @next="increaseProgress"
+            @handlePrev="decreaseProgress"
+            :stat="progress"
+          />
         </form>
         <!-- Stage 5 -->
-        <form class="m-form" v-show="progress== 5*progressValue" @submit.prevent="finalSubmit">
+        <form
+          class="m-form"
+          v-show="progress == 5 * progressValue"
+          @submit.prevent="finalSubmit"
+        >
           <div class="options">
             <h3>Please provide us your details for further procedure?</h3>
             <div class="form-group">
@@ -218,12 +269,18 @@
                 required
               />
             </div>
-            <h6
-              class="text-dark text-center my-5"
-            >By clicking agree and continue you agree to ToosMate policy and agreement !</h6>
+            <h6 class="text-dark text-center my-5">
+              By clicking agree and continue you agree to ToosMate policy and
+              agreement !
+            </h6>
           </div>
           <div class="btn-groupp">
-            <button class="cus-btn-outline p-2 px-4 mr-4" @click="decreaseProgress">No thanks</button>
+            <button
+              class="cus-btn-outline p-2 px-4 mr-4"
+              @click="decreaseProgress"
+            >
+              No thanks
+            </button>
 
             <button class="cus-btn p-2 px-4 mx-auto">Agree and Continue</button>
           </div>
@@ -234,9 +291,17 @@
 
     <form
       @submit.prevent="handleBusinessSubmit"
-      v-if="this.$route.name=='GetQuotes' || this.$route.name=='AllCategoriesView'"
+      v-if="
+        this.$route.name == 'GetQuotes' ||
+          this.$route.name == 'AllCategoriesView'
+      "
     >
-      <SearchList width="80" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
+      <SearchList
+        width="80"
+        :filterArray="filterArray"
+        @setVal="setBusiness"
+        :keyword="business"
+      />
 
       <input
         type="text"
@@ -248,7 +313,10 @@
       <button class="search-btn cus-btn" @click="setProgress">Go</button>
     </form>
 
-    <form @submit.prevent="handlePostCodeSubmit" v-if="this.$route.name=='CategoriesView'">
+    <form
+      @submit.prevent="handlePostCodeSubmit"
+      v-if="this.$route.name == 'CategoriesView'"
+    >
       <!-- <SearchList width="80" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" /> -->
 
       <input
@@ -277,12 +345,12 @@ export default {
     mdbProgress,
     BtnGroup,
     SearchList,
-    mdbInput
+    mdbInput,
   },
   props: {
     url_name: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
@@ -298,8 +366,8 @@ export default {
         personal: {
           name: "",
           email: "",
-          contact: ""
-        }
+          contact: "",
+        },
       },
 
       filterArray: [],
@@ -307,7 +375,7 @@ export default {
       modalHeight: 60,
       progress: 20,
       progressValue: 20,
-      progressBarHeight: 10
+      progressBarHeight: 10,
     };
   },
   computed: {
@@ -315,15 +383,15 @@ export default {
       "getDropdown",
       "getQuotes",
       "getQuoteValidationStat",
-      "getMFormDispStat"
-    ])
+      "getMFormDispStat",
+    ]),
   },
   methods: {
     ...mapActions([
       "setJobDetails",
       "setQuotes",
       "setQuoteValidationStat",
-      "setMFormDispStat"
+      "setMFormDispStat",
     ]),
     setBusiness(par) {
       this.business = par;
@@ -383,12 +451,12 @@ export default {
       } else if (this.business !== "" && this.postcode !== "") {
         this.progress = 20;
       }
-    }
+    },
   },
   watch: {
     business() {
       if (this.business !== null && this.business !== "" && this.enableFilter) {
-        this.filterArray = this.getDropdown.filter(el =>
+        this.filterArray = this.getDropdown.filter((el) =>
           el.includes(this.business)
         );
       } else if (this.business == "") {
@@ -397,7 +465,7 @@ export default {
         this.enableFilter = true;
       }
       // console.log(this.filterArray);
-    }
+    },
   },
   mounted() {
     this.business = this.getQuotes.business;
@@ -408,7 +476,7 @@ export default {
       this.setMFormDispStat(true);
     }
     this.setProgress();
-  }
+  },
 };
 </script>
 

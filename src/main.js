@@ -12,6 +12,7 @@ import store from "./store/store";
 import InfiniteScroll from "v-infinite-scroll";
 Vue.use(InfiniteScroll);
 
+
 Vue.config.productionTip = false;
 
 new Vue({

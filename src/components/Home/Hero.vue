@@ -6,6 +6,7 @@
         <h2 class="text-white">Change the way you tradie in</h2>
         <h1 class="font-weight-bold mb-5 text-white aus-fn">AUSTRALIA</h1>
         <SearchBar />
+        <MultiStepForm />
       </div>
       <div class="company-info d-flex f-row">
         <div class="connected d-flex f-col text-white px-5 py-4">
@@ -26,11 +27,13 @@ import SearchBar from "./SearchBar";
 import Banner from "../Banner";
 import BannerBG from "../../assets/newBannerBG.png";
 import BannerLogo from "../../assets/NewLogo.png";
+import MultiStepForm from "../MultiStepForm";
 export default {
   name: "Hero",
   components: {
     SearchBar,
-    Banner
+    Banner,
+    MultiStepForm
   },
   computed: {
     sendMainBG() {

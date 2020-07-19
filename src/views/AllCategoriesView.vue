@@ -18,11 +18,21 @@
     <mdb-container class="my-5">
       <h1 class="d-block font-weight-bold">These are the list of categories</h1>
       <div class="catCont my-3">
-        <div class="catHead my-5" v-for="(list, index) in alphabeticalData" :key="index">
-          <h2 class="font-weight-bold text-grey">{{list.title}}</h2>
+        <div
+          class="catHead my-5"
+          v-for="(list, index) in alphabeticalData"
+          :key="index"
+        >
+          <h2 class="font-weight-bold text-grey">{{ list.title }}</h2>
 
           <div class="catList my-3">
-            <p class="cList d-in" v-for="(iList, index) in list.links" :key="index">{{iList}}</p>
+            <p
+              class="cList d-in"
+              v-for="(iList, index) in list.links"
+              :key="index"
+            >
+              {{ iList }}
+            </p>
           </div>
         </div>
       </div>
@@ -41,7 +51,7 @@ export default {
   components: {
     Banner,
     SearchBarModal,
-    mdbContainer
+    mdbContainer,
   },
 
   computed: {
@@ -49,8 +59,8 @@ export default {
     alphabeticalData() {
       let test = this.getDropdown2.slice().sort();
       return test;
-    }
-  }
+    },
+  },
 };
 </script>
 
