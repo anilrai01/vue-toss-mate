@@ -1,7 +1,9 @@
 <template>
   <mdb-container class="wp-margin">
     <Modals :show="showVideoModel" @visibleOff="videoModelOff" wpVidModel>
-      <h4 slot="header" class="font-weight-bold">Learn through our tutorials ...</h4>
+      <h4 slot="header" class="font-weight-bold">
+        Learn through our tutorials ...
+      </h4>
       <iframe
         src="https://www.youtube.com/embed/CyD8hAjj8L8"
         frameborder="0"
@@ -11,7 +13,9 @@
         class="w-100 wpVid"
       ></iframe>
     </Modals>
-    <h1 class="text-brand2 wp-heading font-helvNeue">So... how does it work?</h1>
+    <h1 class="text-brand2 wp-heading font-helvNeue">
+      So... how does it work?
+    </h1>
     <mdb-row class="my-5">
       <mdb-col col="4">
         <img src="../../assets/search_g.png" />
@@ -34,18 +38,27 @@
     </mdb-row>
     <p class="text-center">
       Watch a
-      <span class="text-brand2 font-weight-bold c-p" @click="enableVideoModel">video</span>
+      <span class="text-brand2 font-weight-bold c-p" @click="enableVideoModel"
+        >video</span
+      >
       instead ?
     </p>
-    <router-link to="/browse-task">
-      <mdb-btn class="align bg-brand2" v-if="$route.name !== 'GetQuotes'">Get Started</mdb-btn>
-    </router-link>
+    <MultiStepForm />
+
+    <mdb-btn
+      class="align bg-brand2"
+      v-if="$route.name !== 'GetQuotes'"
+      @click="enableMultiStepForm"
+      >Get Started</mdb-btn
+    >
   </mdb-container>
 </template>
 
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbBtn } from "mdbvue";
+import MultiStepForm from "../MultiStepForm";
 import Modals from "../Modals";
+import { mapActions } from "vuex";
 export default {
   name: "WorkProcess",
   components: {
@@ -53,21 +66,26 @@ export default {
     mdbRow,
     mdbCol,
     mdbBtn,
-    Modals
+    Modals,
+    MultiStepForm,
   },
   data() {
     return {
-      showVideoModel: false
+      showVideoModel: false,
     };
   },
   methods: {
+    ...mapActions(["setNmultiStepFormDispStat"]),
     enableVideoModel() {
       this.showVideoModel = true;
     },
     videoModelOff() {
       this.showVideoModel = false;
-    }
-  }
+    },
+    enableMultiStepForm() {
+      // this.setNmultiStepFormDispStat(true);
+    },
+  },
 };
 </script>
 
