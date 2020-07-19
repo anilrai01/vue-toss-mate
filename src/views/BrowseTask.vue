@@ -2,79 +2,120 @@
   <section class="container bt-cont">
     <div class="bt-details p-3">
       <div class="task-desc" v-if="showBTintro">
-        <h3
-          class="text-center font-weight-bold text-grey"
-        >You can check on the details of the task here</h3>
+        <h3 class="text-center font-weight-bold text-grey">
+          You can check on the details of the task here
+        </h3>
         <img class="choice-img" src="../assets/choose_list.svg" />
-        <h5
-          class="text-center text-brand my-5 px-5"
-        >Click on any interesting task from the task list right to this</h5>
-        <h6
-          class="text-center px-5 text-muted font-weight-bold"
-        >Remember You need to be a part of Toosmate community in order to enjoy the Quote Task as well</h6>
+        <h5 class="text-center text-brand my-5 px-5">
+          Click on any interesting task from the task list right to this
+        </h5>
+        <h6 class="text-center px-5 text-muted font-weight-bold">
+          Remember You need to be a part of Toosmate community in order to enjoy
+          the Quote Task as well
+        </h6>
       </div>
       <div class="task-desc-2" v-if="!showBTintro">
         <!-- <h3 class="text-brand font-weight-bold">Job Details!</h3> -->
         <div class="task-top">
           <div class="task-details">
-            <h2 class="text-lblack font-weight-bold">{{getCurrentBrowseJob.taskName}}</h2>
+            <h2 class="text-lblack font-weight-bold">
+              {{ getCurrentBrowseJob.taskName }}
+            </h2>
             <div class="task-post-profile my-2">
-              <img class="profile-img" :src="getCurrentBrowseJob.imgAddress" alt />
+              <img
+                class="profile-img"
+                :src="getCurrentBrowseJob.imgAddress"
+                alt
+              />
               <div class="tpName ml-3">
                 <h5 class="m-0 font-weight-bold text-muted">Posted by</h5>
                 <h6 class="m-0">John Doe</h6>
               </div>
             </div>
           </div>
-          <div class="task-budget" v-if="getCurrentBrowseJob.taskStat != 'Completed'">
-            <div class="budget-title" v-if="getCurrentBrowseJob.taskType=='offer'">Task Budget</div>
+          <div
+            class="task-budget"
+            v-if="getCurrentBrowseJob.taskStat != 'Completed'"
+          >
             <div
               class="budget-title"
-              v-if="getCurrentBrowseJob.taskType=='quotes'"
-            >Start to Quote now</div>
-            <div class="task-amount">{{getCurrentBrowseJob.taskBudget}}</div>
-            <button class="btn cus-btn" v-if="getCurrentBrowseJob.taskType=='offer'">Make an Offer</button>
-            <button class="btn cus-btn" v-if="getCurrentBrowseJob.taskType=='quotes'">Make a Quote</button>
+              v-if="getCurrentBrowseJob.taskType == 'offer'"
+            >
+              Task Budget
+            </div>
+            <div
+              class="budget-title"
+              v-if="getCurrentBrowseJob.taskType == 'quotes'"
+            >
+              Start to Quote now
+            </div>
+            <div class="task-amount">{{ getCurrentBrowseJob.taskBudget }}</div>
+            <button
+              class="btn cus-btn"
+              v-if="getCurrentBrowseJob.taskType == 'offer'"
+            >
+              Make an Offer
+            </button>
+            <button
+              class="btn cus-btn"
+              v-if="getCurrentBrowseJob.taskType == 'quotes'"
+            >
+              Make a Quote
+            </button>
           </div>
 
-          <div class="task-o-details fb-50" v-if="getCurrentBrowseJob.taskStat == 'Completed'">
+          <div
+            class="task-o-details fb-50"
+            v-if="getCurrentBrowseJob.taskStat == 'Completed'"
+          >
             <div class="loc-profile d-flex j-sb f-col my-2">
               <div class="location d-flex f-row">
                 <div class="loc mr-3">
                   <mdb-icon icon="map-marker-alt" class="text-grey mr-2" />
-                  <span>{{getCurrentBrowseJob.address}}</span>
+                  <span>{{ getCurrentBrowseJob.address }}</span>
                 </div>
                 <div class="time">
                   <mdb-icon icon="calendar" class="text-grey mr-2" />
-                  <span>{{getCurrentBrowseJob.created_date}}</span>
+                  <span>{{ getCurrentBrowseJob.created_date }}</span>
                 </div>
               </div>
               <h5 class="mt-4 f-norm font-weight-bold text-grey">Details</h5>
-              <p class="f-norm">{{getCurrentBrowseJob.taskDesc}}</p>
+              <p class="f-norm">{{ getCurrentBrowseJob.taskDesc }}</p>
             </div>
           </div>
         </div>
 
-        <div class="task-o-details" v-if="getCurrentBrowseJob.taskStat !== 'Completed'">
+        <div
+          class="task-o-details"
+          v-if="getCurrentBrowseJob.taskStat !== 'Completed'"
+        >
           <div class="loc-profile d-flex j-sb f-col my-3">
             <div class="location d-flex f-row">
               <div class="loc mr-3">
                 <mdb-icon icon="map-marker-alt" class="text-grey mr-2" />
-                <span>{{getCurrentBrowseJob.address}}</span>
+                <span>{{ getCurrentBrowseJob.address }}</span>
               </div>
               <div class="time">
                 <mdb-icon icon="calendar" class="text-grey mr-2" />
-                <span>{{getCurrentBrowseJob.created_date}}</span>
+                <span>{{ getCurrentBrowseJob.created_date }}</span>
               </div>
             </div>
             <h5 class="mt-4 f-norm font-weight-bold text-grey">Details</h5>
-            <p class="f-norm">{{getCurrentBrowseJob.taskDesc}}</p>
+            <p class="f-norm">{{ getCurrentBrowseJob.taskDesc }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="bt-list p-2">
-      <Tasks :taskList="getTradieTasks" />
+      <v-infinite-scroll
+        :loading="loading"
+        @top="prevPage"
+        @bottom="nextPage"
+        :offset="20"
+        style="overflow-y: scroll;"
+      >
+        <Tasks :taskList="infiniteData" />
+      </v-infinite-scroll>
     </div>
   </section>
 </template>
@@ -87,7 +128,14 @@ export default {
   name: "BrowseTask",
   components: {
     Tasks,
-    mdbIcon
+    mdbIcon,
+  },
+  data() {
+    return {
+      page: 1,
+      loading: false,
+      infiniteData: [],
+    };
   },
   computed: {
     ...mapGetters(["getCurrentBrowseJob", "getTradieTasks"]),
@@ -101,11 +149,32 @@ export default {
       } else {
         return false;
       }
-    }
-  }
-  // mounted() {
-  //   alert(this.getCurrentBrowseJob);
-  // },
+    },
+    setInfiniteData() {
+      return this.getTradieTasks.slice(0, 5);
+    },
+  },
+
+  methods: {
+    prevPage() {
+      if (this.page == 1) return;
+      --this.page;
+      this.api();
+    },
+    nextPage() {
+      ++this.page;
+      this.api();
+    },
+    api() {
+      this.loading = true;
+      setTimeout(() => {
+        this.infiniteData = this.getTradieTasks.slice();
+      }, 1000);
+    },
+  },
+  mounted() {
+    this.infiniteData = this.getTradieTasks.slice(0, 5);
+  },
   // watch: {
   //   getCurrentBrowseJob() {
   //     alert(this.getCurrentBrowseJob.taskName);
