@@ -1,6 +1,11 @@
 <template>
   <div class="overlay-form">
-    <div class="type-i" v-if="this.$route.name == 'Home'">
+    <div
+      class="type-i"
+      v-if="
+        this.$route.name == 'Home' || this.$route.name == 'AllCategoriesView'
+      "
+    >
       <Modals
         :show="getQuoteValidationStat"
         messageTitle="Alert!"
@@ -33,6 +38,14 @@
       </button>
     </div>
     <div class="type-ii" v-if="this.$route.name == 'CategoriesView'">
+      <Modals
+        :show="getQuoteValidationStat"
+        messageTitle="Alert!"
+        @visibleOff="offVisible"
+      >
+        <h2 slot="header" class="text-danger">Alert !</h2>
+        <h4 slot="body">Please enter valid Business details and Postcode</h4>
+      </Modals>
       <input
         type="text"
         class="form-controls type-ii-form-i"
@@ -80,10 +93,12 @@ export default {
         this.business !== null &&
         this.business !== "" &&
         this.postCode !== null &&
-        this.postCode !== ""
+        this.postCode !== "" &&
+        this.getDropdown.includes(this.business)
       ) {
         this.setQuotes({ business: this.business, postCode: this.postCode });
         this.setNmultiStepFormDispStat(true);
+        // setTimeout(() => alert(this.getQuotes.business), 1000);
       } else {
         // alert("Please enter valid Business details and Postcode");
         this.setQuoteValidationStat(true);
@@ -113,8 +128,8 @@ export default {
     },
   },
   mounted() {
-    (this.business = this.getQuotes.business),
-      (this.postCode = this.getQuotes.postCode);
+    this.business = this.getQuotes.business;
+    this.postCode = this.getQuotes.postCode;
   },
 };
 </script>

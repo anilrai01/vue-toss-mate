@@ -107,15 +107,13 @@
       </div>
     </div>
     <div class="bt-list p-2">
-      <v-infinite-scroll
-        :loading="loading"
-        @top="prevPage"
-        @bottom="nextPage"
-        :offset="20"
-        style="overflow-y: scroll;"
+      <scroll-loader
+        :loader-method="getJobList"
+        :loader-enable="loadMore"
+        class="scroll-elem "
       >
         <Tasks :taskList="infiniteData" />
-      </v-infinite-scroll>
+      </scroll-loader>
     </div>
   </section>
 </template>
@@ -124,6 +122,7 @@
 import { mapGetters } from "vuex";
 import { mdbIcon } from "mdbvue";
 import Tasks from "../components/TradieProfile/Tasks";
+
 export default {
   name: "BrowseTask",
   components: {
@@ -133,7 +132,8 @@ export default {
   data() {
     return {
       page: 1,
-      loading: false,
+      pageSize: 9,
+      loadMore: true,
       infiniteData: [],
     };
   },
@@ -150,31 +150,18 @@ export default {
         return false;
       }
     },
-    setInfiniteData() {
-      return this.getTradieTasks.slice(0, 5);
-    },
   },
 
   methods: {
-    prevPage() {
-      if (this.page == 1) return;
-      --this.page;
-      this.api();
-    },
-    nextPage() {
-      ++this.page;
-      this.api();
-    },
-    api() {
-      this.loading = true;
+    getJobList() {
       setTimeout(() => {
-        this.infiniteData = this.getTradieTasks.slice();
-      }, 1000);
+        this.infiniteData = this.getTradieTasks.slice(0, 3);
+      }, 1500);
     },
   },
-  mounted() {
-    this.infiniteData = this.getTradieTasks.slice(0, 5);
-  },
+  // mounted() {
+  //   this.infiniteData = this.getTradieTasks.slice(0, 5);
+  // },
   // watch: {
   //   getCurrentBrowseJob() {
   //     alert(this.getCurrentBrowseJob.taskName);
@@ -198,7 +185,7 @@ export default {
   background: var(--cream);
 }
 .bt-list {
-  flex-basis: 40%;
+  flex-basis: 38%;
   /* background: pink; */
   height: calc(100vh - 70px);
   overflow-y: auto;
@@ -251,5 +238,9 @@ export default {
 }
 .task-o-details {
   width: 100%;
+}
+.loader {
+  padding: 0 !important;
+  margin: auto !important;
 }
 </style>

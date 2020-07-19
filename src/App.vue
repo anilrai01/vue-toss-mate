@@ -97,7 +97,7 @@ body {
 }
 .navStyle {
   background: var(--greenMask);
-  z-index: 1 !important;
+  z-index: 30 !important;
 }
 .navStyle .inner-cont {
   border: 0 !important;

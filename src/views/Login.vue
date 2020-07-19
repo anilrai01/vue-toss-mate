@@ -2,15 +2,41 @@
   <div id="login ">
     <mdb-container class="py-3">
       <!-- Default form login -->
-      <h3 class="form-label text-center mt-5">Login now and get your work done !</h3>
+      <h3 class="form-label text-center mt-5">
+        Login now and get your work done !
+      </h3>
       <form class="login-form">
         <!-- <div class="avatar"></div>
         <p class="h4 text-center mb-4 form-label">Sign in</p>-->
-        <label for="defaultFormLoginEmailEx" class="grey-text">Your email</label>
-        <input type="email" id="defaultFormLoginEmailEx" class="form-control" />
-        <br />
-        <label for="defaultFormLoginPasswordEx" class="grey-text">Your password</label>
-        <input type="password" id="defaultFormLoginPasswordEx" class="form-control" />
+        <div class="form-group">
+          <label for="defaultFormLoginEmailEx" class="grey-text"
+            >Your email</label
+          >
+          <input
+            type="email"
+            id="defaultFormLoginEmailEx"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="defaultFormLoginPasswordEx" class="grey-text"
+            >Your password</label
+          >
+          <input
+            type="password"
+            id="defaultFormLoginPasswordEx"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="role" class="grey-text">Please specify your role</label>
+          <select name="role" id="role" class="form-control" required>
+            <option value="tradie" selected>Tradie</option>
+            <option value="customer">Customer</option>
+          </select>
+        </div>
+
         <div class="text-center mt-4">
           <router-link to="/profile">
             <button class="btn cus-btn" type="submit">Login</button>
@@ -36,8 +62,8 @@ export default {
   name: "Login",
   components: {
     mdbContainer,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 

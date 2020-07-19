@@ -16,27 +16,27 @@ export default {
   name: "SearchList",
   data() {
     return {
-      visibility: false
+      visibility: false,
     };
   },
   props: {
     filterArray: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     width: {
       type: String,
-      default: "0"
+      default: "0",
     },
     keyword: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     setWidth() {
       return `width: ${this.width}%`;
-    }
+    },
   },
   methods: {
     handleClick(value) {
@@ -48,7 +48,7 @@ export default {
         `<span class="font-weight-bold"><mark>${this.keyword}<mark></span>`
       );
       //   return `<span class="make-it-bold">${word}</span>`;
-    }
+    },
   },
   watch: {
     // keyword() {
@@ -60,8 +60,8 @@ export default {
       } else {
         this.visibility = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -75,7 +75,7 @@ export default {
   background: #fff;
   display: flex;
   flex-direction: column;
-  /* z-index: 500; */
+  z-index: 11;
 }
 
 .list-dir-list {
@@ -85,6 +85,6 @@ export default {
   /* font-weight: bold; */
 }
 .list-dir-list:hover {
-  background: #eee;
+  background: #ddd;
 }
 </style>

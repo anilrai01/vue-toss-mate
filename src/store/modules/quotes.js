@@ -1027,6 +1027,10 @@ const mutations = {
   SET_N_MULTI_FORM_DISP_STAT(state, value) {
     state.nMultiFormDispStat = value;
   },
+  RESET_QUOTES(state) {
+    state.quote.business = "";
+    state.quote.postCode = "";
+  },
 };
 
 const actions = {
@@ -1050,6 +1054,9 @@ const actions = {
   },
   setNmultiStepFormDispStat(context, value) {
     context.commit("SET_N_MULTI_FORM_DISP_STAT", value);
+  },
+  resetQuotes(context) {
+    context.commit("RESET_QUOTES");
   },
 };
 

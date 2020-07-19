@@ -372,12 +372,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getNmultiStepFormDispStat"]),
+    ...mapGetters(["getNmultiStepFormDispStat", "getQuotes"]),
   },
   methods: {
-    ...mapActions(["setNmultiStepFormDispStat"]),
+    ...mapActions(["setNmultiStepFormDispStat", "resetQuotes"]),
     offVisible() {
       this.setNmultiStepFormDispStat(false);
+      this.resetQuotes();
     },
     increaseSteps(currentStep, steps) {
       if (currentStep < steps) {
@@ -397,9 +398,7 @@ export default {
       this.$router.push("/profile");
     },
   },
-  // mounted() {
-  //   this.currentStep = 1;
-  // },
+  
 };
 </script>
 

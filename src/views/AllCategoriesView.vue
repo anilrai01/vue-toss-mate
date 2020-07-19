@@ -6,7 +6,8 @@
     >
       <div class="search-quote">
         <h3 class="my-4">You can Search for your required job here!</h3>
-        <SearchBarModal />
+        <SearchBar />
+        <MultiStepForm />
         <h5 class="mt-4">How can you get the best search result from us ?</h5>
         <h6 class="mb-4">
           Please enter the valid and genuine records so that our search engine
@@ -42,16 +43,18 @@
 
 <script>
 import Banner from "../components/Banner";
-import SearchBarModal from "../components/GetQuotes/SearchBarModal";
+import SearchBar from "../components/Home/SearchBar";
+import MultiStepForm from "../components/MultiStepForm";
 import { mdbContainer } from "mdbvue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "AllCategoryView",
   components: {
     Banner,
-    SearchBarModal,
+    SearchBar,
     mdbContainer,
+    MultiStepForm,
   },
 
   computed: {
@@ -60,6 +63,12 @@ export default {
       let test = this.getDropdown2.slice().sort();
       return test;
     },
+  },
+  methods: {
+    ...mapActions(["resetQuotes"]),
+  },
+  mounted() {
+    this.resetQuotes();
   },
 };
 </script>
@@ -73,8 +82,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.search-quote * {
-  z-index: 10 !important;
+.search-quote h3,
+.search-quote h5,
+.search-quote h6 {
+  z-index: 10;
 }
 .search-quote h3,
 h5 {
