@@ -15,7 +15,9 @@
         </div>
         <div class="comp-tip d-flex f-col text-white px-5 py-4">
           <h5 class="font-weight-bold">Start earning now</h5>
-          <h6>Become a Tradie</h6>
+          <router-link to="/business-register">
+            <h6 class="text-white">Become a Tradie</h6>
+          </router-link>
         </div>
       </div>
     </div>
@@ -33,7 +35,7 @@ export default {
   components: {
     SearchBar,
     Banner,
-    MultiStepForm
+    MultiStepForm,
   },
   computed: {
     sendMainBG() {
@@ -41,8 +43,8 @@ export default {
     },
     sendLogo() {
       return BannerLogo;
-    }
-  }
+    },
+  },
 };
 </script>
 
