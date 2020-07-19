@@ -159,14 +159,6 @@ export default {
       }, 1500);
     },
   },
-  // mounted() {
-  //   this.infiniteData = this.getTradieTasks.slice(0, 5);
-  // },
-  // watch: {
-  //   getCurrentBrowseJob() {
-  //     alert(this.getCurrentBrowseJob.taskName);
-  //   }
-  // }
 };
 </script>
 
@@ -180,13 +172,11 @@ export default {
 .bt-details {
   flex-basis: 60%;
   height: calc(100vh - 70px);
-  /* background: teal; */
   overflow-y: auto;
   background: var(--cream);
 }
 .bt-list {
   flex-basis: 38%;
-  /* background: pink; */
   height: calc(100vh - 70px);
   overflow-y: auto;
 }

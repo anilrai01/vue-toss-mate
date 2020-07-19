@@ -10,15 +10,27 @@
     <!-- New section One  -->
     <div class="what-are-other-doing">
       <img :src="returnImage" alt class="modelImg" />
-      <h1 class="text-brand2 font-weight-bold text-left z-2 mb-5">What are others doing?</h1>
+      <h1 class="text-brand2 font-weight-bold text-left z-2 mb-5">
+        What are others doing?
+      </h1>
       <div class="new-big-card mb-5 w-100">
         <VueSlickCarousel v-bind="big_settings">
-          <ProfileCard big v-for="(card, index) in wodProfile[0]" :key="index" :img="card.img_url" />
+          <ProfileCard
+            big
+            v-for="(card, index) in wodProfile[0]"
+            :key="index"
+            :img="card.img_url"
+          />
         </VueSlickCarousel>
       </div>
       <div class="new-small-card">
         <VueSlickCarousel v-bind="small_settings">
-          <ProfileCard med v-for="(card, index) in wodProfile[1]" :key="index" :img="card.img_url" />
+          <ProfileCard
+            med
+            v-for="(card, index) in wodProfile[1]"
+            :key="index"
+            :img="card.img_url"
+          />
         </VueSlickCarousel>
       </div>
     </div>
@@ -27,7 +39,9 @@
       <div class="banner-testimonial">
         <div class="green-mask"></div>
 
-        <h1 class="text-white font-weight-bold text-center">What they have to say ?</h1>
+        <h1 class="text-white font-weight-bold text-center">
+          What they have to say ?
+        </h1>
         <div class="new-testimonials">
           <VueSlickCarousel v-bind="testimonials_settings">
             <div class="testi-card">
@@ -99,9 +113,15 @@
     <div class="browse-ex-cat container">
       <h3 class="font-weight-bold">Browse our extensive categories</h3>
       <div class="cat-list">
-        <div class="list-col" v-for="(list, index) in categoryList" :key="index">
+        <div
+          class="list-col"
+          v-for="(list, index) in categoryList"
+          :key="index"
+        >
           <h5 class="font-weight-bold">{{ list.title }}</h5>
-          <p v-for="(listt, index) in list.links.slice(0, 9)" :key="index">{{ listt }}</p>
+          <p v-for="(listt, index) in list.links.slice(0, 9)" :key="index">
+            {{ listt }}
+          </p>
         </div>
       </div>
     </div>
@@ -115,8 +135,6 @@ import Hero from "@/components/Home/Hero";
 import Banner from "@/components/Banner";
 import BannerJobs from "@/components/Home/Banner-JobsCount";
 import WorkProcess from "@/components/Home/WorkProcess";
-// import BrowseCategory from "@/components/Home/BrowseCategory";
-// import Testimonials from "@/components/Home/Testimonials";
 import NewsLetter from "@/components/Home/NewsLetter";
 import Footer from "@/components/Footer";
 import NewBannerTrio from "@/assets/newBannerTrio.png";
@@ -136,7 +154,7 @@ export default {
     ProfileCard,
     NewsLetter,
     Footer,
-    VueSlickCarousel
+    VueSlickCarousel,
   },
   computed: {
     ...mapGetters(["getDropdown2"]),
@@ -152,7 +170,7 @@ export default {
     categoryList() {
       let cat = this.getDropdown2.slice(0, 4);
       return cat;
-    }
+    },
   },
   data() {
     return {
@@ -160,68 +178,68 @@ export default {
         [
           {
             img_url:
-              "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+              "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+              "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+              "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80"
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
-          }
+              "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80",
+          },
         ],
         [
           {
             img_url:
-              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
+              "https://images.unsplash.com/photo-1466112928291-0903b80a9466?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80",
           },
 
           {
             img_url:
-              "https://images.unsplash.com/photo-1520155707862-5b32817388d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+              "https://images.unsplash.com/photo-1520155707862-5b32817388d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+              "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+              "https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
           },
           {
             img_url:
-              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80"
-          }
-        ]
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80",
+          },
+        ],
       ],
       big_settings: {
         arrows: false,
@@ -236,13 +254,11 @@ export default {
         autoplaySpeed: 4500,
         cssEase: "linear",
         pauseOnHover: false,
-        // touchThreshold: 5,
         centerMode: true,
-        centerPadding: "-10%"
+        centerPadding: "-10%",
       },
       small_settings: {
         arrows: false,
-
         autoplay: true,
         dots: false,
         focusOnSelect: true,
@@ -250,13 +266,11 @@ export default {
         speed: 5000,
         slidesToShow: 5,
         slidesToScroll: 1,
-
         autoplaySpeed: 5000,
         cssEase: "linear",
         pauseOnHover: false,
-        // touchThreshold: 5,
         centerMode: true,
-        centerPadding: "-5%"
+        centerPadding: "-5%",
       },
       testimonials_settings: {
         autoplay: true,
@@ -267,16 +281,10 @@ export default {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        // touchThreshold: 5,
-        // centerMode: true,
-        // centerPadding: "-15%",
-        dotsClass: "slick-dots testi-dots"
-      }
+        dotsClass: "slick-dots testi-dots",
+      },
     };
-  }
-  // mounted() {
-  //   console.log(this.wodProfile.slice(5));
-  // }
+  },
 };
 </script>
 
@@ -288,9 +296,6 @@ export default {
   overflow: hidden;
 }
 .what-are-other-doing h1 {
-  /* position: absolute;
-  top: 5rem;
-  right: 5rem; */
   position: relative;
   width: 22rem;
   margin-left: auto;

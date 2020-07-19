@@ -98,9 +98,7 @@ export default {
       ) {
         this.setQuotes({ business: this.business, postCode: this.postCode });
         this.setNmultiStepFormDispStat(true);
-        // setTimeout(() => alert(this.getQuotes.business), 1000);
       } else {
-        // alert("Please enter valid Business details and Postcode");
         this.setQuoteValidationStat(true);
       }
     },
@@ -124,7 +122,6 @@ export default {
       } else {
         this.enableFilter = true;
       }
-      // console.log(this.filterArray);
     },
   },
   mounted() {
@@ -137,11 +134,9 @@ export default {
 <style scoped>
 .overlay-form {
   position: relative;
-  /* z-index: 55 !important; */
   display: flex;
   flex-direction: row;
   width: 60%;
-  /* border: 20px solid rgba(0, 0, 0, 0.6); */
 }
 .type-i,
 .type-ii {

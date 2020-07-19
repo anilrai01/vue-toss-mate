@@ -148,15 +148,6 @@ h6 {
   color: #ebebeb;
 }
 
-/* .f1 {
-  color: #35A7FF;
-}
-.f2 {
-  color: #FF5964;
-}
-.f3 {
-  color: #FFE74C;
-} */
 .f1,
 .f2,
 .f3 {

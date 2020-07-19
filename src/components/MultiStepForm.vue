@@ -331,17 +331,14 @@
 import StepProgression from "vue-step-progression";
 import { mapGetters, mapActions } from "vuex";
 import { mdbInput } from "mdbvue";
-// import { mdbProgress, mdbInput } from "mdbvue";
-// import BtnGroup from "./GetQuotes/BtnGroup";
+
 import Modals from "./Modals";
 export default {
   name: "MultiStepForm",
   components: {
     StepProgression,
     Modals,
-    // mdbProgress,
     mdbInput,
-    // BtnGroup,
   },
   data() {
     return {
@@ -398,7 +395,6 @@ export default {
       this.$router.push("/profile");
     },
   },
-  
 };
 </script>
 

@@ -69,9 +69,7 @@ export default {
   },
   methods: {
     activeToggler(tab) {
-      // console.log("param:", tab);
       this.$emit("handleActiveStat", tab);
-      // console.log(this.tabs);
     }
   }
 };
@@ -82,15 +80,9 @@ export default {
 .dash-support {
   background: var(--cream);
 }
-/* .set-position {
-  position: fixed;
-  z-index: 500;
-} */
 .dash-support {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 .info {
   display: flex;

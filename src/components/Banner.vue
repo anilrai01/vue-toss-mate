@@ -12,24 +12,24 @@ export default {
   props: {
     height: {
       type: String,
-      default: "auto"
+      default: "auto",
     },
     img_url: {
-      type: String
+      type: String,
     },
     light: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   components: {
     mdbView,
-    mdbMask
+    mdbMask,
   },
   computed: {
     defineStyle() {
       return {
         height: this.height + "vh",
-        "background-image": `url(${this.img_url})`
+        "background-image": `url(${this.img_url})`,
       };
     },
     computeCSS() {
@@ -38,8 +38,8 @@ export default {
       } else {
         return "black-strong fix-vis";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -49,13 +49,10 @@ export default {
 }
 .slot-vis {
   position: absolute;
-  /* z-index: 1  !important; */
 }
 .banner-pic {
   position: relative;
   width: 100%;
-  /* height: 40vh; */
-  /* background-image: url("https://images.unsplash.com/photo-1587407646633-aa1348f0dd9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

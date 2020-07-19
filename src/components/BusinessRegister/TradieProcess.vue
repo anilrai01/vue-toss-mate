@@ -18,9 +18,6 @@
         <p>The more you make your client happy, more likely to get more jobs</p>
       </mdb-col>
     </mdb-row>
-    <!-- <router-link to="/login">
-      <mdb-btn class="align">Login Now</mdb-btn>
-    </router-link>-->
   </mdb-container>
 </template>
 

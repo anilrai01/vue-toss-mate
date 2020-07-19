@@ -49,16 +49,11 @@ export default {
       }
     },
   },
-  //   mounted() {
-  //     console.log("Big: ", this.big);
-  //     console.log("MEd: ", this.med);
-  //   }
 };
 </script>
 
 <style scoped>
 .p-card {
-  /* width: 22rem; */
   padding: 1rem;
   background: #fff;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
@@ -69,12 +64,10 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
 }
 .bigMargin {
-  /* flex-basis: 22%; */
   width: 22rem !important;
   padding: 1rem;
 }
 .medMargin {
-  /* flex-basis: 18%; */
   width: 17rem !important;
   padding: 0.8rem;
 }

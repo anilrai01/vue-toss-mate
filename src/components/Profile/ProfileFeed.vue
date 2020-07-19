@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     toggleActive(tag) {
-      // console.log(tag);
       Object.keys(this.tabs).forEach(el =>
         el == tag ? (this.tabs[el] = true) : (this.tabs[el] = false)
       );
@@ -55,7 +54,6 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  /* align-items: center; */
 }
 li {
   list-style: none;

@@ -47,13 +47,9 @@ export default {
         this.keyword,
         `<span class="font-weight-bold"><mark>${this.keyword}<mark></span>`
       );
-      //   return `<span class="make-it-bold">${word}</span>`;
     },
   },
   watch: {
-    // keyword() {
-    //   console.log(this.keyword);
-    // },
     filterArray() {
       if (this.filterArray == []) {
         this.visibilitty = false;

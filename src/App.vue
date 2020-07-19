@@ -8,7 +8,6 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
-// import NavTop from "./components/Home/NavTop";
 import { mapGetters } from "vuex";
 //Slick Slider
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
