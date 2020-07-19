@@ -16,6 +16,7 @@
             type="email"
             id="defaultFormLoginEmailEx"
             class="form-control"
+            v-model="email"
           />
         </div>
         <div class="form-group">
@@ -26,13 +27,20 @@
             type="password"
             id="defaultFormLoginPasswordEx"
             class="form-control"
+            v-model="password"
           />
         </div>
 
         <div class="form-group">
           <label for="role" class="grey-text">Please specify your role</label>
-          <select name="role" id="role" class="form-control" required>
-            <option value="tradie" selected>Tradie</option>
+          <select
+            name="role"
+            id="role"
+            class="form-control"
+            required
+            v-model="role"
+          >
+            <option value="tradie">Tradie</option>
             <option value="customer">Customer</option>
           </select>
         </div>
@@ -63,6 +71,13 @@ export default {
   components: {
     mdbContainer,
     Footer,
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      role: "tradie",
+    };
   },
 };
 </script>
