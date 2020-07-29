@@ -15,7 +15,7 @@
         </div>
         <div class="comp-tip d-flex f-col text-white px-5 py-4">
           <h5 class="font-weight-bold">Start earning now</h5>
-          <router-link to="/business-register">
+          <router-link to="/business-register#registerSec">
             <h6 class="text-white">Become a Tradie</h6>
           </router-link>
         </div>

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <Modals
-      :show="getNmultiStepFormDispStat"
-      @visibleOff="offVisible"
-      quoteModel
-    >
+    <Modals :show="getNmultiStepFormDispStat" @visibleOff="offVisible" quoteModel>
       <div class="msf" slot="body">
         <step-progression
           :steps="steps"
@@ -19,28 +15,38 @@
           @submit.prevent="() => increaseSteps(currentStep, steps)"
         >
           <div class="options py-4">
-            <h4 class="font-weight-bold mb-3">
-              Please fill up the basic job details
-            </h4>
+            <h4 class="font-weight-bold mb-3">Please fill up the basic job details</h4>
             <div class="form-group">
-              <label for="postcode" class="font-weight-bold text-grey"
-                >Where do you want your job done?</label
-              >
+              <label for="postcode" class="font-weight-bold text-grey">What is your job business ?</label>
+              <input
+                type="text"
+                name="jobType"
+                id="jobType"
+                class="form-control w-full"
+                placeholder="Enter your Trade or Business"
+                v-model="getQuotes.business"
+                required="required"
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                for="postcode"
+                class="font-weight-bold text-grey"
+              >Where do you want your job done?</label>
               <input
                 type="text"
                 name="postcode"
                 id="postcode"
                 class="form-control w-full"
                 placeholder="Enter your postcode"
-                v-model="postcode"
+                v-model="getQuotes.postCode"
                 required="required"
               />
             </div>
 
             <div class="form-group mt-4">
-              <p class="m-0 font-weight-bold text-grey">
-                Please specify your job type
-              </p>
+              <p class="m-0 font-weight-bold text-grey">Please specify your job type</p>
               <!-- Group of default radios - option 1 -->
               <div class="custom-control custom-radio normal-radio">
                 <input
@@ -52,9 +58,7 @@
                   v-model="jobDetails.jobType"
                   required
                 />
-                <label class="custom-control-label text-muted" for="quotes"
-                  >Quotes</label
-                >
+                <label class="custom-control-label text-muted" for="quotes">Quotes</label>
               </div>
 
               <!-- Group of default radios - option 2 -->
@@ -68,29 +72,16 @@
                   v-model="jobDetails.jobType"
                   required
                 />
-                <label class="custom-control-label text-muted" for="offer"
-                  >Offer</label
-                >
+                <label class="custom-control-label text-muted" for="offer">Offer</label>
               </div>
             </div>
 
             <div class="form-group mt-3" v-if="jobDetails.jobType == 'Offer'">
-              <label for="budget" class="font-weight-bold text-grey"
-                >What is your budget for the task?</label
-              >
-              <!-- <input
-                type="text"
-                class="form-control w-full"
-                v-model="jobDetails.jobBudget"
-                id="budget"
-                required
-              />-->
-              <mdb-input
-                basic
-                class="mb-3 w-full"
-                id="budget"
-                v-model="jobDetails.jobBudget"
-              >
+              <label
+                for="budget"
+                class="font-weight-bold text-grey"
+              >What is your budget for the task?</label>
+              <mdb-input basic class="mb-3 w-full" id="budget" v-model="jobDetails.jobBudget">
                 <span class="input-group-text" slot="prepend">$</span>
                 <span class="input-group-text" slot="append">.00</span>
               </mdb-input>
@@ -98,13 +89,7 @@
           </div>
 
           <!-- <BtnGroup prevDisable /> -->
-          <button
-            v-if="currentStep < steps"
-            class="btn cus-btn continue"
-            type="submit"
-          >
-            Continue
-          </button>
+          <button v-if="currentStep < steps" class="btn cus-btn continue" type="submit">Continue</button>
         </form>
 
         <!-- Step 2 -->
@@ -114,9 +99,7 @@
           @submit.prevent="() => increaseSteps(currentStep, steps)"
         >
           <div class="options">
-            <h3 class="text-center mb-4">
-              When do you need the work to start?
-            </h3>
+            <h3 class="text-center mb-4">When do you need the work to start?</h3>
             <div class="custom-control custom-radio">
               <input
                 type="radio"
@@ -126,9 +109,7 @@
                 value="emergency"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Emergency"
-                >Emergency</label
-              >
+              <label class="custom-control-label" for="Emergency">Emergency</label>
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -150,9 +131,7 @@
                 value="next-few-days"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Next few days"
-                >Next few days</label
-              >
+              <label class="custom-control-label" for="Next few days">Next few days</label>
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -163,9 +142,7 @@
                 value="flexible"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="I'm Flexible"
-                >I'm Flexible</label
-              >
+              <label class="custom-control-label" for="I'm Flexible">I'm Flexible</label>
             </div>
             <div class="custom-control custom-radio">
               <input
@@ -176,18 +153,10 @@
                 value="few-months"
                 v-model="jobDetails.startTime"
               />
-              <label class="custom-control-label" for="Few Months"
-                >Few Months</label
-              >
+              <label class="custom-control-label" for="Few Months">Few Months</label>
             </div>
           </div>
-          <button
-            v-if="currentStep < steps"
-            class="btn cus-btn continue"
-            type="submit"
-          >
-            Continue
-          </button>
+          <button v-if="currentStep < steps" class="btn cus-btn continue" type="submit">Continue</button>
         </form>
         <!-- Step 3 -->
         <form
@@ -208,22 +177,15 @@
               v-model="jobDetails.jobDesc"
             ></textarea>
           </div>
-          <button
-            v-if="currentStep < steps"
-            class="btn cus-btn continue"
-            type="submit"
-          >
-            Continue
-          </button>
+          <button v-if="currentStep < steps" class="btn cus-btn continue" type="submit">Continue</button>
         </form>
         <!-- Step 4 -->
-        <form
-          class="m-form"
-          v-if="currentStep === 4"
-          @submit.prevent="() => redirectProfile()"
-        >
+        <form class="m-form" v-if="currentStep === 4" @submit.prevent="() => redirectProfile()">
           <div class="options">
-            <h3>Please provide us your details for further procedure?</h3>
+            <h3>
+              Please provide us your details for further
+              procedure?
+            </h3>
             <div class="form-group">
               <label for="u-name">Full Name *</label>
               <input
@@ -245,9 +207,7 @@
               />
             </div>
             <div class="form-group">
-              <h5 class="text-dark font-weight-bold">
-                Do you have an account before?
-              </h5>
+              <h5 class="text-dark font-weight-bold">Do you have an account before?</h5>
               <div class="custom-control custom-radio normal-radio">
                 <input
                   type="radio"
@@ -258,9 +218,7 @@
                   v-model="haveAccount"
                   required
                 />
-                <label class="custom-control-label text-muted" for="yes"
-                  >Yes</label
-                >
+                <label class="custom-control-label text-muted" for="yes">Yes</label>
               </div>
 
               <!-- Group of default radios - option 2 -->
@@ -274,9 +232,7 @@
                   v-model="haveAccount"
                   required
                 />
-                <label class="custom-control-label text-muted" for="no"
-                  >No</label
-                >
+                <label class="custom-control-label text-muted" for="no">No</label>
               </div>
             </div>
             <div class="form-group" v-if="haveAccount == 'yes'">
@@ -300,8 +256,8 @@
               />
             </div>
             <h6 class="text-dark text-center my-5">
-              By clicking agree and continue you agree to ToosMate policy and
-              agreement !
+              By clicking agree and continue you agree to ToosMate
+              policy and agreement !
             </h6>
           </div>
           <div class="btn-groupp">
@@ -312,14 +268,12 @@
               @click="decreaseSteps(currentStep, steps)"
             >
               Back
-            </button> -->
+            </button>-->
             <button
               v-if="currentStep == steps"
               class="btn cus-btn continue p-2 px-4 mx-auto"
               type="submit"
-            >
-              Agree and Continue
-            </button>
+            >Agree and Continue</button>
           </div>
         </form>
       </div>
@@ -342,8 +296,10 @@ export default {
   },
   data() {
     return {
-      business: "",
-      postcode: "",
+      jobHighlight: {
+        business: "",
+        postCode: "",
+      },
 
       jobDetails: {
         jobType: "",
@@ -370,12 +326,28 @@ export default {
   },
   computed: {
     ...mapGetters(["getNmultiStepFormDispStat", "getQuotes"]),
+    showBusiness() {
+      return this.getQuotes.business;
+    },
   },
   methods: {
     ...mapActions(["setNmultiStepFormDispStat", "resetQuotes"]),
+    resetVal() {
+      this.jobDetails.jobType = "";
+      this.jobDetails.jobBudget = "";
+      this.jobDetails.startTime = "flexible";
+      this.jobDetails.jobStatus = "planning";
+      this.jobDetails.jobDesc = "";
+      this.jobDetails.personal.name = "";
+      this.jobDetails.personal.email = "";
+      this.jobDetails.personal.password = "";
+      this.jobDetails.personal.contact = "";
+    },
     offVisible() {
       this.setNmultiStepFormDispStat(false);
       this.resetQuotes();
+      this.resetVal();
+      this.currentStep = 1;
     },
     increaseSteps(currentStep, steps) {
       if (currentStep < steps) {
@@ -395,6 +367,15 @@ export default {
       this.$router.push("/profile");
     },
   },
+  //mounted() {
+    // alert(this.getQuotes.business);
+    // this.jobHighlight.business = this.getQuotes.business;
+  // },
+  // watch: {
+  //   showBusiness() {
+  //     alert(this.getQuotes.business);
+  //   },
+  // },
 };
 </script>
 

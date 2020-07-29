@@ -5,7 +5,7 @@
         <mdb-col col="3 position-relative">
           <ProfileNav :tabs="tabs" @handleActiveStat="handleActiveToggle" />
         </mdb-col>
-        <mdb-col>
+        <mdb-col col="9">
           <ProfileFeed v-if="tabs.activeJob" />
           <EditProfile v-if="tabs.activeEditProfile" />
           <ChangePassword v-if="tabs.activeChangePassword" />
@@ -33,7 +33,7 @@ export default {
     mdbCol,
     EditProfile,
     ChangePassword,
-    Footer
+    Footer,
   },
   data() {
     return {
@@ -41,19 +41,19 @@ export default {
         activeJob: true,
         activeMessage: false,
         activeEditProfile: false,
-        activeChangePassword: false
-      }
+        activeChangePassword: false,
+      },
     };
   },
   methods: {
     handleActiveToggle(tab) {
-      Object.keys(this.tabs).forEach(el =>
+      Object.keys(this.tabs).forEach((el) =>
         String(el) == String(tab)
           ? (this.tabs[el] = true)
           : (this.tabs[el] = false)
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

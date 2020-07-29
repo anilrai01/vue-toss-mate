@@ -3,23 +3,19 @@
     <div
       class="type-i"
       v-if="
-        this.$route.name == 'Home' || this.$route.name == 'AllCategoriesView'
-      "
+                this.$route.name == 'Home' ||
+                    this.$route.name == 'AllCategoriesView'
+            "
     >
-      <Modals
+      <!-- <Modals
         :show="getQuoteValidationStat"
         messageTitle="Alert!"
         @visibleOff="offVisible"
       >
         <h2 slot="header" class="text-danger">Alert !</h2>
         <h4 slot="body">Please enter valid Business details and Postcode</h4>
-      </Modals>
-      <SearchList
-        width="55"
-        :filterArray="filterArray"
-        @setVal="setBusiness"
-        :keyword="business"
-      />
+      </Modals>-->
+      <SearchList width="55" :filterArray="filterArray" @setVal="setBusiness" :keyword="business" />
 
       <input
         type="text"
@@ -33,28 +29,26 @@
         placeholder="Enter postcode"
         v-model="postCode"
       />
-      <button class="search-btn text-center" @click="handleSubmit">
-        Search
-      </button>
+      <button class="search-btn text-center" @click="handleSubmit">Search</button>
     </div>
     <div class="type-ii" v-if="this.$route.name == 'CategoriesView'">
-      <Modals
-        :show="getQuoteValidationStat"
-        messageTitle="Alert!"
-        @visibleOff="offVisible"
-      >
-        <h2 slot="header" class="text-danger">Alert !</h2>
-        <h4 slot="body">Please enter valid Business details and Postcode</h4>
-      </Modals>
+      <!-- <Modals
+                :show="getQuoteValidationStat"
+                messageTitle="Alert!"
+                @visibleOff="offVisible"
+            >
+                <h2 slot="header" class="text-danger">Alert !</h2>
+                <h4 slot="body">
+                    Please enter valid Business details and Postcode
+                </h4>
+      </Modals>-->
       <input
         type="text"
         class="form-controls type-ii-form-i"
         placeholder="Enter postcode"
         v-model="postCode"
       />
-      <button class="search-btn text-center" @click="handleSubmit">
-        Go
-      </button>
+      <button class="search-btn text-center" @click="handleGoSubmit">Go</button>
     </div>
   </div>
 </template>
@@ -62,13 +56,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import SearchList from "../SearchList";
-import Modals from "../Modals";
+// import Modals from "../Modals";
 
 export default {
   name: "SearchBar",
   components: {
     SearchList,
-    Modals,
+    // Modals
   },
   data() {
     return {
@@ -87,20 +81,33 @@ export default {
       "setQuotes",
       "setQuoteValidationStat",
       "setNmultiStepFormDispStat",
+      "setQuotePostCode",
     ]),
     handleSubmit() {
-      if (
-        this.business !== null &&
-        this.business !== "" &&
-        this.postCode !== null &&
-        this.postCode !== "" &&
-        this.getDropdown.includes(this.business)
-      ) {
-        this.setQuotes({ business: this.business, postCode: this.postCode });
-        this.setNmultiStepFormDispStat(true);
-      } else {
-        this.setQuoteValidationStat(true);
-      }
+      // if (
+      //     this.business !== null &&
+      //     this.business !== "" &&
+      //     this.postCode !== null &&
+      //     this.postCode !== "" &&
+      //     this.getDropdown.includes(this.business)
+      // ) {
+      //     this.setQuotes({
+      //         business: this.business,
+      //         postCode: this.postCode
+      //     });
+      //     this.setNmultiStepFormDispStat(true);
+      // } else {
+      //     this.setQuoteValidationStat(true);
+      // }
+      this.setQuotes({
+        business: this.business,
+        postCode: this.postCode,
+      });
+      this.setNmultiStepFormDispStat(true);
+    },
+    handleGoSubmit() {
+      this.setQuotePostCode(this.postCode);
+      this.setNmultiStepFormDispStat(true);
     },
     offVisible() {
       this.setQuoteValidationStat(false);
@@ -113,7 +120,7 @@ export default {
   },
   watch: {
     business() {
-      if (this.business !== null && this.business !== "" && this.enableFilter) {
+      if (this.enableFilter) {
         this.filterArray = this.getDropdown.filter((el) =>
           el.includes(this.business)
         );

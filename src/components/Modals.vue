@@ -9,7 +9,7 @@
       <mdb-modal-body>
         <slot name="body"></slot>
       </mdb-modal-body>
-      <mdb-modal-footer v-if="!quoteModel && !taskModel && !wpVidModel">
+      <mdb-modal-footer v-if="!quoteModel && !taskModel && !wpVidModel && !noBtn">
         <mdb-btn class="cus-btn" @click.native="handleVisiblity">Close</mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
@@ -51,6 +51,10 @@ export default {
       default: false,
     },
     wpVidModel: {
+      type: Boolean,
+      default: false,
+    },
+    noBtn: {
       type: Boolean,
       default: false,
     },

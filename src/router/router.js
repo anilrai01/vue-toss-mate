@@ -63,7 +63,15 @@ const routes = [
     name: "AllCategoriesView",
     component: () =>
       import(
-        /* webpackChunkName: "business-register" */ "../views/AllCategoriesView"
+        /* webpackChunkName: "allCat-view" */ "../views/AllCategoriesView"
+      ),
+  },
+  {
+    path: "/customer-register",
+    name: "CustomerRegister",
+    component: () =>
+      import(
+        /* webpackChunkName: "customer-register" */ "../views/CustomerRegister"
       ),
   },
   {
@@ -80,7 +88,23 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior(to) {
+    if (to.hash) {
+      return new Promise(() => {
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.querySelector(to.hash).offsetTop,
+            behavior: "smooth",
+          });
+        }, 700);
+      });
+    } else {
+      return {
+        x: 0,
+        y: 0,
+      };
+    }
+  },
   routes,
 });
 

@@ -18,32 +18,32 @@ import Feed from "./Feed";
 export default {
   name: "ProfileFeed",
   components: {
-    Feed
+    Feed,
   },
   data() {
     return {
       tabs: {
         currentActive: true,
-        pastActive: false
-      }
+        pastActive: false,
+      },
     };
   },
   computed: {
     ...mapGetters(["getTaskList"]),
     progressingTask() {
-      return this.getTaskList.filter(el => el.taskStatus == "in-progress");
+      return this.getTaskList.filter((el) => el.taskStatus !== "completed");
     },
     completedTask() {
-      return this.getTaskList.filter(el => el.taskStatus == "completed");
-    }
+      return this.getTaskList.filter((el) => el.taskStatus == "completed");
+    },
   },
   methods: {
     toggleActive(tag) {
-      Object.keys(this.tabs).forEach(el =>
+      Object.keys(this.tabs).forEach((el) =>
         el == tag ? (this.tabs[el] = true) : (this.tabs[el] = false)
       );
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

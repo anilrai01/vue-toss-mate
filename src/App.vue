@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <!-- <NavTop /> -->
-    <Navbar :class="navStyle" />
-    <router-view :class="computeMargin"></router-view>
-  </div>
+    <div id="app">
+        <!-- <NavTop /> -->
+        <Navbar :class="navStyle" />
+        <transition name="slide" mode="out-in">
+            <router-view :class="computeMargin"></router-view>
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -15,38 +17,38 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
-  name: "App",
-  components: {
-    Navbar,
-    // NavTop
-  },
-  computed: {
-    ...mapGetters(["getQuoteValidationStat", "getMFormDispStat"]),
-    computeMargin() {
-      if (this.$route.path !== "/") {
-        return "maintain-margin";
-      } else {
-        return "";
-      }
+    name: "App",
+    components: {
+        Navbar
+        // NavTop
     },
-    navStyle() {
-      if (this.$route.path !== "/") {
-        return "navStyle";
-      } else {
-        return "";
-      }
-    },
-    showNav() {
-      if (
-        this.getQuoteValidationStat == false &&
-        this.getMFormDispStat == false
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
+    computed: {
+        ...mapGetters(["getQuoteValidationStat", "getMFormDispStat"]),
+        computeMargin() {
+            if (this.$route.path !== "/") {
+                return "maintain-margin";
+            } else {
+                return "";
+            }
+        },
+        navStyle() {
+            if (this.$route.path !== "/") {
+                return "navStyle";
+            } else {
+                return "";
+            }
+        },
+        showNav() {
+            if (
+                this.getQuoteValidationStat == false &&
+                this.getMFormDispStat == false
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 };
 </script>
 
@@ -54,209 +56,232 @@ export default {
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 :root {
-  --brand: #376c13;
-  --brandL2: #3c8f1a;
-  --brandL3: #74d14c;
-  --brandDivs: #eee;
-  --lightBg: #f1f1f1;
-  /* --cream: #fbfffb; */
-  /* --cream: #ffffff; */
-  /* --white: #fdfefe; */
-  --cream: #f8f8f8;
-  --grey: #5c5c5c;
-  --black: #373737;
-  --lblack: #424242;
-  --brOverlayUnit: 28rem;
-  --fontHelvNeue: Helvetica Neue, sans-serif;
-  --greenMask: rgba(32, 85, 10, 0.91);
+    --brand: #376c13;
+    --brandL2: #3c8f1a;
+    --brandL3: #74d14c;
+    --brandDivs: #eee;
+    --lightBg: #f1f1f1;
+    /* --cream: #fbfffb; */
+    /* --cream: #ffffff; */
+    /* --white: #fdfefe; */
+    --cream: #f8f8f8;
+    --grey: #5c5c5c;
+    --black: #373737;
+    --lblack: #424242;
+    --brOverlayUnit: 28rem;
+    --fontHelvNeue: Helvetica Neue, sans-serif;
+    --greenMask: rgba(32, 85, 10, 0.91);
 }
 .car-item {
-  background: var(--brand);
-  width: 10rem;
-  color: #fff;
+    background: var(--brand);
+    width: 10rem;
+    color: #fff;
 }
 body {
-  /* background: #f6f8fd; */
-  background: #fff;
-  font-family: Helvetica, sans-serif !important;
+    /* background: #f6f8fd; */
+    background: #fff;
+    font-family: Helvetica, sans-serif !important;
 }
 .container {
-  max-width: 90% !important;
+    max-width: 90% !important;
 }
+
+*::-webkit-scrollbar {
+    width: 0.75rem;
+}
+*::-webkit-scrollbar-track {
+    background: var(--brandDivs);
+}
+*::-webkit-scrollbar-thumb {
+    background: var(--brand);
+    border-radius: 10px;
+}
+
 .font-helvNeue {
-  font-family: var(--fontHelvNeue) !important;
+    font-family: var(--fontHelvNeue) !important;
 }
 .maintain-margin {
-  margin-top: 70px;
+    margin-top: 70px;
 }
 .navStyle {
-  background: var(--greenMask);
-  z-index: 30 !important;
+    background: var(--greenMask);
+    z-index: 30 !important;
 }
 .navStyle .inner-cont {
-  border: 0 !important;
+    border: 0 !important;
 }
 .d-in {
-  display: inline;
+    display: inline;
 }
 .f-row {
-  flex-direction: row;
+    flex-direction: row;
 }
 .f-col {
-  flex-direction: column;
+    flex-direction: column;
 }
 .f-wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 .j-c {
-  justify-content: center;
+    justify-content: center;
 }
 .a-c {
-  align-items: center;
+    align-items: center;
 }
 .j-sb {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 .a-sb {
-  align-items: space-between;
+    align-items: space-between;
 }
 .j-fs {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 .a-fs {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 .c-p {
-  cursor: pointer;
+    cursor: pointer;
 }
 .f-head {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 .f-norm {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 .fb-50 {
-  flex-basis: 50%;
+    flex-basis: 50%;
 }
 .fb-40 {
-  flex-basis: 40%;
+    flex-basis: 40%;
 }
 .fb-60 {
-  flex-basis: 60%;
+    flex-basis: 60%;
 }
 .z-2 {
-  z-index: 2;
+    z-index: 2;
 }
 .o-50 {
-  opacity: 50%;
+    opacity: 50%;
 }
 .green-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(32, 85, 10, 0.91);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 85, 10, 0.91);
 }
 /* .modal-content {
   margin: 5rem 0;
 } */
 .cus-btn {
-  background: var(--brandL2) !important;
-  color: #fff;
-  border: none;
+    background: var(--brandL2) !important;
+    color: #fff;
+    border: none;
 }
 .cus-btn:hover {
-  color: #fff;
+    color: #fff;
 }
 .text-grey {
-  color: var(--grey);
+    color: var(--grey);
 }
 .text-brand {
-  color: var(--brand);
+    color: var(--brand);
 }
 .text-brand2 {
-  color: var(--brandL2);
+    color: var(--brandL2);
 }
 .text-black {
-  color: var(--black);
+    color: var(--black);
 }
 .text-c {
-  color: #ccc;
+    color: #ccc;
 }
 .text-lblack {
-  color: var(--lblack);
+    color: var(--lblack);
 }
 .bg-transparent {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 .bg-brand2 {
-  background: var(--brandL2) !important;
+    background: var(--brandL2) !important;
 }
 .cus-btn-outline {
-  color: var(--brandL2);
-  border: none;
-  border: 2px solid var(--brandL2);
+    color: var(--brandL2);
+    border: none;
+    border: 2px solid var(--brandL2);
 }
 .cus-btn-outline:hover {
-  color: var(--brandL2);
+    color: var(--brandL2);
 }
 mark {
-  padding: 5px 0 !important;
+    padding: 5px 0 !important;
 }
 .close {
-  font-size: 2.3rem;
-  padding: 1rem 1.5rem !important;
+    font-size: 2.3rem;
+    padding: 1rem 1.5rem !important;
 }
 .modal-footer {
-  border: 0 !important;
+    border: 0 !important;
 }
 .modal-header {
-  border: 0;
-  padding-bottom: 0;
+    border: 0;
+    padding-bottom: 0;
 }
 .modal-body {
-  border: 0;
+    border: 0;
 }
 .modal-content {
-  padding: 1rem 2rem;
+    padding: 1rem 2rem;
 }
 .progress-bar {
-  background-color: var(--brand);
-  transition: 0.6s ease;
+    background-color: var(--brand);
+    transition: 0.6s ease;
 }
 .disabled,
 :disabled {
-  opacity: 0.3 !important;
+    opacity: 0.3 !important;
 }
 .custom-control-input:checked ~ .custom-control-label::before {
-  border-color: var(--brand);
-  background-color: var(--brand);
+    border-color: var(--brand);
+    background-color: var(--brand);
 }
 .c-brand {
-  color: var(--brand);
+    color: var(--brand);
 }
 .f-right {
-  float: right;
+    float: right;
 }
 .bg-center-style {
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
 }
 .set-zindex * {
-  z-index: 10;
+    z-index: 10;
 }
 
 .steps {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 .step-progression-line {
-  background-color: var(--brandL3) !important;
+    background-color: var(--brandL3) !important;
+}
+
+/* router animation */
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity 0.5s, transform 0.5s;
+}
+.slide-enter,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateY(-50px);
 }
 </style>

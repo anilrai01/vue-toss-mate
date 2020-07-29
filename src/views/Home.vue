@@ -7,30 +7,19 @@
     <Banner class="mt-5" :img_url="sendNewbannerTrio">
       <BannerJobs />
     </Banner>
+
     <!-- New section One  -->
     <div class="what-are-other-doing">
       <img :src="returnImage" alt class="modelImg" />
-      <h1 class="text-brand2 font-weight-bold text-left z-2 mb-5">
-        What are others doing?
-      </h1>
+      <h1 class="text-brand2 font-weight-bold text-left z-2 mb-5">What are others doing?</h1>
       <div class="new-big-card mb-5 w-100">
         <VueSlickCarousel v-bind="big_settings">
-          <ProfileCard
-            big
-            v-for="(card, index) in wodProfile[0]"
-            :key="index"
-            :img="card.img_url"
-          />
+          <ProfileCard big v-for="(card, index) in wodProfile[0]" :key="index" :img="card.img_url" />
         </VueSlickCarousel>
       </div>
       <div class="new-small-card">
         <VueSlickCarousel v-bind="small_settings">
-          <ProfileCard
-            med
-            v-for="(card, index) in wodProfile[1]"
-            :key="index"
-            :img="card.img_url"
-          />
+          <ProfileCard med v-for="(card, index) in wodProfile[1]" :key="index" :img="card.img_url" />
         </VueSlickCarousel>
       </div>
     </div>
@@ -39,9 +28,7 @@
       <div class="banner-testimonial">
         <div class="green-mask"></div>
 
-        <h1 class="text-white font-weight-bold text-center">
-          What they have to say ?
-        </h1>
+        <h1 class="text-white font-weight-bold text-center">What they have to say ?</h1>
         <div class="new-testimonials">
           <VueSlickCarousel v-bind="testimonials_settings">
             <div class="testi-card">
@@ -52,8 +39,9 @@
 
               <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
               <p class="text-justify text-grey">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum culpa architecto voluptatem accusanti
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Dolorum culpa architecto
+                voluptatem accusanti
               </p>
             </div>
             <div class="testi-card">
@@ -64,8 +52,9 @@
 
               <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
               <p class="text-justify text-grey">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum culpa architecto voluptatem accusanti
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Dolorum culpa architecto
+                voluptatem accusanti
               </p>
             </div>
             <div class="testi-card">
@@ -76,8 +65,9 @@
 
               <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
               <p class="text-justify text-grey">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum culpa architecto voluptatem accusanti
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Dolorum culpa architecto
+                voluptatem accusanti
               </p>
             </div>
             <div class="testi-card">
@@ -88,8 +78,9 @@
 
               <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
               <p class="text-justify text-grey">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum culpa architecto voluptatem accusanti
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Dolorum culpa architecto
+                voluptatem accusanti
               </p>
             </div>
             <div class="testi-card">
@@ -100,8 +91,9 @@
 
               <h3 class="font-weight-bold mt-4 mb-3">John Doe</h3>
               <p class="text-justify text-grey">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum culpa architecto voluptatem accusanti
+                Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Dolorum culpa architecto
+                voluptatem accusanti
               </p>
             </div>
           </VueSlickCarousel>
@@ -113,34 +105,29 @@
     <div class="browse-ex-cat container">
       <h3 class="font-weight-bold">Browse our extensive categories</h3>
       <div class="cat-list">
-        <div
-          class="list-col"
-          v-for="(list, index) in categoryList"
-          :key="index"
-        >
+        <div class="list-col" v-for="(list, index) in categoryList" :key="index">
           <h5 class="font-weight-bold">{{ list.title }}</h5>
-          <p v-for="(listt, index) in list.links.slice(0, 9)" :key="index">
-            {{ listt }}
-          </p>
+          <p v-for="(listt, index) in list.links.slice(0, 9)" :key="index">{{ listt }}</p>
         </div>
       </div>
     </div>
+
     <NewsLetter />
     <Footer />
   </div>
 </template>
 
 <script>
-import Hero from "@/components/Home/Hero";
-import Banner from "@/components/Banner";
-import BannerJobs from "@/components/Home/Banner-JobsCount";
-import WorkProcess from "@/components/Home/WorkProcess";
-import NewsLetter from "@/components/Home/NewsLetter";
-import Footer from "@/components/Footer";
-import NewBannerTrio from "@/assets/newBannerTrio.png";
-import ProfileCard from "@/components/Home/ProfileCard";
-import rectImage from "@/assets/bigBG.png";
-import newSecImg from "@/assets/newSecondSection.png";
+import Hero from "../components/Home/Hero";
+import Banner from "../components/Banner";
+import BannerJobs from "../components/Home/Banner-JobsCount";
+import WorkProcess from "../components/Home/WorkProcess";
+import NewsLetter from "../components/Home/NewsLetter";
+import Footer from "../components/Footer";
+import NewBannerTrio from "../assets/newBannerTrio.png";
+import ProfileCard from "../components/Home/ProfileCard";
+import rectImage from "../assets/bigBG.png";
+import newSecImg from "../assets/newSecondSection.png";
 import { mapGetters } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 
@@ -247,15 +234,13 @@ export default {
         dots: false,
         focusOnSelect: true,
         infinite: true,
-        speed: 4500,
+        speed: 15000,
         slidesToShow: 4,
         slidesToScroll: 1,
-
-        autoplaySpeed: 4500,
+        autoplaySpeed: 1000,
         cssEase: "linear",
         pauseOnHover: false,
-        centerMode: true,
-        centerPadding: "-10%",
+        // centerMode: true,
       },
       small_settings: {
         arrows: false,
@@ -263,14 +248,13 @@ export default {
         dots: false,
         focusOnSelect: true,
         infinite: true,
-        speed: 5000,
+        speed: 15000,
         slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplaySpeed: 5000,
+        slidesToScroll: -1,
+        autoplaySpeed: 1000,
         cssEase: "linear",
         pauseOnHover: false,
-        centerMode: true,
-        centerPadding: "-5%",
+        // centerMode: false,
       },
       testimonials_settings: {
         autoplay: true,
@@ -308,15 +292,11 @@ export default {
   right: -28%;
   transform: scale(0.7);
 }
-.big-card,
-.small-card {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-  z-index: 2;
+
+.slick-initialized .slick-list .slick-track .slick-slide {
+  margin: 0 3rem !important;
 }
+
 .banner-testimonial {
   padding: 6rem 0;
   display: flex;

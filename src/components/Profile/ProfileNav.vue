@@ -1,5 +1,6 @@
 <template>
-  <div class="set-position ">
+  <div class="set-position">
+    <MultiStepForm />
     <div id="dash-nav">
       <div class="info">
         <div class="avatar bg-center-style"></div>
@@ -8,9 +9,7 @@
           <p class="text-muted m-0 ml-3 u-name">@prithakCreation</p>
         </div>
       </div>
-      <router-link to="/get-quotes">
-        <button class="btn cus-btn quotes-btn">Get Quotes Now</button>
-      </router-link>
+      <button class="btn cus-btn quotes-btn" @click="handlePostJob">POST A JOB</button>
       <ul class="list-grp">
         <li
           class="list-items"
@@ -54,24 +53,31 @@
 </template>
 
 <script>
+import MultiStepForm from "../MultiStepForm";
 import { mdbBadge, mdbIcon } from "mdbvue";
+import { mapActions } from "vuex";
 export default {
   name: "ProfileNav",
   components: {
     mdbBadge,
-    mdbIcon
+    mdbIcon,
+    MultiStepForm,
   },
   props: {
     tabs: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   methods: {
+    ...mapActions(["setNmultiStepFormDispStat"]),
     activeToggler(tab) {
       this.$emit("handleActiveStat", tab);
-    }
-  }
+    },
+    handlePostJob() {
+      this.setNmultiStepFormDispStat(true);
+    },
+  },
 };
 </script>
 

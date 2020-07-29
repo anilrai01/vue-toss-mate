@@ -1,53 +1,23 @@
 <template>
   <div class="banner-job">
     <div class="green-mask"></div>
-    <h1 class="text-white font-weight-bold font-helvNeue">What needs to be done ?</h1>
+    <h1 class="text-white font-weight-bold font-helvNeue">
+      What needs to be done ?
+    </h1>
     <div class="s-row mt-4">
-      <div class="s-col" @click="handleRouteClick('Plumber')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('plumber')" class="svg-i-icon"></object>
+      <div
+        v-for="(job, index) in jobLists"
+        :key="index"
+        class="s-col"
+        @click="handleRouteClick(job.iconName)"
+      >
+        <!-- <div class="svg-icon c-p">
+          <object type="image/svg+xml" :data="job.icon" class="svg-i-icon c-p"></object>
+        </div>-->
+        <div class="svg-bg">
+          <img :src="job.icon" alt class="svg-icon c-p" />
         </div>
-        <h6>Plumbing</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Electrician')">
-        <div class="svg-icon">
-          <object
-            type="image/svg+xml"
-            :data="showIcon('electrician')"
-            class="svg-i-icon"
-          >Electrician</object>
-        </div>
-        <h6>Electrician</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Painting')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('painting')" class="svg-i-icon">Paining</object>
-        </div>
-        <h6>Painting</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Repairing')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('repair')" class="svg-i-icon">Repairing</object>
-        </div>
-        <h6>Repairing</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Gardening')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('gardening')" class="svg-i-icon">Gardening</object>
-        </div>
-        <h6>Gardening</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Air Conditioning')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('ac')" class="svg-i-icon">Ac</object>
-        </div>
-        <h6>Air Conditioning</h6>
-      </div>
-      <div class="s-col" @click="handleRouteClick('Moving')">
-        <div class="svg-icon">
-          <object type="image/svg+xml" :data="showIcon('moving')" class="svg-i-icon">Moving</object>
-        </div>
-        <h6>Moving</h6>
+        <h6>{{ job.iconName }}</h6>
       </div>
     </div>
   </div>
@@ -65,34 +35,48 @@ import Gardening from "../../assets/Icon material-nature.svg";
 import { mapActions } from "vuex";
 export default {
   name: "BannerJobs",
-  computed: {},
+  components: {},
+  data() {
+    return {
+      jobLists: [
+        {
+          icon: PlumberIcon,
+          iconName: "Plumbing",
+        },
+        {
+          icon: ElectricianIcon,
+          iconName: "Electrician",
+        },
+        {
+          icon: Painting,
+          iconName: "Painting",
+        },
+        {
+          icon: Repairing,
+          iconName: "Repairing",
+        },
+        {
+          icon: Gardening,
+          iconName: "Gardening",
+        },
+        {
+          icon: Ac,
+          iconName: "Air Conditioning",
+        },
+        {
+          icon: Moving,
+          iconName: "Moving",
+        },
+      ],
+    };
+  },
   methods: {
-    ...mapActions(["setQuoteBusiness"]),
-    showIcon(icon) {
-      switch (icon) {
-        case "plumber":
-          return PlumberIcon;
-        case "electrician":
-          return ElectricianIcon;
-        case "painting":
-          return Painting;
-        case "repair":
-          return Repairing;
-        case "gardening":
-          return Gardening;
-        case "ac":
-          return Ac;
-        case "moving":
-          return Moving;
-        default:
-          return "";
-      }
-    },
+    ...mapActions(["setQuoteBusiness", "setNmultiStepFormDispStat"]),
     handleRouteClick(param) {
-      this.$router.push(`/categories-view/${param}`);
       this.setQuoteBusiness(param);
-    }
-  }
+      this.setNmultiStepFormDispStat(true);
+    },
+  },
 };
 </script>
 
@@ -156,29 +140,39 @@ h6 {
 
 /* SVG Icon */
 .svg-icon {
-  position: relative;
-  transform: scale(0.8);
-  margin-bottom: 3rem;
+  transform: scale(0.7) rotate(-45deg);
+  cursor: pointer;
+  /* margin-bottom: 3rem; */
+  transition: all 0.5s ease-in-out;
+}
+.svg-bg {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.svg-icon object {
-  z-index: 5;
-}
-.svg-icon::before {
-  content: "";
-  position: absolute;
-  width: 7rem;
-  height: 7rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: 3rem;
   background: rgba(60, 143, 26, 0.7);
   transform: rotate(45deg);
   transition: all 0.5s ease-in-out;
 }
-.s-col:hover .svg-icon::before {
-  transform: rotate(-45deg);
+/* .svg-icon object {
+  z-index: 1;
+} */
+/* .svg-icon::before {
+  content: "";
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  background: rgba(60, 143, 26, 0.7); 
+  background: red;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+} */
+.svg-bg:hover {
+  transform: rotate(-135deg);
 }
-.s-col:hover .svg-i-icon svg path {
-  fill: rgba(60, 143, 26, 0.7);
+.svg-bg:hover .svg-icon {
+  transform: rotate(135deg) scale(0.9);
 }
 </style>

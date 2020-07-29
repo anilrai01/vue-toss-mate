@@ -5,9 +5,7 @@
   >
     <img class="p-img" :src="img" />
     <div class="p-desc d-flex f-col j-c">
-      <div class="p-title">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      </div>
+      <div class="p-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
       <div class="p-det d-flex f-row j-sb">
         <div class="p-name">Air Conditioning</div>
         <div class="p-price text-brand2 font-weight-bold">$200</div>
@@ -56,9 +54,10 @@ export default {
 .p-card {
   padding: 1rem;
   background: #fff;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.4); */
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  /* margin: 0 2rem; */
 }
 .p-card:hover {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);

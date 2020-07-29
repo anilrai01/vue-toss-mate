@@ -1,17 +1,17 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import quotes from "./modules/quotes";
-import profile from "./modules/profile";
-import tasks from "./modules/tasks";
+import customerTasks from "./modules/customerTasks";
+import tradieTasks from "./modules/tradieTasks";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  modules: {
-    quotes,
-    profile,
-    tasks,
-  },
+    modules: {
+        quotes,
+        customerTasks,
+        tradieTasks
+    }
 });
 
 export default store;
